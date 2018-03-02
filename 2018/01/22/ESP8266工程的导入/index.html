@@ -1,0 +1,1555 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#444">
+
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-big-counter.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+  
+  
+  <link rel="stylesheet" media="all" href="/lib/Han/dist/han.min.css?v=3.3">
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Open Sans:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|Open Sans:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.0.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=6.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=6.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=6.0.1">
+
+
+  <link rel="mask-icon" href="/images/favicon.ico?v=6.0.1" color="#444">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.0.1',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":true,"transition":{"post_block":"slideUpIn","post_header":"perspectiveUpIn","post_body":"whirlIn","coll_header":"slideUpBigIn","sidebar":"shrinkIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"在文章中查找","hits_empty":"没有找到和 ${query} 相关的内容","hits_stats":"查找 ${hits} 耗时 ${time} ms"}
+    }
+  };
+</script>
+
+
+
+
+  
+  <meta name="keywords" content="BeGild's blog" />
+
+
+<meta name="description" content="前言：本篇文章主要讲一下，ESP8266的工程怎么导入到Eclipse里。 准备一个SDK工程 既然是导入那么你首先得有一个现有的工程(不存在建工程的，这辈子都不可能徒手建工程的)，工程从网上找一个就OK了。 ESP8266的SDK有两种，一种是无系统(NON-OS SDK)，另一种是运行了FreeRTOS的(RTOS SDK)。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ESP8266工程的导入">
+<meta property="og:url" content="http://begild.top/2018/01/22/ESP8266工程的导入/index.html">
+<meta property="og:site_name" content="BeGild Working">
+<meta property="og:description" content="前言：本篇文章主要讲一下，ESP8266的工程怎么导入到Eclipse里。 准备一个SDK工程 既然是导入那么你首先得有一个现有的工程(不存在建工程的，这辈子都不可能徒手建工程的)，工程从网上找一个就OK了。 ESP8266的SDK有两种，一种是无系统(NON-OS SDK)，另一种是运行了FreeRTOS的(RTOS SDK)。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://s1.ax1x.com/2018/01/22/p4Iub8.md.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/01/22/p5SChq.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/01/22/p5ptMT.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/01/23/p5AYtg.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/01/23/p5ERIS.png">
+<meta property="og:updated_time" content="2018-03-01T03:30:51.422Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ESP8266工程的导入">
+<meta name="twitter:description" content="前言：本篇文章主要讲一下，ESP8266的工程怎么导入到Eclipse里。 准备一个SDK工程 既然是导入那么你首先得有一个现有的工程(不存在建工程的，这辈子都不可能徒手建工程的)，工程从网上找一个就OK了。 ESP8266的SDK有两种，一种是无系统(NON-OS SDK)，另一种是运行了FreeRTOS的(RTOS SDK)。">
+<meta name="twitter:image" content="https://s1.ax1x.com/2018/01/22/p4Iub8.md.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="BeGild Working" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="http://begild.top/2018/01/22/ESP8266工程的导入/"/>
+
+
+  <title>ESP8266工程的导入 | BeGild Working</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?24e721008c813f3524e2f1ca503a6184";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+  
+  
+    
+  
+    <script type="text/javascript" src="/js/src/select_all.js"></script>
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">BeGild Working</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">BeGild's Blog</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/2017/09/13/about/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签<span class="badge">5</span>
+              </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类<span class="badge">4</span>
+              </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档(文章列表)<span class="badge">11</span>
+              </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />站点地图</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />公益404</a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜本站..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+
+</nav>
+
+
+
+ </div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+    <div class="reading-progress-bar"></div>
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://begild.top/2018/01/22/ESP8266工程的导入/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="BeGild">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://s1.ax1x.com/2017/09/28/lLSYt.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BeGild Working">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">ESP8266工程的导入</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-22T20:32:57+08:00">2018-01-22</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/ESP8266/" itemprop="url" rel="index"><span itemprop="name">ESP8266</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/01/22/ESP8266工程的导入/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/01/22/ESP8266工程的导入/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa  fa-file"></i>&#58;
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>人被震惊
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <script src="\assets\js\APlayer.min.js"> </script><h2 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h2><p>本篇文章主要讲一下，ESP8266的工程怎么导入到Eclipse里。</p>
+<h2 id="准备一个SDK工程"><a href="#准备一个SDK工程" class="headerlink" title="准备一个SDK工程"></a>准备一个SDK工程</h2><ul>
+<li>既然是导入那么你首先得有一个现有的工程(不存在建工程的，这辈子都不可能徒手建工程的)，工程从网上找一个就OK了。</li>
+<li>ESP8266的SDK有两种，一种是无系统(NON-OS SDK)，另一种是运行了FreeRTOS的(RTOS SDK)。</li>
+</ul>
+<a id="more"></a>
+<table><tr><th width="15%">SDK类型</th><th width="55%">描述</th><th width="30%">优缺点</th></tr><tr><td>NOn-OS SDK</td><td>1.主要使⽤定时器和回调函数的⽅式实现各个功能事件的嵌套，达到特定条件下触发特定功能函数的⽬的。<br>2.使⽤ espconn 接⼝实现⽹络操作，⽤户需要按照 espconn 接⼝的使⽤规则进⾏软件开发.</td><td>1.无系统，顺序执行好理解占用资源少，但是不能有while(1);<br>2.不能有超过10ms的阻塞(延时)发生，否则将会重启。</td></tr><tr><td>RTOS SDK</td><td>1.用户可以使⽤FreeRTOS 的标准接⼝实现资源管理、循环操作、任务内延时、任务间信息传递和同步等⾯向任务流程的设计⽅式;<br>2.⽹络操作接⼝是标准 lwIP API，同时提供了 BSD Socket API 接⼝的封装实现，⽤户可以直接按照 Socket API 的使⽤⽅式来开发软件应⽤，也可以直接编译运⾏其他平台的标准 Socket 应⽤; <br>3.引⼊了 cJSON 库，使⽤该库函数可以更加⽅便的实现对 JSON 数据包的解析;<br>4.兼容 non-OS SDK 中的 Wi-Fi 接⼝、SmartConfig 接⼝、Sniffer 相关接⼝、系统接⼝、定时器接⼝、FOTA 接⼝和外围驱动接⼝，不⽀持 AT 实现。</td><td>1.有系统，通过任务的调度完成系统的运行，可以有延时。<br>2.但是资源占用较多。</td></tr></table> 
+
+<ul>
+<li>例子可以从乐鑫官方的<a href="http://espressif.com/zh-hans/support/download/sdks-demos" target="_blank" rel="noopener">下载地址</a>下载.在下图所在的网页上面有选项选择ESP8266EX之后可以从下图所示的界面选择你所需要的SDK。<br><img src="https://s1.ax1x.com/2018/01/22/p4Iub8.md.png" alt="乐鑫SDK下载"></li>
+<li>点击右边的下载按钮会跳转到GitHub(需要你懂一点点的git的知识才能下载)。如果实在没办法的话(求求你学一点git吧)，我把我写文章的时候的最新的上传到网盘，大家可以去下载 链接: <a href="https://pan.baidu.com/s/1c39VpXQ" target="_blank" rel="noopener">https://pan.baidu.com/s/1c39VpXQ</a> 密码: dup8 。</li>
+<li>下载下来解压到你想放置的目录，不要有中文和(空格?)，这样工程就完成了初步的布置。接下来就是重头戏了。<h2 id="导入工程"><a href="#导入工程" class="headerlink" title="导入工程"></a>导入工程</h2></li>
+<li>第一步:应该能想到吧，那就是打开Eclipe_IDE(不会打开就算了你不适合用电脑)。</li>
+<li>第二步:打开eclipse之后会出现欢迎界面:”Welcome to the Eclipse IDE for C/C++ Developers”。</li>
+<li>第三步:点击 工具栏-&gt;File-&gt;Import (如图)进入导入工程窗口。<br><img src="https://s1.ax1x.com/2018/01/22/p5SChq.png" alt="导入工程1"></li>
+<li>第四步:在select窗口选择C/C++-&gt;Existing Code as Makefile Project-&gt;点击Next进行下一步<br><img src="https://s1.ax1x.com/2018/01/22/p5ptMT.png" alt="导入工程2"></li>
+<li>第五步:Import Existing Code 窗口选择浏览你的工程路径(就是解压出来的文件的路径)-&gt;下方选择 Cygwin GCC 工具-&gt;再点击Finish按钮完成导入。如果在这一步发现没有Cygwin GCC选项回头去检查是否用Eclipse_IDE.exe选择了正确的 Cygwin 路径。<br><img src="https://s1.ax1x.com/2018/01/23/p5AYtg.png" alt="导入工程3"></li>
+<li>第六步:这时候你会发现，什么都没出现！怎么办？，那就是把欢迎界面叉掉！这样在右边Project栏就能发现一个折叠的工程，点击可以展开，整个界面大致如下图。我的因为是用git直接克隆下来的，所以在工程名旁边会提示橙色的字。如果你是从百度云下载的那就没有，这个无需理会，都一样(牛逼吧，git)。这时候问题输出窗口应该是什么都没有的，如果提示什么找不到g++、make等等，返回去检查是否选择的工具是Cygwin GCC！！！。<br><a href="https://imgchr.com/i/p5ERIS" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/01/23/p5ERIS.png" alt="工程整体结构图"></a><h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2>我们都是用别人的工程(Demo)上开发的，所以这一步属于比较基础的，我们导入进来之后应该是编译通不过的！为什么，因为我们的SDK路径和写Demo的人不一样。这个涉及到makefile的编写了，不过别人已经把整个makefile编写的比较”智能”了，我们只是想要编译成功的话其实是不需要懂makefile的。我们改一改SDK的路径就行了。这个下一节再讲。</li>
+</ul>
+<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><p>乐鑫官方的快速上手指导文档在上一篇<esp8266开发环境搭建>-&gt;后记 里有网盘链接在这里就不放了。里面有SDK文件目录的讲解7/31页，看一下便于后面理解。  我整理了一下：  </esp8266开发环境搭建></p>
+<ol>
+<li>RTOS SDK工程目录讲解    <ul>
+<li>bin：编译⽣成的 BIN 文件，可直接下载到 Flash 中。  </li>
+<li>documents：SDK 相关的⽂档(RTOS api)或链接。  </li>
+<li>driver_lib：乐鑫官方提供的驱动示例代码。(IIC SPI GPIO等)  </li>
+<li>examples：可供用户二次开发的示例代码。(我们把不要的删掉)  <ul>
+<li>openssl_demo：乐鑫官方提供的 OpenSSL 接口功能示例代码。  </li>
+<li>project_template：乐鑫官方提供的工程模板示例代码。(我们用这个，其他的以后再说)  </li>
+<li>smart_config：乐鑫官⽅提供的 SmartConfig 功能示例代码。  </li>
+<li>spiffs_test：乐鑫官方提供的 SPIFFS 文件系统功能示例代码。  </li>
+<li>websocket_demo：乐鑫官方提供的 WebSocket 功能示例代码。  </li>
+</ul>
+</li>
+<li>include：SDK 自带头文件，包含了用户可使⽤的相关 API 函数及其他宏定义，用户无需修改。  </li>
+<li>ld：链接时所需的脚本文件，如⽆特殊需求，用户无需修改。(根据这个可以生成多钟bin文件)  </li>
+<li>lib：SDK 提供的库文件。(只能用api不能改不能看)  </li>
+<li>third_party：乐鑫开放源代码的第三方库，当前包含FreeRTOS、JSON、LWIP,mbedTLS、noPoll、OpenSSL、SPIFFS 和 SSL。  </li>
+<li>tools：编译 BIN 文件所需的工程具，用户无需修改。  </li>
+</ul>
+</li>
+<li>Non-OS SDK工程目录讲解  <ul>
+<li>bin：编译⽣成的 BIN 文件，可直接下载到 Flash 中。  </li>
+<li>documents：SDK 相关的⽂档或链接。  </li>
+<li>driver_lib：外设驱动的库文件，如：UART、I2C 和 GPIO 等。  </li>
+<li>examples：可供用户次开发的示例代码，如 IoT Demo 等。   </li>
+<li>include：SDK ⾃带头文件，包含了用户可使用的相关 API 函数及其他宏定义，用户无需修改。  </li>
+<li>ld：链接时所需的脚本文件，若无特殊需求，用户⽆需修改。  </li>
+<li>lib：SDK 提供的库文件。  </li>
+<li>tools：编译 BIN 文件所需的工具，用户无需修改。  </li>
+</ul>
+</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+  <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:18;">-------------------本文结束<i class="fa fa-angellist"></i>感谢您的阅读-------------------</div>
+    
+</div>
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>来一发</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="https://s1.ax1x.com/2018/01/20/p2UFQU.png" alt="BeGild 微信钱包"/>
+        <p>微信钱包</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="https://s1.ax1x.com/2018/01/20/p2UGeH.png" alt="BeGild 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <div class="post-copyright">
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <li class="post-copyright-title">
+  <strong>本文标题：</strong><a href="/2018/01/22/ESP8266工程的导入/"> ESP8266工程的导入</a>
+  </li>
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+	<a href="/" title="访问 BeGild 的个人博客">BeGild</a>
+  </li>
+    <li class="post-copyright-date">
+  <strong>发布时间：2018年01月22日 - 20:01</strong>
+  </li>
+    <li class="post-copyright-updated">
+  <strong>最后更新：2018年03月01日 - 11:03</strong>
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://begild.top/2018/01/22/ESP8266工程的导入/" title="ESP8266工程的导入 ">http://begild.top/2018/01/22/ESP8266工程的导入/</a>
+  <span class="copy-path"  title="点击复制文章链接">
+	<i class="fa fa-clipboard" data-clipboard-text="http://begild.top/2018/01/22/ESP8266工程的导入/"  aria-label="复制成功！"></i>
+  </span>
+
+ </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</div>
+
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+	});
+    });  
+</script>
+      </div>
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/21/ESP8266开发环境的搭建/" rel="next" title="ESP8266开发环境的搭建">
+                <i class="fa fa-chevron-left"></i> ESP8266开发环境的搭建
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/01/23/ESP8266工程的裁剪和编译/" rel="prev" title="ESP8266工程的裁剪和编译">
+                ESP8266工程的裁剪和编译 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+
+  
+  
+  
+
+  </article>
+
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点导航
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://s1.ax1x.com/2017/09/28/lLSYt.jpg"
+                alt="BeGild" />
+            
+              <p class="site-author-name" itemprop="name">BeGild</p>
+              <p class="site-description motion-element" itemprop="description">不知所畏 随性而为</p>
+          </div>
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+		  
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+		  
+			<script type="text/javascript" charset="utf-8" src="/js/tagcloud.js"></script>
+			<script type="text/javascript" charset="utf-8" src="/js/tagcanvas.js"></script>
+			<div class="widget-wrap">
+				<div id="myCanvasContainer" class="widget tagcloud">
+				<canvas width="250" height="250" id="resCanvas" style="width=100%">
+				<ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux目录/">linux目录</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/串口-UART/">串口(UART)</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/大小端存储/">大小端存储</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/嵌套注释/">嵌套注释</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">1</span></li></ul>
+				</canvas>
+				</div>
+			</div>
+		  
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/BeGild" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:yucang_bao@126.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://plus.google.com/106132322351609302263" target="_blank" title="Google+">
+                      
+                        <i class="fa fa-fw fa-google"></i>Google+</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="tencent://message/?uin=1028366823&Site=Senlon.Net&Menu=yes" target="_blank" title="QQ">
+                      
+                        <i class="fa fa-fw fa-qq"></i>QQ</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+          
+          
+
+          
+
+        </div>
+      </section>
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言："><span class="nav-number">1.</span> <span class="nav-text">前言：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#准备一个SDK工程"><span class="nav-number">2.</span> <span class="nav-text">准备一个SDK工程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#导入工程"><span class="nav-number">3.</span> <span class="nav-text">导入工程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后记"><span class="nav-number">4.</span> <span class="nav-text">后记</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附录"><span class="nav-number">5.</span> <span class="nav-text">附录</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018/03-02</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">BeGild</span>
+
+ <!--运行时间-->
+  <span class="footer__copyright">
+<div><span id="span_dt_dt"> </span>
+<script language="javascript">
+function show_date_time(){
+	window.setTimeout("show_date_time()", 1000);
+	BirthDay=new Date("9/13/2017 19:35:00");//这个日期是可以修改的
+	today=new Date();
+	timeold=(today.getTime()-BirthDay.getTime());//其实仅仅改了这里
+	sectimeold=timeold/1000
+	secondsold=Math.floor(sectimeold);
+	msPerDay=24*60*60*1000
+	e_daysold=timeold/msPerDay
+	daysold=Math.floor(e_daysold);
+	e_hrsold=(e_daysold-daysold)*24;
+	hrsold=Math.floor(e_hrsold);
+	e_minsold=(e_hrsold-hrsold)*60;
+	minsold=Math.floor((e_hrsold-hrsold)*60);
+	seconds=Math.floor((e_minsold-minsold)*60);
+	span_dt_dt.innerHTML="🍪已经哈哈哈"+daysold+"天"+hrsold+"小时"+minsold+"分"+seconds+"秒 🍪 ";
+}
+show_date_time();
+</script></div>
+    </span>
+    <div class="y-goto-top">
+        <div class="y-arrow"></div>
+        <div class="y-stick"></div>
+    </div>
+</script>
+
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Gemini</a> v6.0.1
+|图床- <a target="_blank" href="https://imgchr.com/">路过</a>
+</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user">给第</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      位大佬递茶
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye">小屋被</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次破门而入
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+     
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+   
+  </div>
+	
+		<div class="bg_content">
+			<canvas id="canvas"></canvas>
+			<script type="text/javascript"  src="/js/src/mycanvas.js"></script>
+		</div>
+	
+	
+	<!-- 页面点击跳字 -->
+	<script type="text/javascript" src="/js/src/rich_strong.js"></script>
+	 
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/reading_progress/reading_progress.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.0.1"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: true,
+        appId: 'CQScdBjdUYDFdL6PlO09kxtO-gzGzoHsz',
+        appKey: 'qAlRMRbNClE6clIa5CyvHjRd',
+        placeholder: '来说点啥吧!',
+        avatar:'wavatar',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('-1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "box";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "topCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook,GoogleBookmarks";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "topRight";
+      
+          flOptions.networks = "Weibo,Wechat,QQZone,Douban,Twitter,Facebook,GoogleBookmarks";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+  <script type="text/javascript">
+  wpac_init = window.wpac_init || [];
+  wpac_init.push({widget: 'Rating', id: 9114,
+    el: 'wpac-rating',
+    color: 'fc6423'
+  });
+  (function() {
+    if ('WIDGETPACK_LOADED' in window) return;
+    WIDGETPACK_LOADED = true;
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = '//embed.widgetpack.com/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+  })();
+  </script>
+
+
+  
+  
+
+
+  
+  
+  
+  <script src="/lib/pangu/dist/pangu.min.js?v=3.3"></script>
+  <script type="text/javascript">pangu.spacingPage();</script>
+
+
+  
+
+  
+
+</body>
+</html>
