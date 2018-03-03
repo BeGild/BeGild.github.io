@@ -12,8 +12,8 @@ class Circle {
         this.x = x;
         this.y = y;
         this.r = 1;
-        this._mx = Math.random()*8-4;
-        this._my = Math.random()*8-4;
+        this._mx = Math.random()*4-2;
+        this._my = Math.random()*4-2;
 		this.rgb = Math.random() *0xffffff;
     }
 

@@ -1,38 +1,51 @@
-$(document).ready(function () {
+jQuery(document).ready(function($){
+ 	var range, selection; 
 	var SelectText = function(element) {
-		var doc = document
-			, text = element
-			, range, selection
-		;    
-		if (doc.body.createTextRange) {
+		
+		if (document.body.createTextRange) {
 			range = document.body.createTextRange();
-			range.moveToElementText(text);
+			range.moveToElementText(element);
 			range.select();
 		} else if (window.getSelection) {
 			selection = window.getSelection();        
 			range = document.createRange();
-			range.selectNodeContents(text);
+			range.selectNodeContents(element);
 			selection.removeAllRanges();
 			selection.addRange(range);
 		}
 	};
+	var CopyText = function(element) {
+			SelectText(element);	
+			document.execCommand("copy",false,null);
+	}
 	$(".code").each(function() {
 		var code = $(this).get(0);
-		var button_html = 
-			'<div style="position: fixed;'                                                               +
-						'right: 3%;'                                                                     +
-						'margin-top: 5px;'                                                               +
-						'font-family: consolas, Menlo, \'PingFang SC\', \'Microsoft YaHei\', monospace;' +
-						'font-size: 10px;'                                                               +
+		var numberrgb = new Number(Math.round(Math.random()*0xffffff));
+		var color = new String(numberrgb.toString(16));
+		var buttoncopy_html = 
+			'<div 		style="position: fixed;'                                                         +
+						'right: 1%;'                                                                   +
+						'margin-top:  5px;'                                                              +
 						'cursor: pointer;'                                                               +
-						'color: #e31436;'                                                                +
-						'">'                                                                             +
-			'<span>全选</span>'                                                                          +
+						'color:#'+color+';'                                                              +
+						'">'																			+
+			'<i class="fa fa-clipboard fa-2x"></i>'
 			'</div>';
-		var button = $(button_html);
-		$(button).click(function() {
-			SelectText(code);
+		var buttoncopy = $(buttoncopy_html);
+		$(buttoncopy).click(function() {
+			CopyText(code);
 		});
-		$(button).insertBefore(this);
+		$(buttoncopy).insertBefore(this);
 	});
 });
+
+
+
+
+			
+
+
+
+
+
+
