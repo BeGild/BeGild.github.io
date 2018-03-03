@@ -2175,7 +2175,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #390fd4;
+  background: #f0ffff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3326,9 +3326,6 @@ img.img-topic {
 #canvas {
   width: 100%;
   height: 100%;
-}
-.header {
-  background: transparent;
 }
 img#github-emoji {
   margin: 0px;

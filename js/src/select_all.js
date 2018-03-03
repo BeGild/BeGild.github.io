@@ -12,6 +12,7 @@ jQuery(document).ready(function($){
 			range.selectNodeContents(element);
 			selection.removeAllRanges();
 			selection.addRange(range);
+			
 		}
 	};
 	var CopyText = function(element) {
@@ -23,13 +24,15 @@ jQuery(document).ready(function($){
 		var numberrgb = new Number(Math.round(Math.random()*0xffffff));
 		var color = new String(numberrgb.toString(16));
 		var buttoncopy_html = 
-			'<div 		style="position: fixed;'                                                         +
-						'right: 1%;'                                                                   +
-						'margin-top:  5px;'                                                              +
-						'cursor: pointer;'                                                               +
-						'color:#'+color+';'                                                              +
+			'<div 		style="position: fixed;'                                                        +
+						'right: 1%;'                                                                   	+
+						'margin-top:  5px;'                                                             +
+						'cursor: pointer;'                                                              +
+						'color:#'+color+';'                                                             +
 						'">'																			+
-			'<i class="fa fa-clipboard fa-2x"></i>'
+						'<span  title="点击全选并复制代码">'											+
+							'<i class="fa fa-clipboard fa-2x"></i>'										+
+						'</span>'																		+
 			'</div>';
 		var buttoncopy = $(buttoncopy_html);
 		$(buttoncopy).click(function() {
@@ -40,7 +43,7 @@ jQuery(document).ready(function($){
 });
 
 
-
+ 
 
 			
 
