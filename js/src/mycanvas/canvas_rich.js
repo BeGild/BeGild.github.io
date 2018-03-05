@@ -21,10 +21,11 @@ class Words {
     drawWords(ctx) {
 		var numberrgb = new Number(Math.round(this.rgb));
 		var color = new String(numberrgb.toString(16));
-        ctx.fillStyle = '#'+color+'50';//aa为透明度
+
 		ctx.strokeText(arry[this.pos],this.x, this.y);
+		ctx.strokeStyle = '#'+color+'aa';
 		ctx.textAlign="center";
-		ctx.font="normal normal 500 20px arial";
+		ctx.font="normal normal 500 30px arial";
     }
 	//将字和底部的固定点连线
     drawLine(ctx) {
@@ -47,14 +48,8 @@ class Words {
 			this._mx = -this._mx;
 			this.rgb = Math.random() *0xffffff;
 		}
-		//垂直移动的范围0--3/4
-		if(this.y >= h*3/4)
-		{
-			this.rgb = Math.random() *0xffffff;
-			this._my = -(Math.random()*3-1.5);
-		}
-		else if (this.y <= 0)
-		{
+		//垂直移动
+		if(this.y >= h || this.x <= 0){
 			this._my = -this._my;
 			this.rgb = Math.random() *0xffffff;
 		}
@@ -76,7 +71,8 @@ let circles = [];
 //固定点的坐标(底部中间)
 var FixedPoint_x = new Number(w/2);
 var FixedPoint_y = new Number(h);
-var arry = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正" ,"法治", "爱国", "敬业", "诚信", "友善");
+//var arry = new Array("🍏","🍐","🍊","🍋","🍌","🍉","🍇","🍓","🍈","🍒","🍑","🍍","🥝","🍅");
+var arry = new Array("❄️");
 
 //绘函数
 let draw = function () {
@@ -84,14 +80,14 @@ let draw = function () {
     for (let i = 0; i < circles.length; i++) {//检索对象数组长度
 		circles[i].move(w, h);//移对应位置
         circles[i].drawWords(ctx);//画出圆
-		circles[i].drawLine(ctx);//画出线
+		//circles[i].drawLine(ctx);//画出线
     }
     requestAnimationFrame(draw);//执行draw
 }
 //初始化对象num为数量
 let init = function () {
-    for (var i = 0; i < arry.length; i++) {
-        circles.push(new Words(i));
+    for (var i = 0; i < 10; i++) {
+        circles.push(new Words(0));
     }
     draw();//绘出来
 }
