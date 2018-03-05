@@ -482,6 +482,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/01/STM32-UART-CustomPrintf/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/03/01/STM32-UART-CustomPrintf/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -640,6 +650,16 @@
           
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/01/STM32-UART-IDLE-IT-md/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/03/01/STM32-UART-IDLE-IT-md/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -802,6 +822,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/01/23/ESP8266工程的裁剪和编译/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/01/23/ESP8266工程的裁剪和编译/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -960,6 +990,16 @@
           
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/01/22/ESP8266工程的导入/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/01/22/ESP8266工程的导入/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -1123,6 +1163,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/01/21/ESP8266开发环境的搭建/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/01/21/ESP8266开发环境的搭建/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -1282,6 +1332,16 @@
           
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/01/21/ESP8266开发前言/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/01/21/ESP8266开发前言/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -1447,6 +1507,16 @@
           
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/12/06/file system/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2017/12/06/file system/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -1616,6 +1686,16 @@
           
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/10/28/C函数指针/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2017/10/28/C函数指针/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -1967,10 +2047,6 @@ show_date_time();
         </span>
       </div>
     
-   	<!-- UY BEGIN -->
-<div id="uyan_frame"></div>
-<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2145582"></script>
-<!-- UY END -->
   </div>
 	
 		<div class="bg_content">
@@ -2096,6 +2172,28 @@ show_date_time();
 
 
 
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: true,
+        appId: 'CQScdBjdUYDFdL6PlO09kxtO-gzGzoHsz',
+        appKey: 'qAlRMRbNClE6clIa5CyvHjRd',
+        placeholder: '来说点啥吧!',
+        avatar:'wavatar',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
 
 
 

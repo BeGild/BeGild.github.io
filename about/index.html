@@ -684,10 +684,6 @@ show_date_time();
         </span>
       </div>
     
-   	<!-- UY BEGIN -->
-<div id="uyan_frame"></div>
-<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2145582"></script>
-<!-- UY END -->
   </div>
 	
 		<div class="bg_content">
@@ -817,6 +813,28 @@ show_date_time();
 
 
 
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: true,
+        appId: 'CQScdBjdUYDFdL6PlO09kxtO-gzGzoHsz',
+        appKey: 'qAlRMRbNClE6clIa5CyvHjRd',
+        placeholder: '来说点啥吧!',
+        avatar:'wavatar',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
 
 
 
