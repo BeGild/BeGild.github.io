@@ -169,7 +169,7 @@
 <meta property="og:site_name" content="BeGild Working">
 <meta property="og:description" content="这里记一下STM32F4板子FLASH的读写操作以及需要注意的地方。 FLASH的写操作 FLASH由 ‘1’ 变为 ‘0’ 不能由 ‘0’ 变为 ‘1’ ，所以在写入之间需要检测是否为 ‘1’  ,并且擦除flash只能按照一个扇区来删除，由上可知，我们写入之前必须确保我们需要写入的地址读回来的值是0XFF，如果不是0XFF就需要将整个扇区擦除(扇区变为全 ‘1’ )。 写入操作(包括擦除)之前">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-10T12:20:27.154Z">
+<meta property="og:updated_time" content="2018-03-10T13:06:52.365Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="STM32 Flash的读写">
 <meta name="twitter:description" content="这里记一下STM32F4板子FLASH的读写操作以及需要注意的地方。 FLASH的写操作 FLASH由 ‘1’ 变为 ‘0’ 不能由 ‘0’ 变为 ‘1’ ，所以在写入之间需要检测是否为 ‘1’  ,并且擦除flash只能按照一个扇区来删除，由上可知，我们写入之前必须确保我们需要写入的地址读回来的值是0XFF，如果不是0XFF就需要将整个扇区擦除(扇区变为全 ‘1’ )。 写入操作(包括擦除)之前">
@@ -457,7 +457,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-03-10T20:20:27+08:00">2018-03-10</time>
+              <time title="更新于" itemprop="dateModified" datetime="2018-03-10T21:06:52+08:00">2018-03-10</time>
             
           </span>
 
@@ -561,6 +561,7 @@
 <ul>
 <li>flash的写入地址不是偶数就可以，得是4的倍数。</li>
 <li>无论是擦除还是写入都需要先解锁flash。读取则不需要。</li>
+<li>对于同一个扇区的建议用分离的操作，并且在操作前根据需要把其他的数据读出来备份一下在写进去。</li>
 </ul>
 <p>关于本文的代码详见于<a href="https://coding.net/u/BycCoding/p/stm32f4_flash/git" target="_blank" rel="noopener">Coding项目</a>。</p>
 
@@ -627,7 +628,7 @@
   <strong>发布时间：2018年03月07日 - 23:03</strong>
   </li>
     <li class="post-copyright-updated">
-  <strong>最后更新：2018年03月10日 - 20:03</strong>
+  <strong>最后更新：2018年03月10日 - 21:03</strong>
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
