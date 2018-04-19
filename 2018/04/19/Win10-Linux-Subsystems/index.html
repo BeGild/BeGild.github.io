@@ -158,20 +158,24 @@
 
 
   
-  <meta name="keywords" content="BeGild's blog" />
+  <meta name="keywords" content="Win10下linux子系统," />
 
 
-<meta name="description" content="意义：这算是第一个教程吧，ESP8266从大三到现在学了到现在，但是没有什么记录。回头又得拿着代码一点一点看，所以打算记录一下。同时也会兼顾一些解释和教程性质的东西，给能找到这的人看看吧，希望能给你一点帮助。 更新：更新的话，不定时。至于内容的顺序，就先按照一个hello world的实现来写，从引脚，IDE，下载工具，接线到写hello world，到下载查看。这些讲完的话打开你也就懂怎么做了">
+<meta name="description" content="微软在win10系统上添加了Linux子系统的支持，方便我们可以在windows上使用Linux，省去了占内存的虚拟机和双系统切换的麻烦😎，具体有什么和普通安装的Linux有什么不同，抱歉…不知道😬。">
+<meta name="keywords" content="Win10下linux子系统">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ESP8266开发历程前言">
-<meta property="og:url" content="http://begild.top/2018/01/21/ESP8266开发前言/index.html">
+<meta property="og:title" content="Win10_Linux_Subsystems">
+<meta property="og:url" content="http://begild.top/2018/04/19/Win10-Linux-Subsystems/index.html">
 <meta property="og:site_name" content="BeGild Working">
-<meta property="og:description" content="意义：这算是第一个教程吧，ESP8266从大三到现在学了到现在，但是没有什么记录。回头又得拿着代码一点一点看，所以打算记录一下。同时也会兼顾一些解释和教程性质的东西，给能找到这的人看看吧，希望能给你一点帮助。 更新：更新的话，不定时。至于内容的顺序，就先按照一个hello world的实现来写，从引脚，IDE，下载工具，接线到写hello world，到下载查看。这些讲完的话打开你也就懂怎么做了">
+<meta property="og:description" content="微软在win10系统上添加了Linux子系统的支持，方便我们可以在windows上使用Linux，省去了占内存的虚拟机和双系统切换的麻烦😎，具体有什么和普通安装的Linux有什么不同，抱歉…不知道😬。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-01T03:28:14.240Z">
+<meta property="og:image" content="http://p55um7yiy.bkt.clouddn.com/windows%E6%94%AF%E6%8C%81%E7%9A%84linux%E5%AD%90%E7%B3%BB%E7%BB%9F.png">
+<meta property="og:image" content="http://p55um7yiy.bkt.clouddn.com/%E4%B8%8B%E8%BD%BDubuntu.png">
+<meta property="og:updated_time" content="2018-04-19T12:28:53.824Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ESP8266开发历程前言">
-<meta name="twitter:description" content="意义：这算是第一个教程吧，ESP8266从大三到现在学了到现在，但是没有什么记录。回头又得拿着代码一点一点看，所以打算记录一下。同时也会兼顾一些解释和教程性质的东西，给能找到这的人看看吧，希望能给你一点帮助。 更新：更新的话，不定时。至于内容的顺序，就先按照一个hello world的实现来写，从引脚，IDE，下载工具，接线到写hello world，到下载查看。这些讲完的话打开你也就懂怎么做了">
+<meta name="twitter:title" content="Win10_Linux_Subsystems">
+<meta name="twitter:description" content="微软在win10系统上添加了Linux子系统的支持，方便我们可以在windows上使用Linux，省去了占内存的虚拟机和双系统切换的麻烦😎，具体有什么和普通安装的Linux有什么不同，抱歉…不知道😬。">
+<meta name="twitter:image" content="http://p55um7yiy.bkt.clouddn.com/windows%E6%94%AF%E6%8C%81%E7%9A%84linux%E5%AD%90%E7%B3%BB%E7%BB%9F.png">
 
 
 
@@ -180,10 +184,10 @@
 
 
 
-  <link rel="canonical" href="http://begild.top/2018/01/21/ESP8266开发前言/"/>
+  <link rel="canonical" href="http://begild.top/2018/04/19/Win10-Linux-Subsystems/"/>
 
 
-  <title>ESP8266开发历程前言 | BeGild Working</title>
+  <title>Win10_Linux_Subsystems | BeGild Working</title>
   
 
 
@@ -416,7 +420,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://begild.top/2018/01/21/ESP8266开发前言/">
+    <link itemprop="mainEntityOfPage" href="http://begild.top/2018/04/19/Win10-Linux-Subsystems/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="BeGild">
@@ -433,7 +437,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">ESP8266开发历程前言</h2>
+          <h2 class="post-title" itemprop="name headline">Win10_Linux_Subsystems</h2>
         
 
         <div class="post-meta">
@@ -456,7 +460,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-03-01T11:28:14+08:00">2018-03-01</time>
+              <time title="更新于" itemprop="dateModified" datetime="2018-04-19T20:28:53+08:00">2018-04-19</time>
             
           </span>
 
@@ -472,7 +476,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/ESP8266/" itemprop="url" rel="index"><span itemprop="name">ESP8266</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a></span>
 
                 
                 
@@ -487,8 +491,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/01/21/ESP8266开发前言/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/01/21/ESP8266开发前言/" itemprop="commentCount"></span>
+                <a href="/2018/04/19/Win10-Linux-Subsystems/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/04/19/Win10-Linux-Subsystems/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -521,8 +525,53 @@
       
 
       
-        <script src="\assets\js\APlayer.min.js"> </script><h2 id="意义："><a href="#意义：" class="headerlink" title="意义："></a>意义：</h2><p>这算是第一个教程吧，ESP8266从大三到现在学了到现在，但是没有什么记录。回头又得拿着代码一点一点看，所以打算记录一下。同时也会兼顾一些解释和教程性质的东西，给能找到这的人看看吧，希望能给你一点帮助。</p>
-<h2 id="更新："><a href="#更新：" class="headerlink" title="更新："></a>更新：</h2><p>更新的话，不定时。至于内容的顺序，就先按照一个hello world的实现来写，从引脚，IDE，下载工具，接线到写hello world，到下载查看。这些讲完的话打开你也就懂怎么做了。但是我不会写IO的使用因为我觉得他的定位作为wifi芯片比较好，就不要掺杂其他的的东西了(个人看法)。后面的软件层面的实现(主要是网络通信的应用)的话，也会写一部分。不过感觉网上其实挺多的教程(比较零散)，所以不排除会直接把比较好的搬运过来然后配合自己的理解说一下。</p>
+        <script src="\assets\js\APlayer.min.js"> </script><h5 id="微软在win10系统上添加了Linux子系统的支持，方便我们可以在windows上使用Linux，省去了占内存的虚拟机和双系统切换的麻烦😎，具体有什么和普通安装的Linux有什么不同，抱歉…不知道😬。"><a href="#微软在win10系统上添加了Linux子系统的支持，方便我们可以在windows上使用Linux，省去了占内存的虚拟机和双系统切换的麻烦😎，具体有什么和普通安装的Linux有什么不同，抱歉…不知道😬。" class="headerlink" title="微软在win10系统上添加了Linux子系统的支持，方便我们可以在windows上使用Linux，省去了占内存的虚拟机和双系统切换的麻烦😎，具体有什么和普通安装的Linux有什么不同，抱歉…不知道😬。"></a>微软在win10系统上添加了Linux子系统的支持，方便我们可以在windows上使用Linux，省去了占内存的虚拟机和双系统切换的麻烦😎，具体有什么和普通安装的Linux有什么不同，抱歉…不知道😬。<a id="more"></a></h5><h2 id="Linux子系统的获取"><a href="#Linux子系统的获取" class="headerlink" title="Linux子系统的获取"></a>Linux子系统的获取</h2><ul>
+<li>在 ‘控制面板–&gt;程序和功能(侧边栏)–&gt;启用或关闭 Windows 功能–&gt;勾选适用于 Linux 的 Windows 子系统选项’。这样就成功使能 Linux 子系统的功能。（需要重启生效更新，请保存你的Word文档☠️…）我看到网上的教程说明需要选中 ‘设置–&gt;更新和安全–&gt;针对开发人员–&gt;开发人员模式’ 但我的选项是 ‘旁加载应用’ 也成功操作。</li>
+<li>Linux子系统的获取可以用微软的应用商店进行安装。如下图是支持的子系统种类(2018.04.19)，我选择了Ubuntu 要使用其他系统的也看看，以后会支持更多的系统~ ~。<br><img src="http://p55um7yiy.bkt.clouddn.com/windows%E6%94%AF%E6%8C%81%E7%9A%84linux%E5%AD%90%E7%B3%BB%E7%BB%9F.png" alt="windows支持的linux子系统"></li>
+<li>就像装其他软件一样点击安装就会自动下载了。下载挺快的还📢，安装完毕之后就会显示启动这时候系统未被写入到磁盘里的。<br><img src="http://p55um7yiy.bkt.clouddn.com/%E4%B8%8B%E8%BD%BDubuntu.png" alt="下载ubuntu"></li>
+<li><p>这样获取 Windows 下Linux子系统就完成了。点击启动会打开CMD运行然后将系统写入磁盘，所需时间并不长(SSD少于1分钟)长时间卡住尝试回车一下请求响应刷新界面。写入完毕会让你输入一个用户名(自定义哦不必须是 Windows  的用户名)和密码(不可见)。输入完毕就创建了一个用户，之后默认就是这个账户登录进系统。这个用户不具备管理员权限，如果你要默认使用管理员用户，那就直接关闭这个 CMD，就跳过这一步了。之后再打开就直接以 root 用户登录。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Installing, this may take a few minutes...</span><br><span class="line">Installation successful!</span><br><span class="line">Please create a default UNIX user account. The username does not need to match your Windows username.</span><br><span class="line">For more information visit: https://aka.ms/wslusers</span><br><span class="line">Enter new UNIX username: begild</span><br><span class="line">Enter new UNIX password:</span><br><span class="line">Retype new UNIX password:</span><br><span class="line">passwd: password updated successfully</span><br><span class="line">Default UNIX user <span class="built_in">set</span> to: begild</span><br><span class="line">To run a <span class="built_in">command</span> as administrator (user <span class="string">"root"</span>), use <span class="string">"sudo &lt;command&gt;"</span>.</span><br><span class="line">See <span class="string">"man sudo_root"</span> <span class="keyword">for</span> details.</span><br><span class="line"></span><br><span class="line">begild@BeGild-PC:~$</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Linux-子系统的位置"><a href="#Linux-子系统的位置" class="headerlink" title="Linux 子系统的位置"></a>Linux 子系统的位置</h2><ul>
+<li><p>Linux子系统位于（Users == 用户 👎）:</p>
+<p> <code>C:\Users\用户名\AppData\Local\Packages\含有Linux子系统名字的文件夹\LocalState\rootfs</code> </p>
+</li>
+</ul>
+<ul>
+<li><p>我使用的账户是 Administrator 装的是 Ubuntu 那么位置就是: </p>
+<p><code>C:\Users\Administrator\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\LocalState\rootfs</code> </p>
+</li>
+</ul>
+<ul>
+<li>其他的系统和这个差不多，在 Packages 目录下找一下含有你安装的 Linux 子系统名字的文件夹就能找到。</li>
+</ul>
+<h2 id="Linux子系统的打开"><a href="#Linux子系统的打开" class="headerlink" title="Linux子系统的打开"></a>Linux子系统的打开</h2><ol>
+<li>任意打开一个CMD窗口输入<code>bash</code> 启动一个Linux终端；</li>
+<li>将 Ubuntu 固定到开始菜单磁铁，每次点击都能打开一个新的Linux终端窗口。</li>
+</ol>
+<h2 id="Linux子系统的一些信息"><a href="#Linux子系统的一些信息" class="headerlink" title="Linux子系统的一些信息"></a>Linux子系统的一些信息</h2><ol>
+<li>使用<code>lsb_release -a</code> 可以看到系统的信息安装的是16.04.3长期支持版本 </li>
+<li><code>cat /proc/version</code> 可以看到内核版本 4.4.0-43-Microsoft;编译器GCC版本5.4.0<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">root@BeGild-PC:~<span class="comment"># lsb_release -a</span></span><br><span class="line">No LSB modules are available.</span><br><span class="line">Distributor ID: Ubuntu</span><br><span class="line">Description:    Ubuntu 16.04.3 LTS</span><br><span class="line">Release:        16.04</span><br><span class="line">Codename:       xenial</span><br><span class="line">root@BeGild-PC:~<span class="comment"># uname -r</span></span><br><span class="line">4.4.0-43-Microsoft</span><br><span class="line">root@BeGild-PC:~<span class="comment">#  cat /proc/version</span></span><br><span class="line">Linux version 4.4.0-43-Microsoft (Microsoft@Microsoft.com) (gcc version 5.4.0 (GCC) ) <span class="comment">#1-Microsoft Wed Dec 31 14:42:53 PST 2014</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="换软件源"><a href="#换软件源" class="headerlink" title="换软件源"></a>换软件源</h2><p>emmm,将软件源换为国内源，这样更新和下载软件都会比较快一点。</p>
+<ol>
+<li><p>备份软件源列表：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># mv /etc/apt/sources.list /etc/apt/sources.list.bak</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编辑软件源。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># vi /etc/apt/sources.list</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>替换为国内源(我选<a href="https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/" target="_blank" rel="noopener">清华大学源</a>,可以去看看阿里源什么的)。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释</span></span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial main restricted universe multiverse</span><br><span class="line"><span class="comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial main restricted universe multiverse</span></span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-updates main restricted universe multiverse</span><br><span class="line"><span class="comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-updates main restricted universe multiverse</span></span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-backports main restricted universe multiverse</span><br><span class="line"><span class="comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-backports main restricted universe multiverse</span></span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-security main restricted universe multiverse</span><br><span class="line"><span class="comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-security main restricted universe multiverse</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 预发布软件源，不建议启用</span></span><br><span class="line"><span class="comment"># deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-proposed main restricted universe multiverse</span></span><br><span class="line"><span class="comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-proposed main restricted universe multiverse</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>更新软件列表</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># apt-get update</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>更新软件,第一次会下载比较多的更新耐心等待。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># apt-get upgrade</span></span><br></pre></td></tr></table></figure></li>
+</ol>
 
       
     </div>
@@ -577,23 +626,23 @@
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <li class="post-copyright-title">
-  <strong>本文标题：</strong><a href="/2018/01/21/ESP8266开发前言/"> ESP8266开发历程前言</a>
+  <strong>本文标题：</strong><a href="/2018/04/19/Win10-Linux-Subsystems/"> Win10_Linux_Subsystems</a>
   </li>
   <li class="post-copyright-author">
     <strong>本文作者：</strong>
 	<a href="/" title="访问 BeGild 的个人博客">BeGild</a>
   </li>
     <li class="post-copyright-date">
-  <strong>发布时间：2018年01月21日 - 14:01</strong>
+  <strong>发布时间：2018年04月19日 - 12:04</strong>
   </li>
     <li class="post-copyright-updated">
-  <strong>最后更新：2018年03月01日 - 11:03</strong>
+  <strong>最后更新：2018年04月19日 - 20:04</strong>
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://begild.top/2018/01/21/ESP8266开发前言/" title="ESP8266开发历程前言 ">http://begild.top/2018/01/21/ESP8266开发前言/</a>
+    <a href="http://begild.top/2018/04/19/Win10-Linux-Subsystems/" title="Win10_Linux_Subsystems ">http://begild.top/2018/04/19/Win10-Linux-Subsystems/</a>
   <span class="copy-path"  title="点击复制文章链接">
-	<i class="fa fa-clipboard" data-clipboard-text="http://begild.top/2018/01/21/ESP8266开发前言/"  aria-label="复制成功！"></i>
+	<i class="fa fa-clipboard" data-clipboard-text="http://begild.top/2018/04/19/Win10-Linux-Subsystems/"  aria-label="复制成功！"></i>
   </span>
 
  </li>
@@ -620,6 +669,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Win10下linux子系统/" <i class="fa fa-tint"></i>Win10下linux子系统</a>
+          
+        </div>
       
 
       
@@ -649,8 +704,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/06/file system/" rel="next" title="Linux系统目录讲解">
-                <i class="fa fa-chevron-left"></i> Linux系统目录讲解
+              <a href="/2018/03/07/STM32-Flash-Write-Read/" rel="next" title="STM32 Flash的读写">
+                <i class="fa fa-chevron-left"></i> STM32 Flash的读写
               </a>
             
           </div>
@@ -659,8 +714,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/01/21/ESP8266开发环境的搭建/" rel="prev" title="ESP8266开发环境的搭建">
-                ESP8266开发环境的搭建 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/04/19/CMD-replace-for-Cmder/" rel="prev" title="Cmder 更好的选择">
+                Cmder 更好的选择 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -848,7 +903,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#意义："><span class="nav-number">1.</span> <span class="nav-text">意义：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更新："><span class="nav-number">2.</span> <span class="nav-text">更新：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#微软在win10系统上添加了Linux子系统的支持，方便我们可以在windows上使用Linux，省去了占内存的虚拟机和双系统切换的麻烦😎，具体有什么和普通安装的Linux有什么不同，抱歉…不知道😬。"><span class="nav-number">1.</span> <span class="nav-text">微软在win10系统上添加了Linux子系统的支持，方便我们可以在windows上使用Linux，省去了占内存的虚拟机和双系统切换的麻烦😎，具体有什么和普通安装的Linux有什么不同，抱歉…不知道😬。</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux子系统的获取"><span class="nav-number"></span> <span class="nav-text">Linux子系统的获取</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux-子系统的位置"><span class="nav-number"></span> <span class="nav-text">Linux 子系统的位置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux子系统的打开"><span class="nav-number"></span> <span class="nav-text">Linux子系统的打开</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux子系统的一些信息"><span class="nav-number"></span> <span class="nav-text">Linux子系统的一些信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#换软件源"><span class="nav-number"></span> <span class="nav-text">换软件源</span></a></div>
             
 
           </div>

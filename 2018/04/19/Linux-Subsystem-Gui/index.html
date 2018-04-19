@@ -158,20 +158,25 @@
 
 
   
-  <meta name="keywords" content="BeGild's blog" />
+  <meta name="keywords" content="Linux子系统图形界面," />
 
 
-<meta name="description" content="意义：这算是第一个教程吧，ESP8266从大三到现在学了到现在，但是没有什么记录。回头又得拿着代码一点一点看，所以打算记录一下。同时也会兼顾一些解释和教程性质的东西，给能找到这的人看看吧，希望能给你一点帮助。 更新：更新的话，不定时。至于内容的顺序，就先按照一个hello world的实现来写，从引脚，IDE，下载工具，接线到写hello world，到下载查看。这些讲完的话打开你也就懂怎么做了">
+<meta name="description" content="搞完Windows下Linux下子系统的启用，可以用命令行进行使用但是却是一个完全没有界面的系统。这样怎么能拼过虚拟机呢对吧。所以：图形界面启动！。">
+<meta name="keywords" content="Linux子系统图形界面">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ESP8266开发历程前言">
-<meta property="og:url" content="http://begild.top/2018/01/21/ESP8266开发前言/index.html">
+<meta property="og:title" content="Linux子系统图形界面">
+<meta property="og:url" content="http://begild.top/2018/04/19/Linux-Subsystem-Gui/index.html">
 <meta property="og:site_name" content="BeGild Working">
-<meta property="og:description" content="意义：这算是第一个教程吧，ESP8266从大三到现在学了到现在，但是没有什么记录。回头又得拿着代码一点一点看，所以打算记录一下。同时也会兼顾一些解释和教程性质的东西，给能找到这的人看看吧，希望能给你一点帮助。 更新：更新的话，不定时。至于内容的顺序，就先按照一个hello world的实现来写，从引脚，IDE，下载工具，接线到写hello world，到下载查看。这些讲完的话打开你也就懂怎么做了">
+<meta property="og:description" content="搞完Windows下Linux下子系统的启用，可以用命令行进行使用但是却是一个完全没有界面的系统。这样怎么能拼过虚拟机呢对吧。所以：图形界面启动！。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-01T03:28:14.240Z">
+<meta property="og:image" content="http://p55um7yiy.bkt.clouddn.com/XLunch%E5%90%AF%E5%8A%A8%E8%AE%BE%E7%BD%AE.png">
+<meta property="og:image" content="http://p55um7yiy.bkt.clouddn.com/ccsm%E8%AE%BE%E7%BD%AE.png">
+<meta property="og:image" content="http://p55um7yiy.bkt.clouddn.com/Ubuntu%E6%A1%8C%E9%9D%A2.png">
+<meta property="og:updated_time" content="2018-04-19T14:08:34.596Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ESP8266开发历程前言">
-<meta name="twitter:description" content="意义：这算是第一个教程吧，ESP8266从大三到现在学了到现在，但是没有什么记录。回头又得拿着代码一点一点看，所以打算记录一下。同时也会兼顾一些解释和教程性质的东西，给能找到这的人看看吧，希望能给你一点帮助。 更新：更新的话，不定时。至于内容的顺序，就先按照一个hello world的实现来写，从引脚，IDE，下载工具，接线到写hello world，到下载查看。这些讲完的话打开你也就懂怎么做了">
+<meta name="twitter:title" content="Linux子系统图形界面">
+<meta name="twitter:description" content="搞完Windows下Linux下子系统的启用，可以用命令行进行使用但是却是一个完全没有界面的系统。这样怎么能拼过虚拟机呢对吧。所以：图形界面启动！。">
+<meta name="twitter:image" content="http://p55um7yiy.bkt.clouddn.com/XLunch%E5%90%AF%E5%8A%A8%E8%AE%BE%E7%BD%AE.png">
 
 
 
@@ -180,10 +185,10 @@
 
 
 
-  <link rel="canonical" href="http://begild.top/2018/01/21/ESP8266开发前言/"/>
+  <link rel="canonical" href="http://begild.top/2018/04/19/Linux-Subsystem-Gui/"/>
 
 
-  <title>ESP8266开发历程前言 | BeGild Working</title>
+  <title>Linux子系统图形界面 | BeGild Working</title>
   
 
 
@@ -416,7 +421,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://begild.top/2018/01/21/ESP8266开发前言/">
+    <link itemprop="mainEntityOfPage" href="http://begild.top/2018/04/19/Linux-Subsystem-Gui/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="BeGild">
@@ -433,7 +438,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">ESP8266开发历程前言</h2>
+          <h2 class="post-title" itemprop="name headline">Linux子系统图形界面</h2>
         
 
         <div class="post-meta">
@@ -456,7 +461,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-03-01T11:28:14+08:00">2018-03-01</time>
+              <time title="更新于" itemprop="dateModified" datetime="2018-04-19T22:08:34+08:00">2018-04-19</time>
             
           </span>
 
@@ -472,7 +477,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/ESP8266/" itemprop="url" rel="index"><span itemprop="name">ESP8266</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a></span>
 
                 
                 
@@ -487,8 +492,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/01/21/ESP8266开发前言/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/01/21/ESP8266开发前言/" itemprop="commentCount"></span>
+                <a href="/2018/04/19/Linux-Subsystem-Gui/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/04/19/Linux-Subsystem-Gui/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -521,8 +526,37 @@
       
 
       
-        <script src="\assets\js\APlayer.min.js"> </script><h2 id="意义："><a href="#意义：" class="headerlink" title="意义："></a>意义：</h2><p>这算是第一个教程吧，ESP8266从大三到现在学了到现在，但是没有什么记录。回头又得拿着代码一点一点看，所以打算记录一下。同时也会兼顾一些解释和教程性质的东西，给能找到这的人看看吧，希望能给你一点帮助。</p>
-<h2 id="更新："><a href="#更新：" class="headerlink" title="更新："></a>更新：</h2><p>更新的话，不定时。至于内容的顺序，就先按照一个hello world的实现来写，从引脚，IDE，下载工具，接线到写hello world，到下载查看。这些讲完的话打开你也就懂怎么做了。但是我不会写IO的使用因为我觉得他的定位作为wifi芯片比较好，就不要掺杂其他的的东西了(个人看法)。后面的软件层面的实现(主要是网络通信的应用)的话，也会写一部分。不过感觉网上其实挺多的教程(比较零散)，所以不排除会直接把比较好的搬运过来然后配合自己的理解说一下。</p>
+        <script src="\assets\js\APlayer.min.js"> </script><p>搞完Windows下Linux下子系统的启用，可以用命令行进行使用但是却是一个完全没有界面的系统。这样怎么能拼过虚拟机呢对吧。所以：图形界面启动！。<a id="more"></a></p>
+<h2 id="Windows-X-Server"><a href="#Windows-X-Server" class="headerlink" title="Windows X Server"></a>Windows X Server</h2><ol>
+<li>下载 VcXsrv <a href="https://sourceforge.net/projects/vcxsrv/files/latest/download" target="_blank" rel="noopener">https://sourceforge.net/projects/vcxsrv/files/latest/download</a> 用迅雷下会快一些👀。</li>
+<li>运行下载下来的 VcXsrv 安装程序，安装位置自己选，开心就好。</li>
+<li>安装完成之后会有两个软件启动方式，选择用 XLaunch 启动，在启动界面选择 One large windows 方式，显示器编号：0，接下来一路 Next 到完成结束。然后会出现一个黑黑的界面。<br><img src="http://p55um7yiy.bkt.clouddn.com/XLunch%E5%90%AF%E5%8A%A8%E8%AE%BE%E7%BD%AE.png" alt="XLunch启动设置"></li>
+</ol>
+<h2 id="Ubuntu的桌面软件安装"><a href="#Ubuntu的桌面软件安装" class="headerlink" title="Ubuntu的桌面软件安装"></a>Ubuntu的桌面软件安装</h2><ol>
+<li>安装 Ubuntu 桌面软件，unity，compiz配置软件,下载的软件很大。大概需要2.5个G的空间，耐心等待(我大概用了15分钟左右才装好)。<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="builtin-name">get</span> install ubuntu-desktop unity compizconfig-settings-manager</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="Ubuntu的桌面的配置"><a href="#Ubuntu的桌面的配置" class="headerlink" title="Ubuntu的桌面的配置"></a>Ubuntu的桌面的配置</h2><ol>
+<li><p>设置显示器 ;</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="builtin-name">export</span>  <span class="attribute">DISPLAY</span>=localhost:0</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置桌面参数,只要勾选了Ubuntu Unity Plugin 就 OK，其他的根据自己需要修改。设置完毕之后关闭即可;</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">ccsm</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><img src="http://p55um7yiy.bkt.clouddn.com/ccsm%E8%AE%BE%E7%BD%AE.png" alt="ccsm设置"></p>
+<ol>
+<li><p>展示桌面，运行下面指令。就可以在上面说的黑黑的界面上绘出桌面了。看起来是不是毫无违和感23333。</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">compiz</span></span><br></pre></td></tr></table></figure>
+<p><img src="http://p55um7yiy.bkt.clouddn.com/Ubuntu%E6%A1%8C%E9%9D%A2.png" alt="Ubuntu桌面"></p>
+</li>
+<li>做一个脚本便于设置和启动桌面。新建一个脚本放在根目录 <code>cd / &amp;&amp; sudo vi vcxsrv</code> 每次先用控制台进入 bash 运行脚本就OK了，内容如下：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#! /bin/sh</span></span><br><span class="line"><span class="built_in">export</span>  DISPLAY=localhost:0 <span class="comment">#设置显示屏</span></span><br><span class="line">compiz </span><br><span class="line">chmod +x vcxsrv <span class="comment"># chmod +x 文件名 #赋予执行权限</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="已知的一些问题"><a href="#已知的一些问题" class="headerlink" title="已知的一些问题"></a>已知的一些问题</h2><ol>
+<li>键盘的上下左右键值会被识别为数字8246，并且很鬼畜的识别为长按🤕，猜测原因：系统默认不开启数字键盘,导致识别错误但是识别为长按是什么鬼嘛。这一点很蛋疼。</li>
+<li>刚启动桌面，桌面鼠标不可见或者会变成 × 号，解决办法：打开一个应用程序(非终端)后正常。</li>
+</ol>
 
       
     </div>
@@ -577,23 +611,23 @@
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <li class="post-copyright-title">
-  <strong>本文标题：</strong><a href="/2018/01/21/ESP8266开发前言/"> ESP8266开发历程前言</a>
+  <strong>本文标题：</strong><a href="/2018/04/19/Linux-Subsystem-Gui/"> Linux子系统图形界面</a>
   </li>
   <li class="post-copyright-author">
     <strong>本文作者：</strong>
 	<a href="/" title="访问 BeGild 的个人博客">BeGild</a>
   </li>
     <li class="post-copyright-date">
-  <strong>发布时间：2018年01月21日 - 14:01</strong>
+  <strong>发布时间：2018年04月19日 - 20:04</strong>
   </li>
     <li class="post-copyright-updated">
-  <strong>最后更新：2018年03月01日 - 11:03</strong>
+  <strong>最后更新：2018年04月19日 - 22:04</strong>
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://begild.top/2018/01/21/ESP8266开发前言/" title="ESP8266开发历程前言 ">http://begild.top/2018/01/21/ESP8266开发前言/</a>
+    <a href="http://begild.top/2018/04/19/Linux-Subsystem-Gui/" title="Linux子系统图形界面 ">http://begild.top/2018/04/19/Linux-Subsystem-Gui/</a>
   <span class="copy-path"  title="点击复制文章链接">
-	<i class="fa fa-clipboard" data-clipboard-text="http://begild.top/2018/01/21/ESP8266开发前言/"  aria-label="复制成功！"></i>
+	<i class="fa fa-clipboard" data-clipboard-text="http://begild.top/2018/04/19/Linux-Subsystem-Gui/"  aria-label="复制成功！"></i>
   </span>
 
  </li>
@@ -620,6 +654,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux子系统图形界面/" <i class="fa fa-tint"></i>Linux子系统图形界面</a>
+          
+        </div>
       
 
       
@@ -649,8 +689,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/06/file system/" rel="next" title="Linux系统目录讲解">
-                <i class="fa fa-chevron-left"></i> Linux系统目录讲解
+              <a href="/2018/04/19/CMD-replace-for-Cmder/" rel="next" title="Cmder 更好的选择">
+                <i class="fa fa-chevron-left"></i> Cmder 更好的选择
               </a>
             
           </div>
@@ -658,10 +698,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/01/21/ESP8266开发环境的搭建/" rel="prev" title="ESP8266开发环境的搭建">
-                ESP8266开发环境的搭建 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -848,7 +884,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#意义："><span class="nav-number">1.</span> <span class="nav-text">意义：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更新："><span class="nav-number">2.</span> <span class="nav-text">更新：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Windows-X-Server"><span class="nav-number">1.</span> <span class="nav-text">Windows X Server</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ubuntu的桌面软件安装"><span class="nav-number">2.</span> <span class="nav-text">Ubuntu的桌面软件安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ubuntu的桌面的配置"><span class="nav-number">3.</span> <span class="nav-text">Ubuntu的桌面的配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#已知的一些问题"><span class="nav-number">4.</span> <span class="nav-text">已知的一些问题</span></a></li></ol></div>
             
 
           </div>
