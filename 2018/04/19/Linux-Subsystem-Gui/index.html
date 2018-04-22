@@ -172,7 +172,7 @@
 <meta property="og:image" content="http://p55um7yiy.bkt.clouddn.com/XLunch%E5%90%AF%E5%8A%A8%E8%AE%BE%E7%BD%AE.png">
 <meta property="og:image" content="http://p55um7yiy.bkt.clouddn.com/ccsm%E8%AE%BE%E7%BD%AE.png">
 <meta property="og:image" content="http://p55um7yiy.bkt.clouddn.com/Ubuntu%E6%A1%8C%E9%9D%A2.png">
-<meta property="og:updated_time" content="2018-04-19T14:08:34.596Z">
+<meta property="og:updated_time" content="2018-04-22T04:59:17.016Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux子系统图形界面">
 <meta name="twitter:description" content="搞完Windows下Linux下子系统的启用，可以用命令行进行使用但是却是一个完全没有界面的系统。这样怎么能拼过虚拟机呢对吧。所以：图形界面启动！。">
@@ -302,7 +302,7 @@
         
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
-            <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签<span class="badge">9</span>
+            <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签<span class="badge">10</span>
               </a>
         </li>
       
@@ -316,7 +316,7 @@
         
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
-            <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档(文章列表)<span class="badge">14</span>
+            <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档(文章列表)<span class="badge">15</span>
               </a>
         </li>
       
@@ -461,7 +461,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-04-19T22:08:34+08:00">2018-04-19</time>
+              <time title="更新于" itemprop="dateModified" datetime="2018-04-22T12:59:17+08:00">2018-04-22</time>
             
           </span>
 
@@ -533,26 +533,27 @@
 <li>安装完成之后会有两个软件启动方式，选择用 XLaunch 启动，在启动界面选择 One large windows 方式，显示器编号：0，接下来一路 Next 到完成结束。然后会出现一个黑黑的界面。<br><img src="http://p55um7yiy.bkt.clouddn.com/XLunch%E5%90%AF%E5%8A%A8%E8%AE%BE%E7%BD%AE.png" alt="XLunch启动设置"></li>
 </ol>
 <h2 id="Ubuntu的桌面软件安装"><a href="#Ubuntu的桌面软件安装" class="headerlink" title="Ubuntu的桌面软件安装"></a>Ubuntu的桌面软件安装</h2><ol>
-<li>安装 Ubuntu 桌面软件，unity，compiz配置软件,下载的软件很大。大概需要2.5个G的空间，耐心等待(我大概用了15分钟左右才装好)。<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="builtin-name">get</span> install ubuntu-desktop unity compizconfig-settings-manager</span><br></pre></td></tr></table></figure>
+<li>安装 Ubuntu 桌面软件，unity，compiz配置软件,下载的软件很大。大概需要2.5个G的空间，耐心等待(我大概用了15分钟左右才装好)。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install ubuntu-desktop unity compizconfig-settings-manager</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <h2 id="Ubuntu的桌面的配置"><a href="#Ubuntu的桌面的配置" class="headerlink" title="Ubuntu的桌面的配置"></a>Ubuntu的桌面的配置</h2><ol>
 <li><p>设置显示器 ;</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="builtin-name">export</span>  <span class="attribute">DISPLAY</span>=localhost:0</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export  DISPLAY=localhost:0</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>设置桌面参数,只要勾选了Ubuntu Unity Plugin 就 OK，其他的根据自己需要修改。设置完毕之后关闭即可;</p>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">ccsm</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ccsm</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <p><img src="http://p55um7yiy.bkt.clouddn.com/ccsm%E8%AE%BE%E7%BD%AE.png" alt="ccsm设置"></p>
 <ol>
 <li><p>展示桌面，运行下面指令。就可以在上面说的黑黑的界面上绘出桌面了。看起来是不是毫无违和感23333。</p>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">compiz</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">compiz</span><br></pre></td></tr></table></figure>
 <p><img src="http://p55um7yiy.bkt.clouddn.com/Ubuntu%E6%A1%8C%E9%9D%A2.png" alt="Ubuntu桌面"></p>
 </li>
-<li>做一个脚本便于设置和启动桌面。新建一个脚本放在根目录 <code>cd / &amp;&amp; sudo vi vcxsrv</code> 每次先用控制台进入 bash 运行脚本就OK了，内容如下：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#! /bin/sh</span></span><br><span class="line"><span class="built_in">export</span>  DISPLAY=localhost:0 <span class="comment">#设置显示屏</span></span><br><span class="line">compiz </span><br><span class="line">chmod +x vcxsrv <span class="comment"># chmod +x 文件名 #赋予执行权限</span></span><br></pre></td></tr></table></figure>
+<li>做一个脚本便于设置和启动桌面。新建一个脚本放在根目录 <code>cd / &amp;&amp; sudo vi vcxsrv</code> 每次先用控制台进入 bash 运行脚本就OK了，内容如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#! /bin/sh</span><br><span class="line">export  DISPLAY=localhost:0 #设置显示屏</span><br><span class="line">compiz </span><br><span class="line">chmod +x vcxsrv # chmod +x 文件名 #赋予执行权限</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
+<h2 id="内存占用"><a href="#内存占用" class="headerlink" title="内存占用"></a>内存占用</h2><p>经过实测,8G内存，即使开启图形界面之后内存占用提升仅仅接近500M(31%–&gt;37%)，对比虚拟机(起码分配2G内存)少的就不止一点半点了好吧。确实是指的鼓捣的东西。</p>
 <h2 id="已知的一些问题"><a href="#已知的一些问题" class="headerlink" title="已知的一些问题"></a>已知的一些问题</h2><ol>
 <li>键盘的上下左右键值会被识别为数字8246，并且很鬼畜的识别为长按🤕，猜测原因：系统默认不开启数字键盘,导致识别错误但是识别为长按是什么鬼嘛。这一点很蛋疼。</li>
 <li>刚启动桌面，桌面鼠标不可见或者会变成 × 号，解决办法：打开一个应用程序(非终端)后正常。</li>
@@ -621,7 +622,7 @@
   <strong>发布时间：2018年04月19日 - 20:04</strong>
   </li>
     <li class="post-copyright-updated">
-  <strong>最后更新：2018年04月19日 - 22:04</strong>
+  <strong>最后更新：2018年04月22日 - 12:04</strong>
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
@@ -698,6 +699,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/22/KeXueShangWangJiaoCheng/" rel="prev" title="科学上Google">
+                科学上Google <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -780,7 +785,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-count">15</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -802,7 +807,7 @@
                 
                 <div class="site-state-item site-state-tags">
                   <a href="/tags/index.html">
-                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -824,7 +829,7 @@
 			<div class="widget-wrap">
 				<div id="myCanvasContainer" class="widget tagcloud">
 				<canvas width="250" height="250" id="resCanvas" style="width=100%">
-				<ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flash读写/">Flash读写</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux子系统图形界面/">Linux子系统图形界面</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Win10下linux子系统/">Win10下linux子系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmder/">cmder</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux目录/">linux目录</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/串口-UART/">串口(UART)</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/大小端存储/">大小端存储</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/嵌套注释/">嵌套注释</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">1</span></li></ul>
+				<ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flash读写/">Flash读写</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux子系统图形界面/">Linux子系统图形界面</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Win10下linux子系统/">Win10下linux子系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmder/">cmder</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux目录/">linux目录</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/串口-UART/">串口(UART)</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/大小端存储/">大小端存储</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/嵌套注释/">嵌套注释</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/科学上网/">科学上网</a><span class="tag-list-count">1</span></li></ul>
 				</canvas>
 				</div>
 			</div>
@@ -884,7 +889,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Windows-X-Server"><span class="nav-number">1.</span> <span class="nav-text">Windows X Server</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ubuntu的桌面软件安装"><span class="nav-number">2.</span> <span class="nav-text">Ubuntu的桌面软件安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ubuntu的桌面的配置"><span class="nav-number">3.</span> <span class="nav-text">Ubuntu的桌面的配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#已知的一些问题"><span class="nav-number">4.</span> <span class="nav-text">已知的一些问题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Windows-X-Server"><span class="nav-number">1.</span> <span class="nav-text">Windows X Server</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ubuntu的桌面软件安装"><span class="nav-number">2.</span> <span class="nav-text">Ubuntu的桌面软件安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ubuntu的桌面的配置"><span class="nav-number">3.</span> <span class="nav-text">Ubuntu的桌面的配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内存占用"><span class="nav-number">4.</span> <span class="nav-text">内存占用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#已知的一些问题"><span class="nav-number">5.</span> <span class="nav-text">已知的一些问题</span></a></li></ol></div>
             
 
           </div>
@@ -903,7 +908,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018/04-19</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018/04-23</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
