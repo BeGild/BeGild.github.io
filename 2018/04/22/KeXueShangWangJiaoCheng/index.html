@@ -172,8 +172,10 @@
 <meta property="og:image" content="http://p55um7yiy.bkt.clouddn.com/%E6%B3%A8%E5%86%8C%E7%95%8C%E9%9D%A2.png">
 <meta property="og:image" content="http://p55um7yiy.bkt.clouddn.com/Servers%E7%95%8C%E9%9D%A2.png">
 <meta property="og:image" content="http://p55um7yiy.bkt.clouddn.com/putty%E6%B7%BB%E5%8A%A0%E8%BF%9E%E6%8E%A5.png">
+<meta property="og:image" content="http://p55um7yiy.bkt.clouddn.com/SSR%E5%AF%BC%E5%85%A5%E9%85%8D%E7%BD%AE.png">
+<meta property="og:image" content="http://p55um7yiy.bkt.clouddn.com/FinalSpeed%E8%AE%BE%E7%BD%AE%E7%95%8C%E9%9D%A2.png">
 <meta property="og:image" content="http://p55um7yiy.bkt.clouddn.com/天安门.png">
-<meta property="og:updated_time" content="2018-04-22T17:20:49.803Z">
+<meta property="og:updated_time" content="2018-04-23T08:10:00.845Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="科学上Google">
 <meta name="twitter:description" content="写在前面 如果你在在搜索资料方面在百度遇到了巨大挫折，我相信google能解决你问题。  在我个人看来百度适用于找贴近于生活常识简单的东西(当然你必须具备一定的辨识能力不要盲目相信，莆田系的惨剧不是不能重演)，就这些知识而言相对于google来说是比较好的。  在专业的知识方面百度对于google来说就是个孤儿。搜索来的东西词不达意，胡扯一通或者根本就没有相关有用的东西(有用的怕就是 CSDN 了">
@@ -462,7 +464,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-04-23T01:20:49+08:00">2018-04-23</time>
+              <time title="更新于" itemprop="dateModified" datetime="2018-04-23T16:10:00+08:00">2018-04-23</time>
             
           </span>
 
@@ -555,8 +557,14 @@
 <li><p>执行成功结束会吧你整个 Shadowsocks 的配置打印出来，大致如下，将这段东西复制粘贴在记事本里备份一下免得以后忘了。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">Starting ShadowsocksR success</span><br><span class="line"></span><br><span class="line">Congratulations, ShadowsocksR server install completed!</span><br><span class="line">Your Server IP        :  ************* （服务器IP）</span><br><span class="line">Your Server Port      :  *****         （服务端口） </span><br><span class="line">Your Password         :  *********     （使用的密码）</span><br><span class="line">Your Protocol         :  auth_sha1_v4  （使用的协议）</span><br><span class="line">Your obfs             :  http_simple   （混淆协议）</span><br><span class="line">Your Encryption Method:  chacha20      （加密方式）</span><br><span class="line"></span><br><span class="line">Your QR Code: (For ShadowsocksR Windows, Android clients only)</span><br><span class="line"> ss://******************************************************</span><br><span class="line"> (SS配置信息代码，复制到小飞机右键剪切板批量导入)</span><br><span class="line">Your QR Code has been saved as a PNG file path:</span><br><span class="line"> /root/shadowsocks_r_qr.png</span><br><span class="line"> (SS配置信息二维码)</span><br><span class="line">Welcome to visit: https://teddysun.com/486.html</span><br><span class="line">Enjoy it!</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>这样就完成了搭建。访问 <a href="https://www.google.com/ncr" target="_blank" rel="noopener">Google</a> 试一下，没问题的话等下就加载出来了。</p>
+<li><p>本地 SSR 客户端的配置，<a href="https://softs.fun/?dir=%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/PC/Shadowsocks/Windows/ShadowsocksR" target="_blank" rel="noopener">下载地址</a>。</p>
+<ol>
+<li>下载完成之后，解压到你想放置的文件夹下就好了。会有两个启动程序 2.0 和 4.0，分别是依赖于 NET Framework v2.0 和 v4.0 ，功能无区别随便打开一个就OK。</li>
+<li>打开在任务栏会有小飞机图标显示。这时候复制上面服务器输出的 SSR 配置信息代码，也就是<code>ssr://******</code> 那一大串，全部复制。在小飞机上右键弹出的菜单里找到 <code>剪切板批量导入ssr://地址...</code> 选项，点击该选项即完成导入配置。</li>
+<li>这时候的配置大致如下，可以看到混淆参数、备注和群组都是空的。混淆方式选择的是 http_simple 的话，参数里就填你要伪装的域名，也就是你的流量会被伪装成向你填写的域名请求的流量，减少被检测的风险，我填的是<code>cdn.4g.play.cn,4gmv.music.189.cn,dl.music.189.cn</code>。备注和群组就不多说了就是一些方便分类记忆的信息(毕竟有些人有很多车)。填写完成你的整个 <code>ssr://</code> 也会改变，以后分享给别人就直接复制这个 ssr代码，别人贴上去是和你的一模一样的。<br><img src="http://p55um7yiy.bkt.clouddn.com/SSR%E5%AF%BC%E5%85%A5%E9%85%8D%E7%BD%AE.png" alt="SSR导入配置"></li>
+</ol>
 </li>
+<li>这样就完成了搭建。访问 <a href="https://www.google.com/ncr" target="_blank" rel="noopener">Google</a> 试一下，没问题的话等下就加载出来了。</li>
 </ol>
 <h2 id="搭建步骤4-刷入锐速进行提速"><a href="#搭建步骤4-刷入锐速进行提速" class="headerlink" title="搭建步骤4 刷入锐速进行提速"></a>搭建步骤4 刷入锐速进行提速</h2><p>首先你可以尝试运行这个命令，如果没有报错。那么你很幸运不用执行下面复杂的操作。如果有报错不支持你的内核那么你就得需要执行后续的步骤。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -N --no-check-certificate https://raw.githubusercontent.com/91yun/serverspeeder/master/serverspeeder.sh &amp;&amp; bash serverspeeder.sh</span><br></pre></td></tr></table></figure></p>
 <p>错误信息大致如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">===============System Info=======================</span><br><span class="line">Debian</span><br><span class="line">3.2.0-5-amd64</span><br><span class="line">x64</span><br><span class="line">=================================================</span><br><span class="line">巴拉巴拉。。。</span><br><span class="line">2018-04-22 15:05:11 (21.0 MB/s) - `serverspeederbin.txt&apos; saved [96179/96179]</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt;This kernel is not supported. Trying fuzzy matching...</span><br><span class="line"></span><br><span class="line">Serverspeeder is not supported on this kernel! View all supported systems and kernels here: https://www.91yun.org/serverspeeder91yun</span><br></pre></td></tr></table></figure></p>
@@ -595,6 +603,36 @@
 </li>
 </ol>
 <p>如果遇到 锐速的状态查看 提示 “bc not found” 执行 <code>apt-get install bc</code> 即可。</p>
+<h2 id="搭建步骤5-刷入-Finalspeed-加速"><a href="#搭建步骤5-刷入-Finalspeed-加速" class="headerlink" title="搭建步骤5 刷入 Finalspeed 加速"></a>搭建步骤5 刷入 Finalspeed 加速</h2><p>FinalSpeed 根据用户设定的网络带宽省略了确认的步骤或是延长了确认的间隔，服务器按照用户设定的速率持续高速发包，所以可以达到更高的速度。不过现在改为收费使用了名字也改为 tcpspeed 想要支持一下作者使用收费版本的请点击 <a href="http://www.tcpspeed.com/" target="_blank" rel="noopener">http://www.tcpspeed.com/</a> ，省钱就使用旧版本的(作者已经删除)。91yun fork了一份并制作了一键安装包，<a href="https://github.com/91yun/finalspeed" target="_blank" rel="noopener">项目地址</a> </p>
+<ol>
+<li><p>一键安装 FinalSpeed ,安装完成无报错即在运行。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -N --no-check-certificate https://raw.githubusercontent.com/91yun/finalspeed/master/install_fs.sh &amp;&amp; bash install_fs.sh</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装 FinalSpeed 客户端<br>FinalSpeed 是双边加速，所以客户端这边也需要一个 FinalSpeed 客户端配合使用。<a href="https://raw.githubusercontent.com/RangiLyu/finalspeed/master/finalspeed_install1.0.exe" target="_blank" rel="noopener">下载地址</a> 下载下来安装就行，它需要使用 winpcap 如果没有安装会提示你安装的根据需要选择是否开机自启 winpcap ，剩下的一路 next 完成就行了。</p>
+</li>
+<li><p>配置 FinalSpeed 客户端 </p>
+<ol>
+<li>在地址栏填上服务器的 IP 地址、设置带宽设置你服务器的带宽，因为测试过我的下载大概能到3000多Kb/s，所以我这里设置的下行带宽30M，上行带宽20M(瞎设的)。 </li>
+<li>点击右下的添加按钮，弹出的增加映射窗口。在名称编辑框填入你想要的描述、加速端口填你安装 SSR 时候写的端口、本地端口随便填一个，这个是用来和你的 SSR 客户端进行通信用的。填写完成自动生效的，关闭窗口就OK了。<br><img src="http://p55um7yiy.bkt.clouddn.com/FinalSpeed%E8%AE%BE%E7%BD%AE%E7%95%8C%E9%9D%A2.png" alt="FinalSpeed配置"></li>
+<li>配置 SSR 客户端，经过上面 SSR 的导入和配置已经可以成功 Google了。<br>1.双击任务栏小飞机图标唤出配置窗口，点击左下角的<code>添加</code>按钮可以复制一份一刚刚导入的服务器配置信息。<ol>
+<li>在右边的配置栏服务器IP这里勾选显示并改为<code>127.0.0.1</code> 也就是本地回环地址。</li>
+<li>服务器端口填写为你刚刚配置 FinalSpeed 的本地端口(这里 FinalSpeed 相当于是 SSR 的服务器)。</li>
+<li>其他的重要信息不要改，备注和群组改一些方便识别。</li>
+</ol>
+</li>
+<li>这样就完成了 FinalSpeed 和 SSR 的联合配置，上网感觉可能不明显。但是看视频什么的就能看出差距了。没装 FinalSpeed 只能看 480P 装了之后，1080P 无压力。</li>
+</ol>
+</li>
+</ol>
+<h2 id="SSR-客户端的使用"><a href="#SSR-客户端的使用" class="headerlink" title="SSR 客户端的使用"></a>SSR 客户端的使用</h2><p>SSR 客户端任务栏图标右键包含了整个软件的设置。</p>
+<ol>
+<li>右键–&gt;选项设置–&gt;右上角可以设置开机启动。</li>
+<li>右键–&gt;系统代理模式 选择各种不同的代理模式，IE代理，直连，PAC和全局，PAC指的是根据 PAC 列表选择是否通过 SSR 访问。全局就是所有访问均通过 SSR。我们选择 PAC 模式配合 PAC 文件进行使用。全局的话流量较高并且国内的访问用代理反而更慢。</li>
+<li>右键–&gt;PAC 可以看到PAC的各种配置，这里给一个 PAC 文件的URL <a href="https://softs.fun/Other/pac.txt" target="_blank" rel="noopener">https://softs.fun/Other/pac.txt</a> 点击 PAC 的配置里编辑本地 PAC 文件，将上述网页里的内容全选拷贝到改文件里覆盖保存即可。</li>
+<li>右键–&gt;代理规则 使用绕过局域网和大陆。整个过程首先通过域名和 PAC 列表里匹配是否需要 SS R，如果需要 SSR 的话再通过代理规则判断该 IP 是否需要代理，如果需要的话服务器最终进行代理。 </li>
+<li>右键–&gt;服务器 选择你要的服务器。按照群组和备注来区分 默认是empty-group。该设置自动保存，下次打开自动使用。</li>
+<li>其他的自己琢磨吧。可以看下<a href="https://doub.io/ss-jc10/" target="_blank" rel="noopener">这个</a></li>
+</ol>
 <h2 id="写在后面"><a href="#写在后面" class="headerlink" title="写在后面"></a>写在后面</h2><p><img src="http://p55um7yiy.bkt.clouddn.com/天安门.png" alt="天安门"></p>
 
       
@@ -660,7 +698,7 @@
   <strong>发布时间：2018年04月22日 - 15:04</strong>
   </li>
     <li class="post-copyright-updated">
-  <strong>最后更新：2018年04月23日 - 01:04</strong>
+  <strong>最后更新：2018年04月23日 - 16:04</strong>
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
@@ -923,7 +961,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于中国的互联网"><span class="nav-number">2.</span> <span class="nav-text">关于中国的互联网</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建步骤1-购买vps"><span class="nav-number">3.</span> <span class="nav-text">搭建步骤1 购买vps</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建步骤2-远程登录"><span class="nav-number">4.</span> <span class="nav-text">搭建步骤2 远程登录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建步骤3-刷入Shadowsocks"><span class="nav-number">5.</span> <span class="nav-text">搭建步骤3 刷入Shadowsocks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建步骤4-刷入锐速进行提速"><span class="nav-number">6.</span> <span class="nav-text">搭建步骤4 刷入锐速进行提速</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#写在后面"><span class="nav-number">7.</span> <span class="nav-text">写在后面</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于中国的互联网"><span class="nav-number">2.</span> <span class="nav-text">关于中国的互联网</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建步骤1-购买vps"><span class="nav-number">3.</span> <span class="nav-text">搭建步骤1 购买vps</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建步骤2-远程登录"><span class="nav-number">4.</span> <span class="nav-text">搭建步骤2 远程登录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建步骤3-刷入Shadowsocks"><span class="nav-number">5.</span> <span class="nav-text">搭建步骤3 刷入Shadowsocks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建步骤4-刷入锐速进行提速"><span class="nav-number">6.</span> <span class="nav-text">搭建步骤4 刷入锐速进行提速</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建步骤5-刷入-Finalspeed-加速"><span class="nav-number">7.</span> <span class="nav-text">搭建步骤5 刷入 Finalspeed 加速</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSR-客户端的使用"><span class="nav-number">8.</span> <span class="nav-text">SSR 客户端的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#写在后面"><span class="nav-number">9.</span> <span class="nav-text">写在后面</span></a></li></ol></div>
             
 
           </div>
