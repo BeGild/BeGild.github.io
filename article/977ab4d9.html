@@ -158,31 +158,21 @@
 
 
   
-  <meta name="keywords" content="嵌套注释," />
+  <meta name="keywords" content="串口(UART)," />
 
 
-<meta name="description" content="问题：某些C编译器允许嵌套注释。请写一个测试程序，要求：无论是对允许嵌套注释的编译器，还是对不允许嵌套注释的编译器，该程序都能正常通过编译（无错误消息出现）， 但是这两种情况下程序执行的结果却不相同。 提示： 在用双引号括起的字符串中， 注释符 /* 属于字符串的一部分，而在注释中出现的双引号 “ “ 又属于注释的一部分。 出自——《C陷阱与缺陷》练习1-1">
-<meta name="keywords" content="嵌套注释">
+<meta name="description" content="识别尾进行接收结束的验证 串口接收完毕标志可以利用识别特定字符(字符串)来检测，比如 “\r\n”、’*#’ 之类的。所以每次发数据都需要加上这些字符才能被识别为接收完毕，这样好处就是比较通用。无论是什么硬件平台都能用。代码也不复杂，在STM32平台上简单的例子如下代码段：当接收到 ‘*‘ 时候就会置位接收完成标志位，就可以进行处理了。123456789101112131415161718#def">
+<meta name="keywords" content="串口(UART)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="测试编译器是否支持嵌套注释">
-<meta property="og:url" content="http://begild.top/2017/10/01/测试编译器是否支持嵌套注释/index.html">
+<meta property="og:title" content="SMT32串口接收、空闲中断">
+<meta property="og:url" content="http://begild.top/article/977ab4d9.html">
 <meta property="og:site_name" content="BeGild Working">
-<meta property="og:description" content="问题：某些C编译器允许嵌套注释。请写一个测试程序，要求：无论是对允许嵌套注释的编译器，还是对不允许嵌套注释的编译器，该程序都能正常通过编译（无错误消息出现）， 但是这两种情况下程序执行的结果却不相同。 提示： 在用双引号括起的字符串中， 注释符 /* 属于字符串的一部分，而在注释中出现的双引号 “ “ 又属于注释的一部分。 出自——《C陷阱与缺陷》练习1-1">
+<meta property="og:description" content="识别尾进行接收结束的验证 串口接收完毕标志可以利用识别特定字符(字符串)来检测，比如 “\r\n”、’*#’ 之类的。所以每次发数据都需要加上这些字符才能被识别为接收完毕，这样好处就是比较通用。无论是什么硬件平台都能用。代码也不复杂，在STM32平台上简单的例子如下代码段：当接收到 ‘*‘ 时候就会置位接收完成标志位，就可以进行处理了。123456789101112131415161718#def">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://s1.ax1x.com/2017/10/01/13Ezn.png">
-<meta property="og:image" content="https://s1.ax1x.com/2017/10/01/13Ezn.png">
-<meta property="og:image" content="https://s1.ax1x.com/2017/10/01/13KdU.png">
-<meta property="og:image" content="https://s1.ax1x.com/2017/10/01/13MoF.png">
-<meta property="og:image" content="https://s1.ax1x.com/2017/10/01/13li4.png">
-<meta property="og:image" content="https://s1.ax1x.com/2017/10/01/131JJ.png">
-<meta property="og:image" content="https://s1.ax1x.com/2017/10/01/133W9.png">
-<meta property="og:image" content="https://s1.ax1x.com/2017/10/01/135Wj.png">
-<meta property="og:image" content="https://s1.ax1x.com/2017/10/01/13OTU.png">
-<meta property="og:updated_time" content="2018-03-01T03:30:28.710Z">
+<meta property="og:updated_time" content="2018-04-26T05:14:42.002Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="测试编译器是否支持嵌套注释">
-<meta name="twitter:description" content="问题：某些C编译器允许嵌套注释。请写一个测试程序，要求：无论是对允许嵌套注释的编译器，还是对不允许嵌套注释的编译器，该程序都能正常通过编译（无错误消息出现）， 但是这两种情况下程序执行的结果却不相同。 提示： 在用双引号括起的字符串中， 注释符 /* 属于字符串的一部分，而在注释中出现的双引号 “ “ 又属于注释的一部分。 出自——《C陷阱与缺陷》练习1-1">
-<meta name="twitter:image" content="https://s1.ax1x.com/2017/10/01/13Ezn.png">
+<meta name="twitter:title" content="SMT32串口接收、空闲中断">
+<meta name="twitter:description" content="识别尾进行接收结束的验证 串口接收完毕标志可以利用识别特定字符(字符串)来检测，比如 “\r\n”、’*#’ 之类的。所以每次发数据都需要加上这些字符才能被识别为接收完毕，这样好处就是比较通用。无论是什么硬件平台都能用。代码也不复杂，在STM32平台上简单的例子如下代码段：当接收到 ‘*‘ 时候就会置位接收完成标志位，就可以进行处理了。123456789101112131415161718#def">
 
 
 
@@ -191,10 +181,10 @@
 
 
 
-  <link rel="canonical" href="http://begild.top/2017/10/01/测试编译器是否支持嵌套注释/"/>
+  <link rel="canonical" href="http://begild.top/article/977ab4d9.html"/>
 
 
-  <title>测试编译器是否支持嵌套注释 | BeGild Working</title>
+  <title>SMT32串口接收、空闲中断 | BeGild Working</title>
   
 
 
@@ -427,7 +417,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://begild.top/2017/10/01/测试编译器是否支持嵌套注释/">
+    <link itemprop="mainEntityOfPage" href="http://begild.top/article/977ab4d9.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="BeGild">
@@ -444,7 +434,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">测试编译器是否支持嵌套注释</h2>
+          <h2 class="post-title" itemprop="name headline">SMT32串口接收、空闲中断</h2>
         
 
         <div class="post-meta">
@@ -467,7 +457,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-03-01T11:30:28+08:00">2018-03-01</time>
+              <time title="更新于" itemprop="dateModified" datetime="2018-04-26T13:14:42+08:00">2018-04-26</time>
             
           </span>
 
@@ -483,7 +473,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/c语言/" itemprop="url" rel="index"><span itemprop="name">c语言</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/STM32/" itemprop="url" rel="index"><span itemprop="name">STM32</span></a></span>
 
                 
                 
@@ -498,8 +488,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/10/01/测试编译器是否支持嵌套注释/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2017/10/01/测试编译器是否支持嵌套注释/" itemprop="commentCount"></span>
+                <a href="/article/977ab4d9.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/article/977ab4d9.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -532,66 +522,38 @@
       
 
       
-        <script src="\assets\js\APlayer.min.js"> </script><p>问题：某些C编译器允许嵌套注释。请写一个测试程序，要求：无论是对允许嵌套注释的编译器，还是对不允许嵌套注释的编译器，该程序都能正常通过编译（无错误消息出现）， 但是这两种情况下程序执行的结果却不相同。</p>
-<p>提示： 在用双引号括起的字符串中， 注释符 /* 属于字符串的一部分，而在注释中出现的双引号 “ “ 又属于注释的一部分。</p>
-<p>出自——《C陷阱与缺陷》练习1-1</p>
+        <script src="/assets/js/APlayer.min.js"> </script><h2 id="识别尾进行接收结束的验证"><a href="#识别尾进行接收结束的验证" class="headerlink" title="识别尾进行接收结束的验证"></a>识别尾进行接收结束的验证</h2><ol>
+<li>串口接收完毕标志可以利用识别特定字符(字符串)来检测，比如 “\r\n”、’*#’ 之类的。所以每次发数据都需要加上这些字符才能被识别为接收完毕，这样好处就是比较通用。无论是什么硬件平台都能用。代码也不复杂，在STM32平台上简单的例子如下代码段：当接收到 ‘*‘ 时候就会置位接收完成标志位，就可以进行处理了。<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXUSART1BUFSIZE 200</span></span><br><span class="line"><span class="keyword">uint8_t</span> Uart1_BUF[MAXUSART1BUFSIZE];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">USART1_IRQHandler</span><span class="params">(<span class="keyword">void</span>)</span> 	<span class="comment">//串口1中断服务程序               </span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">uint8_t</span> RecByte;</span><br><span class="line">  <span class="keyword">static</span>  <span class="keyword">uint32_t</span> pos = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">if</span>(USART_GetITStatus(USART1, USART_IT_RXNE) != RESET)  </span><br><span class="line">  &#123;</span><br><span class="line">    RecByte = USART1-&gt;DR;<span class="comment">//读取接收到的数据</span></span><br><span class="line">    <span class="keyword">if</span>(pos &lt; MAXUSART1BUFSIZE)<span class="comment">//防止内存溢出</span></span><br><span class="line">      Uart1_BUF[pos++] = RecByte;</span><br><span class="line">    <span class="keyword">if</span>(RecByte == <span class="string">'*'</span>)</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="comment">//<span class="doctag">TODO:</span> 接收完毕相关处理</span></span><br><span class="line">      pos = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
 <a id="more"></a>
-<p>嵌套注释：顾名思义就是注释里嵌套着注释。比如<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*"/*"*/</span><span class="string">"*/</span></span><br></pre></td></tr></table></figure></p>
-<p>对于这段代码，不同的编译器识别的结果不同：</p>
-<p><img src="https://s1.ax1x.com/2017/10/01/13Ezn.png" alt=""></p>
-<p>我们如何通过代码的输出判定编译器是否支持嵌套注释呢，重点就是让同一段代码，支持嵌套注释的编译器和不支持嵌套注释的编译器注释掉不同的地方。根据题目的提示字符串中的 /* 是属于字符串的一部分，比如 “/*aa*/“ 这里面的注释标号编译器是不会理会的，而 /*“aa*“/ 这里面的 “aa” 是不会识别为字符串的。还有一点无论是 “ “ 还是 /**/都是就近匹配的。</p>
-<ul>
-<li><ol>
-<li>我们首先构建一个嵌套的注释，这个注释在<strong>支持</strong>嵌套注释的编译器里能编译通过，而在<strong>不支持</strong>的编译器里编译失败：<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*"/*"*/</span><span class="string">"*/</span></span><br></pre></td></tr></table></figure>
+<h2 id="识别头尾进行数据段的保护"><a href="#识别头尾进行数据段的保护" class="headerlink" title="识别头尾进行数据段的保护"></a>识别头尾进行数据段的保护</h2><ol>
+<li>上面的方法就是发送的时候麻烦一点，每次都需要在后面加 ‘*‘, 并且如果发送错一次(忘记加 ‘*’)就会把缓冲区的内容累计到下一次(可以添加头识别进行解决)。这样就只会识别指定的数据段。一般这样适用于发送带有意义的控制数据保证数据不多收也不少收。验证的字符要保证不会出现在内容里，或者用多个字符进行验证。<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXUSART1BUFSIZE 200</span></span><br><span class="line"><span class="keyword">uint8_t</span> Uart1_BUF[MAXUSART1BUFSIZE];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">USART1_IRQHandler</span><span class="params">(<span class="keyword">void</span>)</span> 	<span class="comment">//串口1中断服务程序</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">uint8_t</span> RecByte;</span><br><span class="line">    <span class="keyword">static</span>  <span class="keyword">uint32_t</span> pos = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span>(USART_GetITStatus(USART1, USART_IT_RXNE) != RESET)  <span class="comment">//接收中断(接收到的数据必须是0x0d 0x0a结尾)</span></span><br><span class="line">    &#123;</span><br><span class="line">        RecByte = USART1-&gt;DR;<span class="comment">//读取接收到的数据</span></span><br><span class="line">        <span class="keyword">if</span>(RecByte == <span class="string">'#'</span>)</span><br><span class="line">            pos = <span class="number">1</span>; <span class="comment">//开始接收数据</span></span><br><span class="line">        <span class="keyword">if</span>(pos)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(pos &lt; MAXUSART1BUFSIZE)<span class="comment">//防止内存溢出</span></span><br><span class="line">                Uart1_BUF[pos - <span class="number">1</span>] = RecByte;</span><br><span class="line">            pos ++;</span><br><span class="line">            <span class="keyword">if</span>(RecByte == <span class="string">'*'</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">//<span class="doctag">TODO:</span> 接收完毕相关处理</span></span><br><span class="line">                pos = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
+<h2 id="STM32空闲中断的配置"><a href="#STM32空闲中断的配置" class="headerlink" title="STM32空闲中断的配置"></a>STM32空闲中断的配置</h2><ol>
+<li><p>前几天做项目也要用到串口传输控制信息在STM32上的话可以利用串口空闲中断(接收完字符以后在下一个传输字符的时间内没有字符传来)来接收数据，这样就不用像上面那样做特定的识别，也比较方便。在这里备注一下，因为当时一开始配置完了并不起作用，后来上网查证了最后才找到解决办法。初始化的代码就不贴了，主要是最后配置完毕，开中断的代码贴一下。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">...上续初始化的相关配置</span><br><span class="line">USART_Init(USART1, &amp;USART_InitStructure); <span class="comment">//初始化串口</span></span><br><span class="line">USART_ITConfig(USART1, USART_IT_RXNE, ENABLE);<span class="comment">//开启中断</span></span><br><span class="line">USART_ITConfig(USART1, USART_IT_IDLE,ENABLE);<span class="comment">//开启中断</span></span><br><span class="line"><span class="comment">//USART_ClearITPendingBit(USART1, USART_IT_IDLE |USART_IT_RXNE);//清除中断</span></span><br><span class="line">USART_Cmd(USART1, ENABLE);                    <span class="comment">//使能串口</span></span><br></pre></td></tr></table></figure>
 </li>
-</ul>
-<p>不支持的系统中出现了”*/“导致编译失败</p>
-<p><img src="https://s1.ax1x.com/2017/10/01/13Ezn.png" alt=""></p>
-<ul>
-<li><ol>
-<li>我们通过添加一个 “ 使得不支持的系统编译成功<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*"/*"*/</span><span class="string">"*/"</span></span><br></pre></td></tr></table></figure>
+<li><p>一开始我使用的是下面这条语句进行中断配置的，发现并不能触发空闲中断，后来才知道<font color="#ff0000" size="5">必须要分两次</font>才能正确配置:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">USART_ITConfig(USART1, USART_IT_RXNE | USART_IT_IDLE, ENABLE);<span class="comment">//开启中断</span></span><br></pre></td></tr></table></figure>
 </li>
-</ol>
+<li><p>查看了一下<font color="#00cccc" size="5">USART_ITConfig()</font>函数的源码才看出来，他这个函数为了USART_IT_IDLE等中断宏定义的通用性，必须每次只能初始化一个中断标志。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">USART_ITConfig</span><span class="params">(USART_TypeDef *USARTx, <span class="keyword">uint16_t</span> USART_IT, FunctionalState NewState)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">....</span><br><span class="line">    <span class="comment">/* Get the interrupt position */</span></span><br><span class="line">    itpos = USART_IT &amp; IT_Mask;</span><br><span class="line">    itmask = (((<span class="keyword">uint32_t</span>)<span class="number">0x01</span>) &lt;&lt; itpos);</span><br><span class="line">....</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*相关计算</span></span><br><span class="line"><span class="comment">#define USART_IT_IDLE      ((uint16_t)0x0424)</span></span><br><span class="line"><span class="comment">#define IT_Mask            ((uint16_t)0x001F)  //!&lt; USART Interrupt Mask </span></span><br><span class="line"><span class="comment">itpos = 0x0424 &amp; 0x001F = 0x04;</span></span><br><span class="line"><span class="comment">itmask = (((uint32_t)0x01) &lt;&lt; itpos) = 0x10;</span></span><br><span class="line"><span class="comment">0x10 = 0b00010000//bit[4];</span></span><br><span class="line"><span class="comment">查阅官方的手册可以看到空闲中断使能也恰好就是bit[4];</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
 </li>
-</ul>
-<p><img src="https://s1.ax1x.com/2017/10/01/13KdU.png" alt=""></p>
-<ul>
-<li><ol>
-<li>可以看出这样添加之后不支持的编译器已经能编译成功并且有输出一字符串，支持的系统由于多了一个 “ 导致编译失败，根据题目提示我们构建一个字符串”  “并且”/*,*/“ 两两配对，所以我们添加一个 /*形成”/*“ <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*"/*"*/</span><span class="string">"*/"</span><span class="comment">/*"</span></span><br></pre></td></tr></table></figure>
+<li><p>究其原因是因为itmask这个变量其实就是中断位于寄存器的位置，他是一个0bxx1xx的变量。只能表示一个中断标志位所以每次只能初始化一个标志位。</p>
 </li>
 </ol>
+<h2 id="STM32空闲中断服务函数"><a href="#STM32空闲中断服务函数" class="headerlink" title="STM32空闲中断服务函数"></a>STM32空闲中断服务函数</h2><ol>
+<li><p>接下来就是中断服务函数了：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">uint8_t</span> USART1RecBuf[USART1RecBufMaxSize];<span class="comment">//接收缓冲区</span></span><br><span class="line"><span class="keyword">uint8_t</span> sdfsdf = <span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">USART1_IRQHandler</span><span class="params">(<span class="keyword">void</span>)</span>      <span class="comment">//串口1中断服务程序</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">uint16_t</span> pos = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">if</span>(USART_GetITStatus(USART1, USART_IT_IDLE) != RESET) <span class="comment">//接收完毕触发空闲中断</span></span><br><span class="line">    &#123;</span><br><span class="line">      pos = <span class="number">0</span>;</span><br><span class="line">      USART1-&gt;DR;<span class="comment">//清除空闲中断标志位</span></span><br><span class="line">      <span class="comment">//<span class="doctag">TODO:</span> 中断接收完成标志</span></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(USART_GetITStatus(USART1, USART_IT_RXNE) != RESET)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">uint8_t</span> RecByte;</span><br><span class="line">        Res = USART1-&gt;DR; <span class="comment">//读取接收到的数据</span></span><br><span class="line">        <span class="keyword">if</span>(pos &gt;= USART1RecBufMaxSize) <span class="comment">//超过范围返回</span></span><br><span class="line">            <span class="keyword">return</span> ;</span><br><span class="line">        USART1RecBuf[pos++] = RecByte;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-</ul>
-<p><img src="https://s1.ax1x.com/2017/10/01/13MoF.png" alt=""></p>
-<ul>
-<li><ol>
-<li>这样操作之后支持/不支持的编译器输出不同的字符串(蓝色部分),但是不支持的编译器多了 /* “编译失败，而它刚好又是多行注释的头,所以我们得加一个尾 */ 使得他们配对。<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*"/*"*/</span><span class="string">"*/"</span><span class="comment">/*"*/</span></span><br></pre></td></tr></table></figure>
+<li><p>这里需要注意的就是空闲中断的清除并不是调用USART_ClearITPendingBit()函数来清除,查看库的函数源码实现也可以看到注释里并没有说明 USART_IT_IDLE 该参数是可以被传入的，并且我们使用 <font color="#00cccc" size="3">USART1-&gt;DR</font> 就能清除串口空闲中断。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">...</span></span><br><span class="line"><span class="comment">  * @param  USART_IT: specifies the interrupt pending bit to clear.</span></span><br><span class="line"><span class="comment">  *   This parameter can be one of the following values:</span></span><br><span class="line"><span class="comment">  *     @arg USART_IT_CTS:  CTS change interrupt (not available for UART4 and UART5)</span></span><br><span class="line"><span class="comment">  *     @arg USART_IT_LBD:  LIN Break detection interrupt</span></span><br><span class="line"><span class="comment">  *     @arg USART_IT_TC:   Transmission complete interrupt.</span></span><br><span class="line"><span class="comment">  *     @arg USART_IT_RXNE: Receive Data register not empty interrupt.</span></span><br><span class="line"><span class="comment">...</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">USART_ClearITPendingBit</span><span class="params">(USART_TypeDef *USARTx, <span class="keyword">uint16_t</span> USART_IT)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">····</span><br></pre></td></tr></table></figure>
 </li>
-</ol>
-</li>
-</ul>
-<p><img src="https://s1.ax1x.com/2017/10/01/13li4.png" alt=""></p>
-<ul>
-<li><ol>
-<li>我们从上图可以看出不支持嵌套注释的编译器已经能通过编译并且有区别去支持嵌套注释的编译器的输出。但是支持嵌套注释的编译器由于多了*/导致编译失败，因为不支持嵌套注释的编译器的注释之间无论是什么都可以忽略，所以我们在最后的   */ 之前加一个 /* 让支持嵌套注释的编译器能找到配对的注释对。<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*"/*"*/</span><span class="string">"*/"</span><span class="comment">/*"/**/</span></span><br></pre></td></tr></table></figure>
+<li><p>到此完成了串口空闲中断的配置，之后只要两次接收数据之间的时间大于一个字符的时间(跟波特率有关),就能触发这个中断。</p>
 </li>
 </ol>
-</li>
-</ul>
-<p><img src="https://s1.ax1x.com/2017/10/01/131JJ.png" alt=""></p>
-<p>通过上述步骤我们找到了一个合适的语句使得在两种编译器中编译成功并且有不同的输出。</p>
-<p><img src="https://s1.ax1x.com/2017/10/01/133W9.png" alt=""></p>
-<p>通过一段简单的代码我们可以看下效果</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">ISSupNestComment</span><span class="params">(<span class="keyword">void</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"This compiler %s support nested comment \r\n"</span>,</span><br><span class="line">           ISSupNestComment()? <span class="string">""</span>: <span class="string">"does not"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">ISSupNestComment</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> *Str=<span class="comment">/*"/*"*/</span><span class="string">"*/"</span><span class="comment">/*"/**/</span>;</span><br><span class="line">    <span class="keyword">if</span>(Str[<span class="number">0</span>]==<span class="string">'*'</span>)<span class="comment">//"*/"不支持嵌套注释</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">else</span>           <span class="comment">//"/*"支持嵌套注释</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>自己做完这个感觉还是有点意思的，上网搜了一波，发现别人想的更是精妙。不禁发出一套赞赏三连，卧槽牛逼666。下面我们看下一大佬们是怎么做的。</p>
-<h1 id="1-Doug-McIlroy"><a href="#1-Doug-McIlroy" class="headerlink" title="1.Doug McIlroy"></a>1.Doug McIlroy</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*/*/</span><span class="number">0</span>*<span class="comment">/**/</span><span class="number">1</span></span><br></pre></td></tr></table></figure>
-<p> 这个解法主要利用了编译器作词法分析时的“大嘴法”规则。编译器支持嵌套注释，则上式将被解释为<strong>1</strong>.编译器不支持嵌套注释，则上式将被解释为 <strong>0*1</strong>.</p>
-<p><img src="https://s1.ax1x.com/2017/10/01/135Wj.png" alt=""></p>
-<h1 id="2-TimWu"><a href="#2-TimWu" class="headerlink" title="2.TimWu"></a>2.<a href="http://www.cppblog.com/Tim/archive/2011/03/25/142726.html" target="_blank" rel="noopener">TimWu</a></h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> A <span class="comment">/* aaa /* a*/</span> a</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> B */</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">CanNesting</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> B</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>他利用的多行注释和宏定义的特性，编译器支持嵌套注释宏定义B则会被注释掉导致没有宏定义B。编译器不支持嵌套注释，宏定义B则会定义为 */。通过预编译判断就可以输出结果。</p>
-<p><img src="https://s1.ax1x.com/2017/10/01/13OTU.png" alt=""></p>
 
       
     </div>
@@ -646,23 +608,23 @@
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <li class="post-copyright-title">
-  <strong>本文标题：</strong><a href="/2017/10/01/测试编译器是否支持嵌套注释/"> 测试编译器是否支持嵌套注释</a>
+  <strong>本文标题：</strong><a href="/article/977ab4d9.html"> SMT32串口接收、空闲中断</a>
   </li>
   <li class="post-copyright-author">
     <strong>本文作者：</strong>
 	<a href="/" title="访问 BeGild 的个人博客">BeGild</a>
   </li>
     <li class="post-copyright-date">
-  <strong>发布时间：2017年10月01日 - 00:10</strong>
+  <strong>发布时间：2018年03月01日 - 15:03</strong>
   </li>
     <li class="post-copyright-updated">
-  <strong>最后更新：2018年03月01日 - 11:03</strong>
+  <strong>最后更新：2018年04月26日 - 13:04</strong>
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://begild.top/2017/10/01/测试编译器是否支持嵌套注释/" title="测试编译器是否支持嵌套注释 ">http://begild.top/2017/10/01/测试编译器是否支持嵌套注释/</a>
+    <a href="http://begild.top/article/977ab4d9.html" title="SMT32串口接收、空闲中断 ">http://begild.top/article/977ab4d9.html</a>
   <span class="copy-path"  title="点击复制文章链接">
-	<i class="fa fa-clipboard" data-clipboard-text="http://begild.top/2017/10/01/测试编译器是否支持嵌套注释/"  aria-label="复制成功！"></i>
+	<i class="fa fa-clipboard" data-clipboard-text="http://begild.top/article/977ab4d9.html"  aria-label="复制成功！"></i>
   </span>
 
  </li>
@@ -692,7 +654,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/嵌套注释/" <i class="fa fa-tint"></i>嵌套注释</a>
+            <a href="/tags/串口-UART/" <i class="fa fa-tint"></i>串口(UART)</a>
           
         </div>
       
@@ -724,8 +686,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/13/大小端/" rel="next" title="处理器大小端存储模式">
-                <i class="fa fa-chevron-left"></i> 处理器大小端存储模式
+              <a href="/article/2e11c696.html" rel="next" title="ESP8266工程的裁剪和编译">
+                <i class="fa fa-chevron-left"></i> ESP8266工程的裁剪和编译
               </a>
             
           </div>
@@ -734,8 +696,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/10/28/C函数指针/" rel="prev" title="C函数指针">
-                C函数指针 <i class="fa fa-chevron-right"></i>
+              <a href="/article/a854db16.html" rel="prev" title="STM32自定义串口printf">
+                STM32自定义串口printf <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -923,7 +885,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Doug-McIlroy"><span class="nav-number">1.</span> <span class="nav-text">1.Doug McIlroy</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-TimWu"><span class="nav-number">2.</span> <span class="nav-text">2.TimWu</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#识别尾进行接收结束的验证"><span class="nav-number">1.</span> <span class="nav-text">识别尾进行接收结束的验证</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#识别头尾进行数据段的保护"><span class="nav-number">2.</span> <span class="nav-text">识别头尾进行数据段的保护</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#STM32空闲中断的配置"><span class="nav-number">3.</span> <span class="nav-text">STM32空闲中断的配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#STM32空闲中断服务函数"><span class="nav-number">4.</span> <span class="nav-text">STM32空闲中断服务函数</span></a></li></ol></div>
             
 
           </div>
@@ -942,7 +904,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018/04-24</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018/04-26</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

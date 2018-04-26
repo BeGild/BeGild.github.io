@@ -158,24 +158,21 @@
 
 
   
-  <meta name="keywords" content="BeGild's blog" />
+  <meta name="keywords" content="Flash读写," />
 
 
-<meta name="description" content="前言本篇文章主要讲一下，乐鑫官方给的ESP8266 Demo怎么裁剪成我们要的样子以及编译。 模板工程所需文件由于官方给的工程是包含了全部的Demo和库所以我们直接使用是不能编译的。我们就从一个最基础的工程模板开始裁剪，因为其他的功能都可以通过工程模板添加库和代码来实现。首先亮一下官方原版的RTOS SDK的工程结构(下左图)。">
+<meta name="description" content="这里记一下STM32F4板子FLASH的读写操作以及需要注意的地方。 FLASH的写操作 FLASH由 ‘1’ 变为 ‘0’ 不能由 ‘0’ 变为 ‘1’ ，所以在写入之间需要检测是否为 ‘1’  ,并且擦除flash只能按照一个扇区来删除，由上可知，我们写入之前必须确保我们需要写入的地址读回来的值是0XFF，如果不是0XFF就需要将整个扇区擦除(扇区变为全 ‘1’ )。 写入操作(包括擦除)之前">
+<meta name="keywords" content="Flash读写">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ESP8266工程的裁剪和编译">
-<meta property="og:url" content="http://begild.top/2018/01/23/ESP8266工程的裁剪和编译/index.html">
+<meta property="og:title" content="STM32 Flash的读写">
+<meta property="og:url" content="http://begild.top/article/31184d7e.html">
 <meta property="og:site_name" content="BeGild Working">
-<meta property="og:description" content="前言本篇文章主要讲一下，乐鑫官方给的ESP8266 Demo怎么裁剪成我们要的样子以及编译。 模板工程所需文件由于官方给的工程是包含了全部的Demo和库所以我们直接使用是不能编译的。我们就从一个最基础的工程模板开始裁剪，因为其他的功能都可以通过工程模板添加库和代码来实现。首先亮一下官方原版的RTOS SDK的工程结构(下左图)。">
+<meta property="og:description" content="这里记一下STM32F4板子FLASH的读写操作以及需要注意的地方。 FLASH的写操作 FLASH由 ‘1’ 变为 ‘0’ 不能由 ‘0’ 变为 ‘1’ ，所以在写入之间需要检测是否为 ‘1’  ,并且擦除flash只能按照一个扇区来删除，由上可知，我们写入之前必须确保我们需要写入的地址读回来的值是0XFF，如果不是0XFF就需要将整个扇区擦除(扇区变为全 ‘1’ )。 写入操作(包括擦除)之前">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://s1.ax1x.com/2018/01/23/pIQc7j.png">
-<meta property="og:image" content="https://s1.ax1x.com/2018/01/23/pI1hOU.png">
-<meta property="og:image" content="https://s1.ax1x.com/2018/01/23/pouGqJ.png">
-<meta property="og:updated_time" content="2018-03-15T20:03:22.939Z">
+<meta property="og:updated_time" content="2018-04-26T05:14:41.999Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ESP8266工程的裁剪和编译">
-<meta name="twitter:description" content="前言本篇文章主要讲一下，乐鑫官方给的ESP8266 Demo怎么裁剪成我们要的样子以及编译。 模板工程所需文件由于官方给的工程是包含了全部的Demo和库所以我们直接使用是不能编译的。我们就从一个最基础的工程模板开始裁剪，因为其他的功能都可以通过工程模板添加库和代码来实现。首先亮一下官方原版的RTOS SDK的工程结构(下左图)。">
-<meta name="twitter:image" content="https://s1.ax1x.com/2018/01/23/pIQc7j.png">
+<meta name="twitter:title" content="STM32 Flash的读写">
+<meta name="twitter:description" content="这里记一下STM32F4板子FLASH的读写操作以及需要注意的地方。 FLASH的写操作 FLASH由 ‘1’ 变为 ‘0’ 不能由 ‘0’ 变为 ‘1’ ，所以在写入之间需要检测是否为 ‘1’  ,并且擦除flash只能按照一个扇区来删除，由上可知，我们写入之前必须确保我们需要写入的地址读回来的值是0XFF，如果不是0XFF就需要将整个扇区擦除(扇区变为全 ‘1’ )。 写入操作(包括擦除)之前">
 
 
 
@@ -184,10 +181,10 @@
 
 
 
-  <link rel="canonical" href="http://begild.top/2018/01/23/ESP8266工程的裁剪和编译/"/>
+  <link rel="canonical" href="http://begild.top/article/31184d7e.html"/>
 
 
-  <title>ESP8266工程的裁剪和编译 | BeGild Working</title>
+  <title>STM32 Flash的读写 | BeGild Working</title>
   
 
 
@@ -420,7 +417,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://begild.top/2018/01/23/ESP8266工程的裁剪和编译/">
+    <link itemprop="mainEntityOfPage" href="http://begild.top/article/31184d7e.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="BeGild">
@@ -437,7 +434,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">ESP8266工程的裁剪和编译</h2>
+          <h2 class="post-title" itemprop="name headline">STM32 Flash的读写</h2>
         
 
         <div class="post-meta">
@@ -460,7 +457,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-03-16T04:03:22+08:00">2018-03-16</time>
+              <time title="更新于" itemprop="dateModified" datetime="2018-04-26T13:14:41+08:00">2018-04-26</time>
             
           </span>
 
@@ -476,7 +473,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/ESP8266/" itemprop="url" rel="index"><span itemprop="name">ESP8266</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/STM32/" itemprop="url" rel="index"><span itemprop="name">STM32</span></a></span>
 
                 
                 
@@ -491,8 +488,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/01/23/ESP8266工程的裁剪和编译/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/01/23/ESP8266工程的裁剪和编译/" itemprop="commentCount"></span>
+                <a href="/article/31184d7e.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/article/31184d7e.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -525,45 +522,48 @@
       
 
       
-        <script src="\assets\js\APlayer.min.js"> </script><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本篇文章主要讲一下，乐鑫官方给的ESP8266 Demo怎么裁剪成我们要的样子以及编译。</p>
-<h2 id="模板工程所需文件"><a href="#模板工程所需文件" class="headerlink" title="模板工程所需文件"></a>模板工程所需文件</h2><p>由于官方给的工程是包含了全部的Demo和库所以我们直接使用是不能编译的。我们就从一个最基础的工程模板开始裁剪，因为其他的功能都可以通过工程模板添加库和代码来实现。首先亮一下官方原版的RTOS SDK的工程结构(下左图)。<br><a id="more"></a><br><img src="https://s1.ax1x.com/2018/01/23/pIQc7j.png" alt="1.png">  </p>
-<p>我们需要把这个工程做成一个最基本的模板那么就需要把里面冲突的和暂时不需的都给删除。如下图是需要裁剪的内容： 红色的是需要删除的。紫色的删了节省空间。<br><img src="https://s1.ax1x.com/2018/01/23/pI1hOU.png" alt="2.png"><br>所以我们把刚刚标记这些都全部删除(别忘了备份一个原版的以后用)之后，这样就会少了很多东西。<br>那现在可以编译了吗？打扰了，并不行。因为makefile这个神奇的东西存在，所以我们需要做一些调整和更改使得makefile能正确的识别、编译、链接整个工程。至于makefile是什么东西大家上网搜查看！这里就不展开讲了，因为就那个就可以做一个专题23333。<br>你暂时只需要知道编译整个工程需要它掌控整个工程的各个文件的信息和关系的，所以我们需要告诉它各个文件的信息和之间的关系，所幸的是官方给的makefile已经很通用了，我们稍微做改变就可以了(感谢ing…)</p>
-<h2 id="模板工程文件的调整"><a href="#模板工程文件的调整" class="headerlink" title="模板工程文件的调整"></a>模板工程文件的调整</h2><p>下面的操作就是属于比较灵性的，不要问我为什么因为我个人觉得这样比较好。先按照我的来，等你学会了就可以去装逼了。先约定”/“就是工程的根目录，用绝对路径目录有点长。  </p>
-<ol>
-<li>剪切 /driver_lib/driver —&gt; /examples/project_template/</li>
-<li>剪切 /driver_lib/include/ 的所有头文件 —&gt; /examples/project_template/include/</li>
-<li>改名 /examples/project_template —&gt; app</li>
-<li>复制 /examples/app —&gt; /</li>
-<li>删除 /app/sample_lib 目录</li>
-<li>删除 /driver_lib 目录  </li>
-<li>删除 /examples 目录</li>
-</ol>
-<p>这样就完成了工程文件的调整：把相关的硬件驱动移到app目录下面，并且删除了示例的库。调整完成之后的目录如下图(documents目录删不删不影响)：<br><img src="https://s1.ax1x.com/2018/01/23/pouGqJ.png" alt="3.png">  </p>
-<h2 id="MakeFile文件的修改"><a href="#MakeFile文件的修改" class="headerlink" title="MakeFile文件的修改"></a>MakeFile文件的修改</h2><ol>
-<li>修改/Makefile文件<ul>
-<li>文件里添加两句话<font color="#ff0000" size="5">SDK_PATH=××× BIN_PATH=xxx </font>比如我的工程根目录在<font color="#00ccff" size="3"> “ e:/esp8266/leixing/ESP8266_RTOS_SDK-1.5-project_template “</font>那么我的文件修改如下：<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">....</span><br><span class="line"><span class="keyword">ifndef</span> PDIR</span><br><span class="line"></span><br><span class="line"><span class="keyword">endif</span></span><br><span class="line"></span><br><span class="line">SDK_PATH=e:/esp8266/leixing/ESP8266_RTOS_SDK-1.5-project_template</span><br><span class="line">BIN_PATH=e:/esp8266/leixing/ESP8266_RTOS_SDK-1.5-project_template/bin</span><br><span class="line"> </span><br><span class="line"><span class="keyword">ifeq</span> (<span class="variable">$(COMPILE)</span>, xcc)</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+        <script src="/assets/js/APlayer.min.js"> </script><p>这里记一下STM32F4板子FLASH的读写操作以及需要注意的地方。</p>
+<h2 id="FLASH的写操作"><a href="#FLASH的写操作" class="headerlink" title="FLASH的写操作"></a>FLASH的写操作</h2><ol>
+<li>FLASH由 ‘1’ 变为 ‘0’ 不能由 ‘0’ 变为 ‘1’ ，所以在写入之间需要检测是否为 ‘1’  ,并且擦除flash只能按照一个扇区来删除，由上可知，我们写入之前必须确保我们需要写入的地址读回来的值是0XFF，如果不是0XFF就需要将整个扇区擦除(扇区变为全 ‘1’ )。</li>
+<li>写入操作(包括擦除)之前需要将FLASH解锁 <code>FLASH_Unlock()</code>，操作完成之后需要将FLASH上锁 <code>FLASH_Lock()</code> 。<a id="more"></a>
 </li>
+</ol>
+<h2 id="正点原子的例子"><a href="#正点原子的例子" class="headerlink" title=" 正点原子的例子"></a><a href="http://www.alientek.com/" target="_blank" rel="noopener"> 正点原子</a>的例子</h2><ul>
+<li>写入流程:<ul>
+<li>解锁FLASH <code>FLASH_Unlock()</code>；</li>
+<li>禁止数据缓存<code>FLASH_DataCacheCmd(DISABLE)</code>,根据你传入的起始地址 <code>WriteAddr</code> 和写入的字节数 <code>NumToWrite</code> 计算出结束地址 <code>endaddr</code>；</li>
+<li>遍历整个写入范围，一旦发现非 ’1‘ 数据的出现就擦除整个扇区，他这里是字(Word)来检测的，所以地址 <code>addrx</code> 每次加4；</li>
+<li>检测完毕并且擦除之后，进入写操作，每次写入一个字(4byte)的数据。所以 <code>WriteAddr</code> 每次加4, <code>u32 *pBuffer</code> 每次加1 ；</li>
+<li>使能数据缓存<code>FLASH_DataCacheCmd(ENABLE)</code>，上锁FLASH <code>FLASH_Lock()</code>。</li>
 </ul>
 </li>
-</ol>
-<p>2.修改/app/Makefile文件</p>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//从指定地址开始写入指定长度的数据</span></span><br><span class="line"><span class="comment">//特别注意:因为STM32F4的扇区实在太大,没办法本地保存扇区数据,所以本函数</span></span><br><span class="line"><span class="comment">//     写地址如果非0XFF,那么会先擦除整个扇区且不保存扇区数据.所以</span></span><br><span class="line"><span class="comment">//     写非0XFF的地址,将导致整个扇区数据丢失.建议写之前确保扇区里</span></span><br><span class="line"><span class="comment">//     没有重要数据,最好是整个扇区先擦除了,然后慢慢往后写.</span></span><br><span class="line"><span class="comment">//该函数对OTP区域也有效!可以用来写OTP区!</span></span><br><span class="line"><span class="comment">//OTP区域地址范围:0X1FFF7800~0X1FFF7A0F</span></span><br><span class="line"><span class="comment">//WriteAddr:起始地址(此地址必须为4的倍数!!)</span></span><br><span class="line"><span class="comment">//pBuffer:数据指针</span></span><br><span class="line"><span class="comment">//NumToWrite:字(32位)数(就是要写入的32位数据的个数.)</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">STMFLASH_Write</span><span class="params">(u32 WriteAddr, u32 *pBuffer, u32 NumToWrite)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    FLASH_Status status = FLASH_COMPLETE;</span><br><span class="line">    u32 addrx = <span class="number">0</span>;</span><br><span class="line">    u32 endaddr = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span>(WriteAddr &lt; STM32_FLASH_BASE || WriteAddr % <span class="number">4</span>)<span class="keyword">return</span>;	<span class="comment">//非法地址</span></span><br><span class="line">    FLASH_Unlock();									<span class="comment">//解锁</span></span><br><span class="line">    FLASH_DataCacheCmd(DISABLE);<span class="comment">//FLASH擦除期间,必须禁止数据缓存</span></span><br><span class="line"></span><br><span class="line">    addrx = WriteAddr;				<span class="comment">//写入的起始地址</span></span><br><span class="line">    endaddr = WriteAddr + NumToWrite * <span class="number">4</span>;	<span class="comment">//写入的结束地址</span></span><br><span class="line">    <span class="keyword">if</span>(addrx &lt; <span class="number">0X1FFF0000</span>)			<span class="comment">//只有主存储区,才需要执行擦除操作!!</span></span><br><span class="line">    &#123;</span><br><span class="line">    <span class="keyword">while</span>(addrx &lt; endaddr)		<span class="comment">//扫清一切障碍.(对非FFFFFFFF的地方,先擦除)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(STMFLASH_ReadWord(addrx) != <span class="number">0XFFFFFFFF</span>) <span class="comment">//有非0XFFFFFFFF的地方,要擦除这个扇区</span></span><br><span class="line">        &#123;</span><br><span class="line">        status = FLASH_EraseSector(STMFLASH_GetFlashSector(addrx), VoltageRange_3); <span class="comment">//VCC=2.7~3.6V之间!!</span></span><br><span class="line">        <span class="keyword">if</span>(status != FLASH_COMPLETE)<span class="keyword">break</span>;	<span class="comment">//发生错误了</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> addrx += <span class="number">4</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(status == FLASH_COMPLETE)</span><br><span class="line">    &#123;</span><br><span class="line">    <span class="keyword">while</span>(WriteAddr &lt; endaddr) <span class="comment">//写数据</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(FLASH_ProgramWord(WriteAddr, *pBuffer) != FLASH_COMPLETE) <span class="comment">//写入数据</span></span><br><span class="line">        &#123;</span><br><span class="line">        <span class="keyword">break</span>;	<span class="comment">//写入异常</span></span><br><span class="line">        &#125;</span><br><span class="line">        WriteAddr += <span class="number">4</span>;</span><br><span class="line">        pBuffer++;</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    FLASH_DataCacheCmd(ENABLE);	<span class="comment">//FLASH擦除结束,开启数据缓存</span></span><br><span class="line">    FLASH_Lock();<span class="comment">//上锁</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>文件里添加一句话<font color="#ff0000" size="5">SDK_PATH=×××</font> 添加在文件的17行左右，内容就是你工程的根目录。</li>
-<li>文件里的<font color="#ff0000" size="5">SUBDIR=×××</font> 把所有包含了c文件的子目录都添加进去。(‘\’表示续一行)，ctrl+f可快速查找，修改位置大概在23行左右。</li>
-<li><p>修改完成之后如下：</p>
-<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">...上续</span><br><span class="line"><span class="comment">#FLAVOR = release</span></span><br><span class="line">FLAVOR = debug</span><br><span class="line">SDK_PATH=e:/esp8266/leixing/ESP8266_RTOS_SDK-1.5-project_template</span><br><span class="line"><span class="comment">#EXTRA_CCFLAGS += -u</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">ifndef</span> PDIR <span class="comment"># &#123;</span></span><br><span class="line">GEN_IMAGES= eagle.app.v6.out</span><br><span class="line">GEN_BINS= eagle.app.v6.bin</span><br><span class="line">SPECIAL_MKTARGETS=<span class="variable">$(APP_MKTARGETS)</span></span><br><span class="line">SUBDIRS=    \</span><br><span class="line">    user    \</span><br><span class="line">    driver</span><br><span class="line"><span class="keyword">endif</span> <span class="comment"># &#125; PDIR</span></span><br><span class="line">...下续</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>把<font color="#ff0000" size="5">COMPONENTS_eagle.app.v6=×××</font> 需要的.a文件修改为子目录下生成对应的.a文件(听不懂没关系，看效果代码)，大概在48行左右。</p>
-<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">...上续</span><br><span class="line"><span class="keyword">ifeq</span> (<span class="variable">$(FLAVOR)</span>,release)</span><br><span class="line">TARGET_LDFLAGS += -g -O0</span><br><span class="line"><span class="keyword">endif</span></span><br><span class="line"></span><br><span class="line">COMPONENTS_eagle.app.v6 = \</span><br><span class="line">    user/libuser.a  \</span><br><span class="line">    driver/libdriver.a </span><br><span class="line">LINKFLAGS_eagle.app.v6 = \</span><br><span class="line">    -L<span class="variable">$(SDK_PATH)</span>/lib        \</span><br><span class="line">    -Wl,--gc-sections   \</span><br><span class="line">...下续</span><br></pre></td></tr></table></figure>
+<li>测试和分析<br>经过实验，擦除扇区的时间是很久的，擦除128KByte的扇区大概需要1s多。并且，不解锁虽然可以通过擦除函数并且返回 <code>FLASH_COMPLETE</code> 但是实际并没有擦除成功。我开始以为他这个耗时主要体现在读和判断，擦除操作比较快，😒但其实读120KByte的数据只需要3.9ms加上判断的时间也没多少主要的时间耗费在擦除操作上。😆另一个体现就是如果在 Keil 的工程选项里把擦除全部flash勾选，下载前的擦除的时间是很长的。下面是测试代码和解释结果。测试结果可以看出，擦除的时间并没有很大变化，因为都是需要一次性操作一个扇区，只要不超过一个扇区的长度都不会变化很大。写入和读出的时间保持线性变化。所有的测试都是用原子官方例程按照WORD(32bit)来写入的。</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">...上续代码</span><br><span class="line">  STMFLASH_Write(FLASH_SAVE_ADDR, (u32 *)&amp;txbuf, SIZE);<span class="comment">//写入一些数据保证flash不全为'1'</span></span><br><span class="line">  uprintf(USART1, <span class="string">"扇区预先不为全 '1'时写入:\r\n"</span>);</span><br><span class="line">  uprintf(USART1, <span class="string">"写入长度:%d\r\n"</span>, TEXT_LENTH);</span><br><span class="line">  <span class="comment">//原子的例子擦除flash再写入数据</span></span><br><span class="line">  STMFLASH_Write(FLASH_SAVE_ADDR, (u32 *)&amp;txbuf, SIZE);</span><br><span class="line">  <span class="built_in">memset</span>(readbuf,<span class="number">0</span>,TEXT_LENTH);<span class="comment">//清空数据读取</span></span><br><span class="line">  StartTiming();</span><br><span class="line">  STMFLASH_Read(FLASH_SAVE_ADDR, (u32 *)&amp;readbuf, SIZE);</span><br><span class="line">  timems = GetTimeMs();</span><br><span class="line">  uprintf(USART1, <span class="string">"读出耗时:%.3fms\r\n"</span>, timems);</span><br><span class="line">  uprintf(USART1, <span class="string">"读出长度:%d\r\n----\r\n"</span>, TEXT_LENTH, <span class="built_in">strlen</span>((<span class="keyword">const</span> <span class="keyword">char</span> *)readbuf));</span><br><span class="line">...下续代码</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">STMFLASH_Write</span><span class="params">(u32 WriteAddr, u32 *pBuffer, u32 NumToWrite)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">...上续代码</span><br><span class="line">  FLASH_DataCacheCmd(DISABLE);<span class="comment">//FLASH擦除期间,必须禁止数据缓存</span></span><br><span class="line">  StartTiming();<span class="comment">//开始计时擦除扇区耗时</span></span><br><span class="line">.....上续代码</span><br><span class="line">	timems = GetTimeMs(); </span><br><span class="line">	uprintf(USART1,<span class="string">"擦除扇区耗时 :%.3fms\r\n"</span>,timems);</span><br><span class="line">	StartTiming();<span class="comment">//开始写入计时</span></span><br><span class="line">    <span class="keyword">if</span>(status == FLASH_COMPLETE)</span><br><span class="line">    &#123;</span><br><span class="line">...上续代码</span><br><span class="line"> FLASH_Lock();<span class="comment">//上锁</span></span><br><span class="line"> timems = GetTimeMs();<span class="comment">//获取写入耗时</span></span><br><span class="line"> uprintf(USART1, <span class="string">"写入耗时:%.3fms\r\n"</span>, timems);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*测试结果 测试120、12K、120K(Byte)的数据*/</span></span><br><span class="line">扇区预先不为全 <span class="string">'1'</span>时写入:</span><br><span class="line">写入长度:<span class="number">120</span></span><br><span class="line">擦除扇区耗时 :<span class="number">1046.720</span>ms</span><br><span class="line">写入耗时:<span class="number">0.440</span>ms</span><br><span class="line">读出耗时:<span class="number">0.020</span>ms</span><br><span class="line">读出长度:<span class="number">120</span> </span><br><span class="line">----</span><br><span class="line">扇区预先不为全 <span class="string">'1'</span>时写入:</span><br><span class="line">写入长度:<span class="number">12288</span></span><br><span class="line">擦除扇区耗时 :<span class="number">1050.220</span>ms</span><br><span class="line">写入耗时:<span class="number">45.700</span>ms</span><br><span class="line">读出耗时:<span class="number">0.380</span>ms</span><br><span class="line">读出长度:<span class="number">12288</span> </span><br><span class="line">----</span><br><span class="line">扇区预先不为全 <span class="string">'1'</span>时写入:</span><br><span class="line">写入长度:<span class="number">122880</span></span><br><span class="line">擦除扇区耗时 :<span class="number">1051.860</span>ms</span><br><span class="line">写入耗时:<span class="number">458.700</span>ms</span><br><span class="line">读出耗时:<span class="number">3.880</span>ms</span><br><span class="line">读出长度:<span class="number">122880</span> </span><br><span class="line">----</span><br></pre></td></tr></table></figure>
+<h2 id="改进擦除方式"><a href="#改进擦除方式" class="headerlink" title="改进擦除方式"></a>改进擦除方式</h2><ul>
+<li>改进的一点想法<br>根据正点原子的测试结果来看，擦除扇区的时间是不可避免的，无非就是暴力一点不检测直接擦除(因为通常来说，如果你存储在固定的flash地址除了第一次之后都会有数据)。这样搞了之后从测试的结果来看提升并不明显。写120KByte的数据下擦除时间少了4ms左右😔(少了读取和判断的时间)。所以擦除的方式并没有很好的改进方法(标题党😈)。</li>
+</ul>
+<h2 id="通用性考虑"><a href="#通用性考虑" class="headerlink" title="通用性考虑"></a>通用性考虑</h2><ul>
+<li>通过正点原子的例子熟悉了Flash的读写，但是只支持4字节对齐(WORD)的操作,我看了一下库的函数是可以支持 BYTE，HALFWORD,WORD, 和 DOUBLEWORD 的，不过 DOUBLEWORD 需要外部Vpp。所以想改进一些支持库函数里的各种byte(1-4) 的操作。</li>
+<li>修改好之后测试一下测试代码和上面原版的差不多。只是写入函数换成了修改之后的<code>STMFLASH_WriteWithErase</code>，测试结果如下,测试的时候用的是WORD方式写入。和原子基本没有差别。<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">扇区预先不为全 <span class="string">'1'</span>时写入:</span><br><span class="line">写入长度:<span class="number">120</span></span><br><span class="line">擦除扇区耗时 :<span class="number">1043.500</span>ms</span><br><span class="line">写入耗时:<span class="number">0.460</span>ms</span><br><span class="line">读出耗时:<span class="number">0.000</span>ms</span><br><span class="line">读出长度:<span class="number">120</span> </span><br><span class="line">----</span><br><span class="line">扇区预先不为全 <span class="string">'1'</span>时写入:</span><br><span class="line">写入长度:<span class="number">12288</span></span><br><span class="line">擦除扇区耗时 :<span class="number">1046.580</span>ms</span><br><span class="line">写入耗时:<span class="number">45.700</span>ms</span><br><span class="line">读出耗时:<span class="number">0.400</span>ms</span><br><span class="line">读出长度:<span class="number">12288</span> </span><br><span class="line">----</span><br><span class="line">扇区预先不为全 <span class="string">'1'</span>时写入:</span><br><span class="line">写入长度:<span class="number">122880</span></span><br><span class="line">擦除扇区耗时 :<span class="number">1050.860</span>ms</span><br><span class="line">写入耗时:<span class="number">459.140</span>ms</span><br><span class="line">读出耗时:<span class="number">3.900</span>ms</span><br><span class="line">读出长度:<span class="number">122880</span> </span><br><span class="line">----</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>这样就修改完成了。  </p>
-<h2 id="工程的编译"><a href="#工程的编译" class="headerlink" title="工程的编译"></a>工程的编译</h2><ol>
-<li>左键点击工程名选中工程-&gt;右键弹出菜单-&gt;BuildProject 即可编译。如果出现BuildProject选项灰色就是你没选中。如果失败可以尝试CleanProject(就在BuildProject下面)一下工程再编译。</li>
-<li>编译之后输出窗口大致如下，输出两个bin文件：eagle.flash.bin 和 eagle.irom0text.bin ,这样就完成了工程的编译。这个固件是不支持OTA升级的，所以也不需要boot。也没有user1.bin和user2.bin。所以不要觉得奇怪。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">23:48:32 **** Incremental Build of configuration Default for project ESP8266_RTOS_SDK-1.5-project_template ****</span><br><span class="line">make all </span><br><span class="line">make[1]: Entering directory &apos;/cygdrive/e/esp8266/leixing/ESP8266_RTOS_SDK-1.5-project_template/app&apos;</span><br><span class="line">make[2]: Entering directory &apos;/cygdrive/e/esp8266/leixing/ESP8266_RTOS_SDK-1.5-project_template/app/user&apos;</span><br><span class="line">make[2]: Leaving directory &apos;/cygdrive/e/esp8266/leixing/ESP8266_RTOS_SDK-1.5-project_template/app/user&apos;</span><br><span class="line">make[2]: Entering directory &apos;/cygdrive/e/esp8266/leixing/ESP8266_RTOS_SDK-1.5-project_template/app/driver&apos;</span><br><span class="line">make[2]: Leaving directory &apos;/cygdrive/e/esp8266/leixing/ESP8266_RTOS_SDK-1.5-project_template/app/driver&apos;</span><br><span class="line"></span><br><span class="line">!!!</span><br><span class="line">SDK_PATH: e:/esp8266/leixing/ESP8266_RTOS_SDK-1.5-project_template</span><br><span class="line">BIN_PATH: e:/esp8266/leixing/ESP8266_RTOS_SDK-1.5-project_template/bin</span><br><span class="line"></span><br><span class="line">No boot needed.</span><br><span class="line">Generate eagle.flash.bin and eagle.irom0text.bin successully in BIN_PATH</span><br><span class="line">eagle.flash.bin--------&gt;0x00000</span><br><span class="line">eagle.irom0text.bin----&gt;0x20000</span><br><span class="line">!!!</span><br><span class="line">make[1]: Leaving directory &apos;/cygdrive/e/esp8266/leixing/ESP8266_RTOS_SDK-1.5-project_template/app&apos;</span><br><span class="line"></span><br><span class="line">23:48:37 Build Finished (took 4s.472ms)</span><br></pre></td></tr></table></figure>
+<h2 id="其他ByteSize方式写入"><a href="#其他ByteSize方式写入" class="headerlink" title="其他ByteSize方式写入"></a>其他ByteSize方式写入</h2><p>相对于用WORD来说用其他方式写入flash是要慢一些的。采用 BYTE 方式需要 大概<code>1832ms</code>,采用HALFWORD方式需要<code>920ms</code>左右。因为擦除都是采用的<code>VoltageRange_3</code>也就是WORD方式所以擦除时间差不多。</p>
+<h2 id="分离操作的方式"><a href="#分离操作的方式" class="headerlink" title="分离操作的方式"></a>分离操作的方式</h2><ul>
+<li>分离操作的意义<br>把擦除和写入分开。考虑到一个扇区是非常大的，一个扇区可能会存储多种数据。如果写入之前有数据就会导致整个扇区被擦除，数据就会丢失。所以采用分离的办法，把数据的写入和擦除分隔开，根据需要选择是否擦除扇区内的数据，保证在擦除的操作之前有相应的备份操作就OK了。这样即使忘记擦除那么也只是新的数据没法正确写到flash里面，其他部分的数据就不会被擦除，这样有利于更好的数据完整性。</li>
+<li>测试结果和测试代码,经过测试分离之后的操作和没分离的时间上基本没什么差别，<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">分离操作方式写入flash:</span><br><span class="line">擦除扇区耗时:<span class="number">1023.320</span>ms</span><br><span class="line">写入长度:<span class="number">120</span> byte</span><br><span class="line">写入耗时:<span class="number">0.440</span>ms</span><br><span class="line">读出耗时:<span class="number">0.000</span>ms</span><br><span class="line">读出长度:<span class="number">120</span> byte</span><br><span class="line">****</span><br><span class="line">分离操作方式写入flash:</span><br><span class="line">擦除扇区耗时:<span class="number">1015.140</span>ms</span><br><span class="line">写入长度:<span class="number">12288</span> byte</span><br><span class="line">写入耗时:<span class="number">45.940</span>ms</span><br><span class="line">读出耗时:<span class="number">0.400</span>ms</span><br><span class="line">读出长度:<span class="number">12288</span> byte</span><br><span class="line">****</span><br><span class="line">合并操作方式写入flash:</span><br><span class="line">写入长度:<span class="number">122880</span></span><br><span class="line">擦除扇区耗时 :<span class="number">1010.480</span>ms</span><br><span class="line">写入耗时:<span class="number">461.420</span>ms</span><br><span class="line">读出耗时:<span class="number">3.900</span>ms</span><br><span class="line">读出长度:<span class="number">122880</span> </span><br><span class="line">****</span><br><span class="line"><span class="keyword">int</span> main（<span class="keyword">void</span>）</span><br><span class="line">&#123;</span><br><span class="line">...上续代码</span><br><span class="line">    uprintf(USART1, <span class="string">"分离操作方式写入flash:\r\n"</span>);</span><br><span class="line">    StartTiming();</span><br><span class="line">    status = StmEraseFlashSector(FLASH_SAVE_ADDR, TEXT_LENTH);</span><br><span class="line">    <span class="comment">//FLASH_DataCacheCmd(DISABLE);//FLASH擦除期间,必须禁止数据缓存</span></span><br><span class="line">    <span class="comment">//status = FLASH_EraseSector(STMFLASH_GetFlashSector(FLASH_SAVE_ADDR), VoltageRange_3); //VCC=2.7~3.6V之间!!</span></span><br><span class="line">    <span class="keyword">if</span>(status != FLASH_COMPLETE)</span><br><span class="line">    &#123;</span><br><span class="line">        uprintf(USART1, <span class="string">"擦除扇区失败:%d\r\n"</span>,status);    <span class="comment">//发生错误了</span></span><br><span class="line">        <span class="keyword">while</span>(<span class="number">1</span>) &#123;&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    timems = GetTimeMs();</span><br><span class="line">    uprintf(USART1, <span class="string">"擦除扇区耗时:%.3fms\r\n"</span>, timems);</span><br><span class="line">		uprintf(USART1, <span class="string">"写入长度:%d byte\r\n"</span>, TEXT_LENTH);</span><br><span class="line">    StartTiming();</span><br><span class="line">    <span class="comment">//不需要擦除falsh直接写数据</span></span><br><span class="line">    STMFLASH_WriteNoErase(FLASH_SAVE_ADDR, txbuf,TEXT_LENTH,ByteSize);</span><br><span class="line">    timems = GetTimeMs();</span><br><span class="line">    uprintf(USART1, <span class="string">"写入耗时:%.3fms\r\n"</span>, timems);</span><br><span class="line">		<span class="built_in">memset</span>(readbuf,<span class="number">0</span>,TEXT_LENTH);<span class="comment">//清空数据读取</span></span><br><span class="line">    StartTiming();</span><br><span class="line">    STMFLASH_Read(FLASH_SAVE_ADDR,readbuf, TEXT_LENTH,ByteSize);</span><br><span class="line">    timems = GetTimeMs();</span><br><span class="line">    uprintf(USART1, <span class="string">"读出耗时:%.3fms\r\n"</span>, timems);</span><br><span class="line">    uprintf(USART1, <span class="string">"读出长度:%d byte\r\n****\r\n"</span>, TEXT_LENTH, <span class="built_in">strlen</span>((<span class="keyword">const</span> <span class="keyword">char</span> *)readbuf)); 	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-</ol>
-<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>这篇说的可能看起来有点云里雾里。因为和平时大家用的的不需要自己编写编译规则的IDE不同。像keil的话你添加的头文件也需要的手动添加到工程的IncludePath里面去。但是用这个eclipse开发esp8266完全使用makefile控制的，你的目录，头文件，c文件都是需要你手动配置makefile的，道理都一样都是要告诉编译器怎么去编译链接文件。不过是你自己找到makefile添加而已。之后会专门有一篇大概说一下整个工程如果我们想添加新的功能文件夹(比如实现一个tcp客户端功能)，我们怎么去修改makefile。有什么疑问欢迎联系我。</p>
+</ul>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>搞了几天才把这个写完整。中途也进了好多的坑，浪费了好长时间。不过还是写完了。说一点注意的地方</p>
+<ul>
+<li>flash的写入地址不是偶数就可以，得是4的倍数。</li>
+<li>无论是擦除还是写入都需要先解锁flash。读取则不需要。</li>
+<li>对于同一个扇区的建议用分离的操作，并且在操作前根据需要把其他的数据读出来备份一下在写进去。</li>
+</ul>
+<p>关于本文的代码详见于<a href="https://coding.net/u/BycCoding/p/stm32f4_flash/git" target="_blank" rel="noopener">Coding项目</a>。</p>
 
       
     </div>
@@ -618,23 +618,23 @@
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <li class="post-copyright-title">
-  <strong>本文标题：</strong><a href="/2018/01/23/ESP8266工程的裁剪和编译/"> ESP8266工程的裁剪和编译</a>
+  <strong>本文标题：</strong><a href="/article/31184d7e.html"> STM32 Flash的读写</a>
   </li>
   <li class="post-copyright-author">
     <strong>本文作者：</strong>
 	<a href="/" title="访问 BeGild 的个人博客">BeGild</a>
   </li>
     <li class="post-copyright-date">
-  <strong>发布时间：2018年01月23日 - 16:01</strong>
+  <strong>发布时间：2018年03月07日 - 23:03</strong>
   </li>
     <li class="post-copyright-updated">
-  <strong>最后更新：2018年03月16日 - 04:03</strong>
+  <strong>最后更新：2018年04月26日 - 13:04</strong>
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://begild.top/2018/01/23/ESP8266工程的裁剪和编译/" title="ESP8266工程的裁剪和编译 ">http://begild.top/2018/01/23/ESP8266工程的裁剪和编译/</a>
+    <a href="http://begild.top/article/31184d7e.html" title="STM32 Flash的读写 ">http://begild.top/article/31184d7e.html</a>
   <span class="copy-path"  title="点击复制文章链接">
-	<i class="fa fa-clipboard" data-clipboard-text="http://begild.top/2018/01/23/ESP8266工程的裁剪和编译/"  aria-label="复制成功！"></i>
+	<i class="fa fa-clipboard" data-clipboard-text="http://begild.top/article/31184d7e.html"  aria-label="复制成功！"></i>
   </span>
 
  </li>
@@ -661,6 +661,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Flash读写/" <i class="fa fa-tint"></i>Flash读写</a>
+          
+        </div>
       
 
       
@@ -690,8 +696,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/22/ESP8266工程的导入/" rel="next" title="ESP8266工程的导入">
-                <i class="fa fa-chevron-left"></i> ESP8266工程的导入
+              <a href="/article/a854db16.html" rel="next" title="STM32自定义串口printf">
+                <i class="fa fa-chevron-left"></i> STM32自定义串口printf
               </a>
             
           </div>
@@ -700,8 +706,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/03/01/STM32-UART-IDLE-IT-md/" rel="prev" title="SMT32串口接收、空闲中断">
-                SMT32串口接收、空闲中断 <i class="fa fa-chevron-right"></i>
+              <a href="/article/40bf05cc.html" rel="prev" title="Win10下Linux子系统的启用">
+                Win10下Linux子系统的启用 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -889,7 +895,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模板工程所需文件"><span class="nav-number">2.</span> <span class="nav-text">模板工程所需文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模板工程文件的调整"><span class="nav-number">3.</span> <span class="nav-text">模板工程文件的调整</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MakeFile文件的修改"><span class="nav-number">4.</span> <span class="nav-text">MakeFile文件的修改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工程的编译"><span class="nav-number">5.</span> <span class="nav-text">工程的编译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后记"><span class="nav-number">6.</span> <span class="nav-text">后记</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#FLASH的写操作"><span class="nav-number">1.</span> <span class="nav-text">FLASH的写操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正点原子的例子"><span class="nav-number">2.</span> <span class="nav-text"> 正点原子的例子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#改进擦除方式"><span class="nav-number">3.</span> <span class="nav-text">改进擦除方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通用性考虑"><span class="nav-number">4.</span> <span class="nav-text">通用性考虑</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他ByteSize方式写入"><span class="nav-number">5.</span> <span class="nav-text">其他ByteSize方式写入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分离操作的方式"><span class="nav-number">6.</span> <span class="nav-text">分离操作的方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后记"><span class="nav-number">7.</span> <span class="nav-text">后记</span></a></li></ol></div>
             
 
           </div>
@@ -908,7 +914,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018/04-24</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018/04-26</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

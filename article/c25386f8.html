@@ -158,21 +158,23 @@
 
 
   
-  <meta name="keywords" content="指针," />
+  <meta name="keywords" content="大小端存储," />
 
 
-<meta name="description" content="当我们看到如下所示的代码怎么去理解它的意义呢。1(* ( void (*) () ) 0) () 解析这个函数需要下面几个知识  函数申明包含返回值，函数名，参数列表。  如返回值是’int’ 函数名为’fun’,参数列表为’void’。 1int fun(void);    函数指针和返回值为指针的函数  函数指针:函数指针pfun指向的是一个返回值为int类型，参数列表为空的函数。只要是符合">
-<meta name="keywords" content="指针">
+<meta name="description" content="大端模式：是指数据的高字节保存在内存的低地址中，而数据的低字节保存在内存的高地址中。 小端模式：是指数据的高字节保存在内存的高地址中，而数据的低字节保存在内存的低地址中。 例如：一个数据无符号32位整数0x12345678,其中0x12属于高字节(权值大)而0x78属于低字节(权值小),在不同的模式下存储的方式如下表：    内存地址 0x1000 0x1001 0x1002 0x1003">
+<meta name="keywords" content="大小端存储">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C函数指针">
-<meta property="og:url" content="http://begild.top/2017/10/28/C函数指针/index.html">
+<meta property="og:title" content="处理器大小端存储模式">
+<meta property="og:url" content="http://begild.top/article/c25386f8.html">
 <meta property="og:site_name" content="BeGild Working">
-<meta property="og:description" content="当我们看到如下所示的代码怎么去理解它的意义呢。1(* ( void (*) () ) 0) () 解析这个函数需要下面几个知识  函数申明包含返回值，函数名，参数列表。  如返回值是’int’ 函数名为’fun’,参数列表为’void’。 1int fun(void);    函数指针和返回值为指针的函数  函数指针:函数指针pfun指向的是一个返回值为int类型，参数列表为空的函数。只要是符合">
+<meta property="og:description" content="大端模式：是指数据的高字节保存在内存的低地址中，而数据的低字节保存在内存的高地址中。 小端模式：是指数据的高字节保存在内存的高地址中，而数据的低字节保存在内存的低地址中。 例如：一个数据无符号32位整数0x12345678,其中0x12属于高字节(权值大)而0x78属于低字节(权值小),在不同的模式下存储的方式如下表：    内存地址 0x1000 0x1001 0x1002 0x1003">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-15T20:02:11.550Z">
+<meta property="og:image" content="https://s1.ax1x.com/2017/10/01/1Md81.png">
+<meta property="og:updated_time" content="2018-04-26T05:14:42.013Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="C函数指针">
-<meta name="twitter:description" content="当我们看到如下所示的代码怎么去理解它的意义呢。1(* ( void (*) () ) 0) () 解析这个函数需要下面几个知识  函数申明包含返回值，函数名，参数列表。  如返回值是’int’ 函数名为’fun’,参数列表为’void’。 1int fun(void);    函数指针和返回值为指针的函数  函数指针:函数指针pfun指向的是一个返回值为int类型，参数列表为空的函数。只要是符合">
+<meta name="twitter:title" content="处理器大小端存储模式">
+<meta name="twitter:description" content="大端模式：是指数据的高字节保存在内存的低地址中，而数据的低字节保存在内存的高地址中。 小端模式：是指数据的高字节保存在内存的高地址中，而数据的低字节保存在内存的低地址中。 例如：一个数据无符号32位整数0x12345678,其中0x12属于高字节(权值大)而0x78属于低字节(权值小),在不同的模式下存储的方式如下表：    内存地址 0x1000 0x1001 0x1002 0x1003">
+<meta name="twitter:image" content="https://s1.ax1x.com/2017/10/01/1Md81.png">
 
 
 
@@ -181,10 +183,10 @@
 
 
 
-  <link rel="canonical" href="http://begild.top/2017/10/28/C函数指针/"/>
+  <link rel="canonical" href="http://begild.top/article/c25386f8.html"/>
 
 
-  <title>C函数指针 | BeGild Working</title>
+  <title>处理器大小端存储模式 | BeGild Working</title>
   
 
 
@@ -417,7 +419,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://begild.top/2017/10/28/C函数指针/">
+    <link itemprop="mainEntityOfPage" href="http://begild.top/article/c25386f8.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="BeGild">
@@ -434,7 +436,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">C函数指针</h2>
+          <h2 class="post-title" itemprop="name headline">处理器大小端存储模式</h2>
         
 
         <div class="post-meta">
@@ -457,7 +459,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-03-16T04:02:11+08:00">2018-03-16</time>
+              <time title="更新于" itemprop="dateModified" datetime="2018-04-26T13:14:42+08:00">2018-04-26</time>
             
           </span>
 
@@ -488,8 +490,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/10/28/C函数指针/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2017/10/28/C函数指针/" itemprop="commentCount"></span>
+                <a href="/article/c25386f8.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/article/c25386f8.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -522,40 +524,47 @@
       
 
       
-        <script src="\assets\js\APlayer.min.js"> </script><p>当我们看到如下所示的代码怎么去理解它的意义呢。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(* ( <span class="keyword">void</span> (*) () ) <span class="number">0</span>) ()</span><br></pre></td></tr></table></figure></p>
-<p>解析这个函数需要下面几个知识</p>
-<ol>
-<li><p>函数申明包含返回值，函数名，参数列表。</p>
-<ul>
-<li>如返回值是’int’ 函数名为’fun’,参数列表为’void’。</li>
-<li><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fun</span><span class="params">(<span class="keyword">void</span>)</span></span>;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>函数指针和返回值为指针的函数</p>
-<ul>
-<li>函数指针:函数指针pfun指向的是一个返回值为int类型，参数列表为空的函数。只要是符合这个’形状’的函数都可以吧地址赋给pfun。</li>
-<li><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> (*pfun) (<span class="keyword">void</span>);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>返回值为指针的函数:返回值为int*类型的指针，参数列表为空的函数fun1。它表示fun1是一个确定的函数。不像pfun是可以指向任何符合模板的函数。</p>
-</li>
-<li><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span>* <span class="title">fun1</span> <span class="params">(<span class="keyword">void</span>)</span></span>;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>所以在书写的时候必须注意是否需要加括号。</p>
-</li>
-<li><p>类型转化符。就像我们平时说的怎么把一个int强制转化为char呢，就是</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">48</span>;</span><br><span class="line"><span class="keyword">char</span> b = (<span class="keyword">char</span>) a;</span><br></pre></td></tr></table></figure>
-<p>我们怎么构建一个类型转化符呢，就是把目标类型用括号括起来，那么一个函数模板的类型转化符是怎么样的呢，就是把函数名去掉，然后用括号把他括起来。比如上面的函数指针pfun这个模板。我们只需要将pfun去掉，然后把剩下部分括起来。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="keyword">int</span> (*) (<span class="keyword">void</span>) )</span><br></pre></td></tr></table></figure>
-<p>这就是一个返回值为int参数列表为空的函数指针的强制类型转化符。</p>
-</li>
-</ol>
-<hr>
-<p>完成上述理解之后，我们着手理解一下<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(* ( <span class="keyword">void</span> (*) () ) <span class="number">0</span>) ()</span><br></pre></td></tr></table></figure></p>
-<p>首先通过下面这个式子可以看出这是一个函数的调用，那么左括号里面的就是函名。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(       funname     ) ()</span><br></pre></td></tr></table></figure></p>
-<p>也就是 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* (<span class="keyword">void</span> (*) () ) <span class="number">0</span>   == funname</span><br></pre></td></tr></table></figure></p>
-<p>把0强制类型转化为void (*) () 型的函数指针。也就是指向函数地址为0的指针 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="keyword">void</span> (*) () ) <span class="number">0</span></span><br></pre></td></tr></table></figure></p>
+        <script src="/assets/js/APlayer.min.js"> </script><p>大端模式：是指数据的<strong>高字节</strong>保存在内存的<strong>低地址</strong>中，而数据的<strong>低字节</strong>保存在内存的<strong>高地址</strong>中。</p>
+<p>小端模式：是指数据的<strong>高字节</strong>保存在内存的<strong>高地址</strong>中，而数据的<strong>低字节</strong>保存在内存的<strong>低地址</strong>中。</p>
+<p>例如：一个数据无符号32位整数0x12345678,其中0x12属于高字节(权值大)而0x78属于低字节(权值小),在不同的模式下存储的方式如下表：</p>
+<table>
+<thead>
+<tr>
+<th>内存地址</th>
+<th>0x1000</th>
+<th>0x1001</th>
+<th>0x1002</th>
+<th>0x1003</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>大端模式</td>
+<td>0x12</td>
+<td>0x34</td>
+<td>0x56</td>
+<td>0x78</td>
+<td></td>
+</tr>
+<tr>
+<td>小端模式</td>
+<td>0x78</td>
+<td>0x56</td>
+<td>0x34</td>
+<td>0x12</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>我们可以看得出来大端模式和我们的阅读习惯相同，权值从左往右是高位-&gt;低位而地址则是低位-&gt;高位。小端模式则是随着地址从左往右增大权值增大。地址就代表了权值的大小。</p>
+<a id="more"></a>
+<p>利用下面c代码可以看到运行环境是如何存储一个uint数据的。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">endian</span><span class="params">(<span class="keyword">void</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span> arg[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> a=<span class="number">0x12345678</span>;</span><br><span class="line">    <span class="keyword">char</span> *ap=&amp;a;</span><br><span class="line">    <span class="keyword">int</span> i=<span class="number">0</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"0x%x storage in system is:\r\n"</span>,a);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">4</span>;i++)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"addr:0x%x,value:0x%x\r\n"</span>,ap+i,ap[i]);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"system storage by %s_endian"</span>,endian()? <span class="string">"Big"</span>:<span class="string">"Little"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行的结果如下，可以看出该系统是小端系统。</p>
+<p><a href="https://imgchr.com/i/1Mp4A" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2017/10/01/1Md81.png" alt=""></a></p>
+<p>我们如何简单的判断一个系统的大小端呢。我们知道<strong>共用体(联合体)</strong>存储在内存里是共用一块地址的，其占用空间决定于最大成员所需的空间,他们的起始地址相同。所以我们可以利用一个共用体,成员分别是一个int和一个char。通过给int赋值1，然后检测char对应的值是多少，如果是1代表系统将数据1放到了int的起始地址(因为char是一个字节必然在起始地址)。而起始地址是低地址，低地址存放的1(权值小)推出该系统是小端系统。否则该系统是大端系统。</p>
+<p>C代码如下<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">endian</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">union</span>&#123;</span><br><span class="line">        <span class="keyword">int</span> a;</span><br><span class="line">        <span class="keyword">char</span> b;</span><br><span class="line">    &#125;endunion;</span><br><span class="line">    endunion.a=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(endunion.b==<span class="number">1</span>)<span class="comment">//如果成员b是1则证明随地址顺序和数字权值顺序相同是小端模式</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;<span class="comment">//小端</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;<span class="comment">//大端</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>还可以用一个更加简洁的办法(原理都是检测int的起始地址存放的是什么值)，代码如下<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">endian</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> !(*((<span class="keyword">char</span> *)&amp;a));<span class="comment">//取a的地址，将其强制转化为char指针，然后取出该地址存放的值并取反;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -610,23 +619,23 @@
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <li class="post-copyright-title">
-  <strong>本文标题：</strong><a href="/2017/10/28/C函数指针/"> C函数指针</a>
+  <strong>本文标题：</strong><a href="/article/c25386f8.html"> 处理器大小端存储模式</a>
   </li>
   <li class="post-copyright-author">
     <strong>本文作者：</strong>
 	<a href="/" title="访问 BeGild 的个人博客">BeGild</a>
   </li>
     <li class="post-copyright-date">
-  <strong>发布时间：2017年10月28日 - 10:10</strong>
+  <strong>发布时间：2017年09月13日 - 17:09</strong>
   </li>
     <li class="post-copyright-updated">
-  <strong>最后更新：2018年03月16日 - 04:03</strong>
+  <strong>最后更新：2018年04月26日 - 13:04</strong>
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://begild.top/2017/10/28/C函数指针/" title="C函数指针 ">http://begild.top/2017/10/28/C函数指针/</a>
+    <a href="http://begild.top/article/c25386f8.html" title="处理器大小端存储模式 ">http://begild.top/article/c25386f8.html</a>
   <span class="copy-path"  title="点击复制文章链接">
-	<i class="fa fa-clipboard" data-clipboard-text="http://begild.top/2017/10/28/C函数指针/"  aria-label="复制成功！"></i>
+	<i class="fa fa-clipboard" data-clipboard-text="http://begild.top/article/c25386f8.html"  aria-label="复制成功！"></i>
   </span>
 
  </li>
@@ -656,7 +665,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/指针/" <i class="fa fa-tint"></i>指针</a>
+            <a href="/tags/大小端存储/" <i class="fa fa-tint"></i>大小端存储</a>
           
         </div>
       
@@ -688,18 +697,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/01/测试编译器是否支持嵌套注释/" rel="next" title="测试编译器是否支持嵌套注释">
-                <i class="fa fa-chevron-left"></i> 测试编译器是否支持嵌套注释
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/12/06/file system/" rel="prev" title="Linux系统目录讲解">
-                Linux系统目录讲解 <i class="fa fa-chevron-right"></i>
+              <a href="/article/a56a64b5.html" rel="prev" title="测试编译器是否支持嵌套注释">
+                测试编译器是否支持嵌套注释 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -881,7 +886,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018/04-24</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018/04-26</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

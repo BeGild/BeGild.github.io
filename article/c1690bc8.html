@@ -161,23 +161,17 @@
   <meta name="keywords" content="BeGild's blog" />
 
 
-<meta name="description" content="前言：本篇文章主要讲一下，ESP8266的工程怎么导入到Eclipse里。 准备一个SDK工程 既然是导入那么你首先得有一个现有的工程(不存在建工程的，这辈子都不可能徒手建工程的)，工程从网上找一个就OK了。 ESP8266的SDK有两种，一种是无系统(NON-OS SDK)，另一种是运行了FreeRTOS的(RTOS SDK)。">
+<meta name="description" content="意义：这算是第一个教程吧，ESP8266从大三到现在学了到现在，但是没有什么记录。回头又得拿着代码一点一点看，所以打算记录一下。同时也会兼顾一些解释和教程性质的东西，给能找到这的人看看吧，希望能给你一点帮助。 更新：更新的话，不定时。至于内容的顺序，就先按照一个hello world的实现来写，从引脚，IDE，下载工具，接线到写hello world，到下载查看。这些讲完的话打开你也就懂怎么做了">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ESP8266工程的导入">
-<meta property="og:url" content="http://begild.top/2018/01/22/ESP8266工程的导入/index.html">
+<meta property="og:title" content="ESP8266开发历程前言">
+<meta property="og:url" content="http://begild.top/article/c1690bc8.html">
 <meta property="og:site_name" content="BeGild Working">
-<meta property="og:description" content="前言：本篇文章主要讲一下，ESP8266的工程怎么导入到Eclipse里。 准备一个SDK工程 既然是导入那么你首先得有一个现有的工程(不存在建工程的，这辈子都不可能徒手建工程的)，工程从网上找一个就OK了。 ESP8266的SDK有两种，一种是无系统(NON-OS SDK)，另一种是运行了FreeRTOS的(RTOS SDK)。">
+<meta property="og:description" content="意义：这算是第一个教程吧，ESP8266从大三到现在学了到现在，但是没有什么记录。回头又得拿着代码一点一点看，所以打算记录一下。同时也会兼顾一些解释和教程性质的东西，给能找到这的人看看吧，希望能给你一点帮助。 更新：更新的话，不定时。至于内容的顺序，就先按照一个hello world的实现来写，从引脚，IDE，下载工具，接线到写hello world，到下载查看。这些讲完的话打开你也就懂怎么做了">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://s1.ax1x.com/2018/01/22/p4Iub8.md.png">
-<meta property="og:image" content="https://s1.ax1x.com/2018/01/22/p5SChq.png">
-<meta property="og:image" content="https://s1.ax1x.com/2018/01/22/p5ptMT.png">
-<meta property="og:image" content="https://s1.ax1x.com/2018/01/23/p5AYtg.png">
-<meta property="og:image" content="https://s1.ax1x.com/2018/01/23/p5ERIS.png">
-<meta property="og:updated_time" content="2018-03-01T03:30:51.422Z">
+<meta property="og:updated_time" content="2018-04-26T05:14:41.995Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ESP8266工程的导入">
-<meta name="twitter:description" content="前言：本篇文章主要讲一下，ESP8266的工程怎么导入到Eclipse里。 准备一个SDK工程 既然是导入那么你首先得有一个现有的工程(不存在建工程的，这辈子都不可能徒手建工程的)，工程从网上找一个就OK了。 ESP8266的SDK有两种，一种是无系统(NON-OS SDK)，另一种是运行了FreeRTOS的(RTOS SDK)。">
-<meta name="twitter:image" content="https://s1.ax1x.com/2018/01/22/p4Iub8.md.png">
+<meta name="twitter:title" content="ESP8266开发历程前言">
+<meta name="twitter:description" content="意义：这算是第一个教程吧，ESP8266从大三到现在学了到现在，但是没有什么记录。回头又得拿着代码一点一点看，所以打算记录一下。同时也会兼顾一些解释和教程性质的东西，给能找到这的人看看吧，希望能给你一点帮助。 更新：更新的话，不定时。至于内容的顺序，就先按照一个hello world的实现来写，从引脚，IDE，下载工具，接线到写hello world，到下载查看。这些讲完的话打开你也就懂怎么做了">
 
 
 
@@ -186,10 +180,10 @@
 
 
 
-  <link rel="canonical" href="http://begild.top/2018/01/22/ESP8266工程的导入/"/>
+  <link rel="canonical" href="http://begild.top/article/c1690bc8.html"/>
 
 
-  <title>ESP8266工程的导入 | BeGild Working</title>
+  <title>ESP8266开发历程前言 | BeGild Working</title>
   
 
 
@@ -422,7 +416,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://begild.top/2018/01/22/ESP8266工程的导入/">
+    <link itemprop="mainEntityOfPage" href="http://begild.top/article/c1690bc8.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="BeGild">
@@ -439,7 +433,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">ESP8266工程的导入</h2>
+          <h2 class="post-title" itemprop="name headline">ESP8266开发历程前言</h2>
         
 
         <div class="post-meta">
@@ -462,7 +456,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-03-01T11:30:51+08:00">2018-03-01</time>
+              <time title="更新于" itemprop="dateModified" datetime="2018-04-26T13:14:41+08:00">2018-04-26</time>
             
           </span>
 
@@ -493,8 +487,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/01/22/ESP8266工程的导入/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/01/22/ESP8266工程的导入/" itemprop="commentCount"></span>
+                <a href="/article/c1690bc8.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/article/c1690bc8.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -527,58 +521,8 @@
       
 
       
-        <script src="\assets\js\APlayer.min.js"> </script><h2 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h2><p>本篇文章主要讲一下，ESP8266的工程怎么导入到Eclipse里。</p>
-<h2 id="准备一个SDK工程"><a href="#准备一个SDK工程" class="headerlink" title="准备一个SDK工程"></a>准备一个SDK工程</h2><ul>
-<li>既然是导入那么你首先得有一个现有的工程(不存在建工程的，这辈子都不可能徒手建工程的)，工程从网上找一个就OK了。</li>
-<li>ESP8266的SDK有两种，一种是无系统(NON-OS SDK)，另一种是运行了FreeRTOS的(RTOS SDK)。</li>
-</ul>
-<a id="more"></a>
-<table><tr><th width="15%">SDK类型</th><th width="55%">描述</th><th width="30%">优缺点</th></tr><tr><td>NOn-OS SDK</td><td>1.主要使⽤定时器和回调函数的⽅式实现各个功能事件的嵌套，达到特定条件下触发特定功能函数的⽬的。<br>2.使⽤ espconn 接⼝实现⽹络操作，⽤户需要按照 espconn 接⼝的使⽤规则进⾏软件开发.</td><td>1.无系统，顺序执行好理解占用资源少，但是不能有while(1);<br>2.不能有超过10ms的阻塞(延时)发生，否则将会重启。</td></tr><tr><td>RTOS SDK</td><td>1.用户可以使⽤FreeRTOS 的标准接⼝实现资源管理、循环操作、任务内延时、任务间信息传递和同步等⾯向任务流程的设计⽅式;<br>2.⽹络操作接⼝是标准 lwIP API，同时提供了 BSD Socket API 接⼝的封装实现，⽤户可以直接按照 Socket API 的使⽤⽅式来开发软件应⽤，也可以直接编译运⾏其他平台的标准 Socket 应⽤; <br>3.引⼊了 cJSON 库，使⽤该库函数可以更加⽅便的实现对 JSON 数据包的解析;<br>4.兼容 non-OS SDK 中的 Wi-Fi 接⼝、SmartConfig 接⼝、Sniffer 相关接⼝、系统接⼝、定时器接⼝、FOTA 接⼝和外围驱动接⼝，不⽀持 AT 实现。</td><td>1.有系统，通过任务的调度完成系统的运行，可以有延时。<br>2.但是资源占用较多。</td></tr></table> 
-
-<ul>
-<li>例子可以从乐鑫官方的<a href="http://espressif.com/zh-hans/support/download/sdks-demos" target="_blank" rel="noopener">下载地址</a>下载.在下图所在的网页上面有选项选择ESP8266EX之后可以从下图所示的界面选择你所需要的SDK。<br><img src="https://s1.ax1x.com/2018/01/22/p4Iub8.md.png" alt="乐鑫SDK下载"></li>
-<li>点击右边的下载按钮会跳转到GitHub(需要你懂一点点的git的知识才能下载)。如果实在没办法的话(求求你学一点git吧)，我把我写文章的时候的最新的上传到网盘，大家可以去下载 链接: <a href="https://pan.baidu.com/s/1c39VpXQ" target="_blank" rel="noopener">https://pan.baidu.com/s/1c39VpXQ</a> 密码: dup8 。</li>
-<li>下载下来解压到你想放置的目录，不要有中文和(空格?)，这样工程就完成了初步的布置。接下来就是重头戏了。<h2 id="导入工程"><a href="#导入工程" class="headerlink" title="导入工程"></a>导入工程</h2></li>
-<li>第一步:应该能想到吧，那就是打开Eclipe_IDE(不会打开就算了你不适合用电脑)。</li>
-<li>第二步:打开eclipse之后会出现欢迎界面:”Welcome to the Eclipse IDE for C/C++ Developers”。</li>
-<li>第三步:点击 工具栏-&gt;File-&gt;Import (如图)进入导入工程窗口。<br><img src="https://s1.ax1x.com/2018/01/22/p5SChq.png" alt="导入工程1"></li>
-<li>第四步:在select窗口选择C/C++-&gt;Existing Code as Makefile Project-&gt;点击Next进行下一步<br><img src="https://s1.ax1x.com/2018/01/22/p5ptMT.png" alt="导入工程2"></li>
-<li>第五步:Import Existing Code 窗口选择浏览你的工程路径(就是解压出来的文件的路径)-&gt;下方选择 Cygwin GCC 工具-&gt;再点击Finish按钮完成导入。如果在这一步发现没有Cygwin GCC选项回头去检查是否用Eclipse_IDE.exe选择了正确的 Cygwin 路径。<br><img src="https://s1.ax1x.com/2018/01/23/p5AYtg.png" alt="导入工程3"></li>
-<li>第六步:这时候你会发现，什么都没出现！怎么办？，那就是把欢迎界面叉掉！这样在右边Project栏就能发现一个折叠的工程，点击可以展开，整个界面大致如下图。我的因为是用git直接克隆下来的，所以在工程名旁边会提示橙色的字。如果你是从百度云下载的那就没有，这个无需理会，都一样(牛逼吧，git)。这时候问题输出窗口应该是什么都没有的，如果提示什么找不到g++、make等等，返回去检查是否选择的工具是Cygwin GCC！！！。<br><a href="https://imgchr.com/i/p5ERIS" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/01/23/p5ERIS.png" alt="工程整体结构图"></a><h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2>我们都是用别人的工程(Demo)上开发的，所以这一步属于比较基础的，我们导入进来之后应该是编译通不过的！为什么，因为我们的SDK路径和写Demo的人不一样。这个涉及到makefile的编写了，不过别人已经把整个makefile编写的比较”智能”了，我们只是想要编译成功的话其实是不需要懂makefile的。我们改一改SDK的路径就行了。这个下一节再讲。</li>
-</ul>
-<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><p>乐鑫官方的快速上手指导文档在上一篇<esp8266开发环境搭建>-&gt;后记 里有网盘链接在这里就不放了。里面有SDK文件目录的讲解7/31页，看一下便于后面理解。  我整理了一下：  </esp8266开发环境搭建></p>
-<ol>
-<li>RTOS SDK工程目录讲解    <ul>
-<li>bin：编译⽣成的 BIN 文件，可直接下载到 Flash 中。  </li>
-<li>documents：SDK 相关的⽂档(RTOS api)或链接。  </li>
-<li>driver_lib：乐鑫官方提供的驱动示例代码。(IIC SPI GPIO等)  </li>
-<li>examples：可供用户二次开发的示例代码。(我们把不要的删掉)  <ul>
-<li>openssl_demo：乐鑫官方提供的 OpenSSL 接口功能示例代码。  </li>
-<li>project_template：乐鑫官方提供的工程模板示例代码。(我们用这个，其他的以后再说)  </li>
-<li>smart_config：乐鑫官⽅提供的 SmartConfig 功能示例代码。  </li>
-<li>spiffs_test：乐鑫官方提供的 SPIFFS 文件系统功能示例代码。  </li>
-<li>websocket_demo：乐鑫官方提供的 WebSocket 功能示例代码。  </li>
-</ul>
-</li>
-<li>include：SDK 自带头文件，包含了用户可使⽤的相关 API 函数及其他宏定义，用户无需修改。  </li>
-<li>ld：链接时所需的脚本文件，如⽆特殊需求，用户无需修改。(根据这个可以生成多钟bin文件)  </li>
-<li>lib：SDK 提供的库文件。(只能用api不能改不能看)  </li>
-<li>third_party：乐鑫开放源代码的第三方库，当前包含FreeRTOS、JSON、LWIP,mbedTLS、noPoll、OpenSSL、SPIFFS 和 SSL。  </li>
-<li>tools：编译 BIN 文件所需的工程具，用户无需修改。  </li>
-</ul>
-</li>
-<li>Non-OS SDK工程目录讲解  <ul>
-<li>bin：编译⽣成的 BIN 文件，可直接下载到 Flash 中。  </li>
-<li>documents：SDK 相关的⽂档或链接。  </li>
-<li>driver_lib：外设驱动的库文件，如：UART、I2C 和 GPIO 等。  </li>
-<li>examples：可供用户次开发的示例代码，如 IoT Demo 等。   </li>
-<li>include：SDK ⾃带头文件，包含了用户可使用的相关 API 函数及其他宏定义，用户无需修改。  </li>
-<li>ld：链接时所需的脚本文件，若无特殊需求，用户⽆需修改。  </li>
-<li>lib：SDK 提供的库文件。  </li>
-<li>tools：编译 BIN 文件所需的工具，用户无需修改。  </li>
-</ul>
-</li>
-</ol>
+        <script src="/assets/js/APlayer.min.js"> </script><h2 id="意义："><a href="#意义：" class="headerlink" title="意义："></a>意义：</h2><p>这算是第一个教程吧，ESP8266从大三到现在学了到现在，但是没有什么记录。回头又得拿着代码一点一点看，所以打算记录一下。同时也会兼顾一些解释和教程性质的东西，给能找到这的人看看吧，希望能给你一点帮助。</p>
+<h2 id="更新："><a href="#更新：" class="headerlink" title="更新："></a>更新：</h2><p>更新的话，不定时。至于内容的顺序，就先按照一个hello world的实现来写，从引脚，IDE，下载工具，接线到写hello world，到下载查看。这些讲完的话打开你也就懂怎么做了。但是我不会写IO的使用因为我觉得他的定位作为wifi芯片比较好，就不要掺杂其他的的东西了(个人看法)。后面的软件层面的实现(主要是网络通信的应用)的话，也会写一部分。不过感觉网上其实挺多的教程(比较零散)，所以不排除会直接把比较好的搬运过来然后配合自己的理解说一下。</p>
 
       
     </div>
@@ -633,23 +577,23 @@
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <li class="post-copyright-title">
-  <strong>本文标题：</strong><a href="/2018/01/22/ESP8266工程的导入/"> ESP8266工程的导入</a>
+  <strong>本文标题：</strong><a href="/article/c1690bc8.html"> ESP8266开发历程前言</a>
   </li>
   <li class="post-copyright-author">
     <strong>本文作者：</strong>
 	<a href="/" title="访问 BeGild 的个人博客">BeGild</a>
   </li>
     <li class="post-copyright-date">
-  <strong>发布时间：2018年01月22日 - 20:01</strong>
+  <strong>发布时间：2018年01月21日 - 14:01</strong>
   </li>
     <li class="post-copyright-updated">
-  <strong>最后更新：2018年03月01日 - 11:03</strong>
+  <strong>最后更新：2018年04月26日 - 13:04</strong>
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://begild.top/2018/01/22/ESP8266工程的导入/" title="ESP8266工程的导入 ">http://begild.top/2018/01/22/ESP8266工程的导入/</a>
+    <a href="http://begild.top/article/c1690bc8.html" title="ESP8266开发历程前言 ">http://begild.top/article/c1690bc8.html</a>
   <span class="copy-path"  title="点击复制文章链接">
-	<i class="fa fa-clipboard" data-clipboard-text="http://begild.top/2018/01/22/ESP8266工程的导入/"  aria-label="复制成功！"></i>
+	<i class="fa fa-clipboard" data-clipboard-text="http://begild.top/article/c1690bc8.html"  aria-label="复制成功！"></i>
   </span>
 
  </li>
@@ -705,8 +649,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/21/ESP8266开发环境的搭建/" rel="next" title="ESP8266开发环境的搭建">
-                <i class="fa fa-chevron-left"></i> ESP8266开发环境的搭建
+              <a href="/article/888300cc.html" rel="next" title="Linux系统目录讲解">
+                <i class="fa fa-chevron-left"></i> Linux系统目录讲解
               </a>
             
           </div>
@@ -715,8 +659,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/01/23/ESP8266工程的裁剪和编译/" rel="prev" title="ESP8266工程的裁剪和编译">
-                ESP8266工程的裁剪和编译 <i class="fa fa-chevron-right"></i>
+              <a href="/article/5bce99c.html" rel="prev" title="ESP8266开发环境的搭建">
+                ESP8266开发环境的搭建 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -904,7 +848,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言："><span class="nav-number">1.</span> <span class="nav-text">前言：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#准备一个SDK工程"><span class="nav-number">2.</span> <span class="nav-text">准备一个SDK工程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#导入工程"><span class="nav-number">3.</span> <span class="nav-text">导入工程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后记"><span class="nav-number">4.</span> <span class="nav-text">后记</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附录"><span class="nav-number">5.</span> <span class="nav-text">附录</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#意义："><span class="nav-number">1.</span> <span class="nav-text">意义：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更新："><span class="nav-number">2.</span> <span class="nav-text">更新：</span></a></li></ol></div>
             
 
           </div>
@@ -923,7 +867,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018/04-24</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018/04-26</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

@@ -161,17 +161,21 @@
   <meta name="keywords" content="BeGild's blog" />
 
 
-<meta name="description" content="意义：这算是第一个教程吧，ESP8266从大三到现在学了到现在，但是没有什么记录。回头又得拿着代码一点一点看，所以打算记录一下。同时也会兼顾一些解释和教程性质的东西，给能找到这的人看看吧，希望能给你一点帮助。 更新：更新的话，不定时。至于内容的顺序，就先按照一个hello world的实现来写，从引脚，IDE，下载工具，接线到写hello world，到下载查看。这些讲完的话打开你也就懂怎么做了">
+<meta name="description" content="前言本篇文章主要讲一下，乐鑫官方给的ESP8266 Demo怎么裁剪成我们要的样子以及编译。 模板工程所需文件由于官方给的工程是包含了全部的Demo和库所以我们直接使用是不能编译的。我们就从一个最基础的工程模板开始裁剪，因为其他的功能都可以通过工程模板添加库和代码来实现。首先亮一下官方原版的RTOS SDK的工程结构(下左图)。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ESP8266开发历程前言">
-<meta property="og:url" content="http://begild.top/2018/01/21/ESP8266开发前言/index.html">
+<meta property="og:title" content="ESP8266工程的裁剪和编译">
+<meta property="og:url" content="http://begild.top/article/2e11c696.html">
 <meta property="og:site_name" content="BeGild Working">
-<meta property="og:description" content="意义：这算是第一个教程吧，ESP8266从大三到现在学了到现在，但是没有什么记录。回头又得拿着代码一点一点看，所以打算记录一下。同时也会兼顾一些解释和教程性质的东西，给能找到这的人看看吧，希望能给你一点帮助。 更新：更新的话，不定时。至于内容的顺序，就先按照一个hello world的实现来写，从引脚，IDE，下载工具，接线到写hello world，到下载查看。这些讲完的话打开你也就懂怎么做了">
+<meta property="og:description" content="前言本篇文章主要讲一下，乐鑫官方给的ESP8266 Demo怎么裁剪成我们要的样子以及编译。 模板工程所需文件由于官方给的工程是包含了全部的Demo和库所以我们直接使用是不能编译的。我们就从一个最基础的工程模板开始裁剪，因为其他的功能都可以通过工程模板添加库和代码来实现。首先亮一下官方原版的RTOS SDK的工程结构(下左图)。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-01T03:28:14.240Z">
+<meta property="og:image" content="https://s1.ax1x.com/2018/01/23/pIQc7j.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/01/23/pI1hOU.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/01/23/pouGqJ.png">
+<meta property="og:updated_time" content="2018-04-26T05:14:42.006Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ESP8266开发历程前言">
-<meta name="twitter:description" content="意义：这算是第一个教程吧，ESP8266从大三到现在学了到现在，但是没有什么记录。回头又得拿着代码一点一点看，所以打算记录一下。同时也会兼顾一些解释和教程性质的东西，给能找到这的人看看吧，希望能给你一点帮助。 更新：更新的话，不定时。至于内容的顺序，就先按照一个hello world的实现来写，从引脚，IDE，下载工具，接线到写hello world，到下载查看。这些讲完的话打开你也就懂怎么做了">
+<meta name="twitter:title" content="ESP8266工程的裁剪和编译">
+<meta name="twitter:description" content="前言本篇文章主要讲一下，乐鑫官方给的ESP8266 Demo怎么裁剪成我们要的样子以及编译。 模板工程所需文件由于官方给的工程是包含了全部的Demo和库所以我们直接使用是不能编译的。我们就从一个最基础的工程模板开始裁剪，因为其他的功能都可以通过工程模板添加库和代码来实现。首先亮一下官方原版的RTOS SDK的工程结构(下左图)。">
+<meta name="twitter:image" content="https://s1.ax1x.com/2018/01/23/pIQc7j.png">
 
 
 
@@ -180,10 +184,10 @@
 
 
 
-  <link rel="canonical" href="http://begild.top/2018/01/21/ESP8266开发前言/"/>
+  <link rel="canonical" href="http://begild.top/article/2e11c696.html"/>
 
 
-  <title>ESP8266开发历程前言 | BeGild Working</title>
+  <title>ESP8266工程的裁剪和编译 | BeGild Working</title>
   
 
 
@@ -416,7 +420,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://begild.top/2018/01/21/ESP8266开发前言/">
+    <link itemprop="mainEntityOfPage" href="http://begild.top/article/2e11c696.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="BeGild">
@@ -433,7 +437,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">ESP8266开发历程前言</h2>
+          <h2 class="post-title" itemprop="name headline">ESP8266工程的裁剪和编译</h2>
         
 
         <div class="post-meta">
@@ -456,7 +460,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-03-01T11:28:14+08:00">2018-03-01</time>
+              <time title="更新于" itemprop="dateModified" datetime="2018-04-26T13:14:42+08:00">2018-04-26</time>
             
           </span>
 
@@ -487,8 +491,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/01/21/ESP8266开发前言/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/01/21/ESP8266开发前言/" itemprop="commentCount"></span>
+                <a href="/article/2e11c696.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/article/2e11c696.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -521,8 +525,45 @@
       
 
       
-        <script src="\assets\js\APlayer.min.js"> </script><h2 id="意义："><a href="#意义：" class="headerlink" title="意义："></a>意义：</h2><p>这算是第一个教程吧，ESP8266从大三到现在学了到现在，但是没有什么记录。回头又得拿着代码一点一点看，所以打算记录一下。同时也会兼顾一些解释和教程性质的东西，给能找到这的人看看吧，希望能给你一点帮助。</p>
-<h2 id="更新："><a href="#更新：" class="headerlink" title="更新："></a>更新：</h2><p>更新的话，不定时。至于内容的顺序，就先按照一个hello world的实现来写，从引脚，IDE，下载工具，接线到写hello world，到下载查看。这些讲完的话打开你也就懂怎么做了。但是我不会写IO的使用因为我觉得他的定位作为wifi芯片比较好，就不要掺杂其他的的东西了(个人看法)。后面的软件层面的实现(主要是网络通信的应用)的话，也会写一部分。不过感觉网上其实挺多的教程(比较零散)，所以不排除会直接把比较好的搬运过来然后配合自己的理解说一下。</p>
+        <script src="/assets/js/APlayer.min.js"> </script><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本篇文章主要讲一下，乐鑫官方给的ESP8266 Demo怎么裁剪成我们要的样子以及编译。</p>
+<h2 id="模板工程所需文件"><a href="#模板工程所需文件" class="headerlink" title="模板工程所需文件"></a>模板工程所需文件</h2><p>由于官方给的工程是包含了全部的Demo和库所以我们直接使用是不能编译的。我们就从一个最基础的工程模板开始裁剪，因为其他的功能都可以通过工程模板添加库和代码来实现。首先亮一下官方原版的RTOS SDK的工程结构(下左图)。<br><a id="more"></a><br><img src="https://s1.ax1x.com/2018/01/23/pIQc7j.png" alt="1.png">  </p>
+<p>我们需要把这个工程做成一个最基本的模板那么就需要把里面冲突的和暂时不需的都给删除。如下图是需要裁剪的内容： 红色的是需要删除的。紫色的删了节省空间。<br><img src="https://s1.ax1x.com/2018/01/23/pI1hOU.png" alt="2.png"><br>所以我们把刚刚标记这些都全部删除(别忘了备份一个原版的以后用)之后，这样就会少了很多东西。<br>那现在可以编译了吗？打扰了，并不行。因为makefile这个神奇的东西存在，所以我们需要做一些调整和更改使得makefile能正确的识别、编译、链接整个工程。至于makefile是什么东西大家上网搜查看！这里就不展开讲了，因为就那个就可以做一个专题23333。<br>你暂时只需要知道编译整个工程需要它掌控整个工程的各个文件的信息和关系的，所以我们需要告诉它各个文件的信息和之间的关系，所幸的是官方给的makefile已经很通用了，我们稍微做改变就可以了(感谢ing…)</p>
+<h2 id="模板工程文件的调整"><a href="#模板工程文件的调整" class="headerlink" title="模板工程文件的调整"></a>模板工程文件的调整</h2><p>下面的操作就是属于比较灵性的，不要问我为什么因为我个人觉得这样比较好。先按照我的来，等你学会了就可以去装逼了。先约定”/“就是工程的根目录，用绝对路径目录有点长。  </p>
+<ol>
+<li>剪切 /driver_lib/driver —&gt; /examples/project_template/</li>
+<li>剪切 /driver_lib/include/ 的所有头文件 —&gt; /examples/project_template/include/</li>
+<li>改名 /examples/project_template —&gt; app</li>
+<li>复制 /examples/app —&gt; /</li>
+<li>删除 /app/sample_lib 目录</li>
+<li>删除 /driver_lib 目录  </li>
+<li>删除 /examples 目录</li>
+</ol>
+<p>这样就完成了工程文件的调整：把相关的硬件驱动移到app目录下面，并且删除了示例的库。调整完成之后的目录如下图(documents目录删不删不影响)：<br><img src="https://s1.ax1x.com/2018/01/23/pouGqJ.png" alt="3.png">  </p>
+<h2 id="MakeFile文件的修改"><a href="#MakeFile文件的修改" class="headerlink" title="MakeFile文件的修改"></a>MakeFile文件的修改</h2><ol>
+<li>修改/Makefile文件<ul>
+<li>文件里添加两句话<font color="#ff0000" size="5">SDK_PATH=××× BIN_PATH=xxx </font>比如我的工程根目录在<font color="#00ccff" size="3"> “ e:/esp8266/leixing/ESP8266_RTOS_SDK-1.5-project_template “</font>那么我的文件修改如下：<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">....</span><br><span class="line"><span class="keyword">ifndef</span> PDIR</span><br><span class="line"></span><br><span class="line"><span class="keyword">endif</span></span><br><span class="line"></span><br><span class="line">SDK_PATH=e:/esp8266/leixing/ESP8266_RTOS_SDK-1.5-project_template</span><br><span class="line">BIN_PATH=e:/esp8266/leixing/ESP8266_RTOS_SDK-1.5-project_template/bin</span><br><span class="line"> </span><br><span class="line"><span class="keyword">ifeq</span> (<span class="variable">$(COMPILE)</span>, xcc)</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<p>2.修改/app/Makefile文件</p>
+<ul>
+<li>文件里添加一句话<font color="#ff0000" size="5">SDK_PATH=×××</font> 添加在文件的17行左右，内容就是你工程的根目录。</li>
+<li>文件里的<font color="#ff0000" size="5">SUBDIR=×××</font> 把所有包含了c文件的子目录都添加进去。(‘\’表示续一行)，ctrl+f可快速查找，修改位置大概在23行左右。</li>
+<li><p>修改完成之后如下：</p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">...上续</span><br><span class="line"><span class="comment">#FLAVOR = release</span></span><br><span class="line">FLAVOR = debug</span><br><span class="line">SDK_PATH=e:/esp8266/leixing/ESP8266_RTOS_SDK-1.5-project_template</span><br><span class="line"><span class="comment">#EXTRA_CCFLAGS += -u</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">ifndef</span> PDIR <span class="comment"># &#123;</span></span><br><span class="line">GEN_IMAGES= eagle.app.v6.out</span><br><span class="line">GEN_BINS= eagle.app.v6.bin</span><br><span class="line">SPECIAL_MKTARGETS=<span class="variable">$(APP_MKTARGETS)</span></span><br><span class="line">SUBDIRS=    \</span><br><span class="line">    user    \</span><br><span class="line">    driver</span><br><span class="line"><span class="keyword">endif</span> <span class="comment"># &#125; PDIR</span></span><br><span class="line">...下续</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>把<font color="#ff0000" size="5">COMPONENTS_eagle.app.v6=×××</font> 需要的.a文件修改为子目录下生成对应的.a文件(听不懂没关系，看效果代码)，大概在48行左右。</p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">...上续</span><br><span class="line"><span class="keyword">ifeq</span> (<span class="variable">$(FLAVOR)</span>,release)</span><br><span class="line">TARGET_LDFLAGS += -g -O0</span><br><span class="line"><span class="keyword">endif</span></span><br><span class="line"></span><br><span class="line">COMPONENTS_eagle.app.v6 = \</span><br><span class="line">    user/libuser.a  \</span><br><span class="line">    driver/libdriver.a </span><br><span class="line">LINKFLAGS_eagle.app.v6 = \</span><br><span class="line">    -L<span class="variable">$(SDK_PATH)</span>/lib        \</span><br><span class="line">    -Wl,--gc-sections   \</span><br><span class="line">...下续</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>这样就修改完成了。  </p>
+<h2 id="工程的编译"><a href="#工程的编译" class="headerlink" title="工程的编译"></a>工程的编译</h2><ol>
+<li>左键点击工程名选中工程-&gt;右键弹出菜单-&gt;BuildProject 即可编译。如果出现BuildProject选项灰色就是你没选中。如果失败可以尝试CleanProject(就在BuildProject下面)一下工程再编译。</li>
+<li>编译之后输出窗口大致如下，输出两个bin文件：eagle.flash.bin 和 eagle.irom0text.bin ,这样就完成了工程的编译。这个固件是不支持OTA升级的，所以也不需要boot。也没有user1.bin和user2.bin。所以不要觉得奇怪。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">23:48:32 **** Incremental Build of configuration Default for project ESP8266_RTOS_SDK-1.5-project_template ****</span><br><span class="line">make all </span><br><span class="line">make[1]: Entering directory &apos;/cygdrive/e/esp8266/leixing/ESP8266_RTOS_SDK-1.5-project_template/app&apos;</span><br><span class="line">make[2]: Entering directory &apos;/cygdrive/e/esp8266/leixing/ESP8266_RTOS_SDK-1.5-project_template/app/user&apos;</span><br><span class="line">make[2]: Leaving directory &apos;/cygdrive/e/esp8266/leixing/ESP8266_RTOS_SDK-1.5-project_template/app/user&apos;</span><br><span class="line">make[2]: Entering directory &apos;/cygdrive/e/esp8266/leixing/ESP8266_RTOS_SDK-1.5-project_template/app/driver&apos;</span><br><span class="line">make[2]: Leaving directory &apos;/cygdrive/e/esp8266/leixing/ESP8266_RTOS_SDK-1.5-project_template/app/driver&apos;</span><br><span class="line"></span><br><span class="line">!!!</span><br><span class="line">SDK_PATH: e:/esp8266/leixing/ESP8266_RTOS_SDK-1.5-project_template</span><br><span class="line">BIN_PATH: e:/esp8266/leixing/ESP8266_RTOS_SDK-1.5-project_template/bin</span><br><span class="line"></span><br><span class="line">No boot needed.</span><br><span class="line">Generate eagle.flash.bin and eagle.irom0text.bin successully in BIN_PATH</span><br><span class="line">eagle.flash.bin--------&gt;0x00000</span><br><span class="line">eagle.irom0text.bin----&gt;0x20000</span><br><span class="line">!!!</span><br><span class="line">make[1]: Leaving directory &apos;/cygdrive/e/esp8266/leixing/ESP8266_RTOS_SDK-1.5-project_template/app&apos;</span><br><span class="line"></span><br><span class="line">23:48:37 Build Finished (took 4s.472ms)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>这篇说的可能看起来有点云里雾里。因为和平时大家用的的不需要自己编写编译规则的IDE不同。像keil的话你添加的头文件也需要的手动添加到工程的IncludePath里面去。但是用这个eclipse开发esp8266完全使用makefile控制的，你的目录，头文件，c文件都是需要你手动配置makefile的，道理都一样都是要告诉编译器怎么去编译链接文件。不过是你自己找到makefile添加而已。之后会专门有一篇大概说一下整个工程如果我们想添加新的功能文件夹(比如实现一个tcp客户端功能)，我们怎么去修改makefile。有什么疑问欢迎联系我。</p>
 
       
     </div>
@@ -577,23 +618,23 @@
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <li class="post-copyright-title">
-  <strong>本文标题：</strong><a href="/2018/01/21/ESP8266开发前言/"> ESP8266开发历程前言</a>
+  <strong>本文标题：</strong><a href="/article/2e11c696.html"> ESP8266工程的裁剪和编译</a>
   </li>
   <li class="post-copyright-author">
     <strong>本文作者：</strong>
 	<a href="/" title="访问 BeGild 的个人博客">BeGild</a>
   </li>
     <li class="post-copyright-date">
-  <strong>发布时间：2018年01月21日 - 14:01</strong>
+  <strong>发布时间：2018年01月23日 - 16:01</strong>
   </li>
     <li class="post-copyright-updated">
-  <strong>最后更新：2018年03月01日 - 11:03</strong>
+  <strong>最后更新：2018年04月26日 - 13:04</strong>
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://begild.top/2018/01/21/ESP8266开发前言/" title="ESP8266开发历程前言 ">http://begild.top/2018/01/21/ESP8266开发前言/</a>
+    <a href="http://begild.top/article/2e11c696.html" title="ESP8266工程的裁剪和编译 ">http://begild.top/article/2e11c696.html</a>
   <span class="copy-path"  title="点击复制文章链接">
-	<i class="fa fa-clipboard" data-clipboard-text="http://begild.top/2018/01/21/ESP8266开发前言/"  aria-label="复制成功！"></i>
+	<i class="fa fa-clipboard" data-clipboard-text="http://begild.top/article/2e11c696.html"  aria-label="复制成功！"></i>
   </span>
 
  </li>
@@ -649,8 +690,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/06/file system/" rel="next" title="Linux系统目录讲解">
-                <i class="fa fa-chevron-left"></i> Linux系统目录讲解
+              <a href="/article/6b9c1836.html" rel="next" title="ESP8266工程的导入">
+                <i class="fa fa-chevron-left"></i> ESP8266工程的导入
               </a>
             
           </div>
@@ -659,8 +700,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/01/21/ESP8266开发环境的搭建/" rel="prev" title="ESP8266开发环境的搭建">
-                ESP8266开发环境的搭建 <i class="fa fa-chevron-right"></i>
+              <a href="/article/977ab4d9.html" rel="prev" title="SMT32串口接收、空闲中断">
+                SMT32串口接收、空闲中断 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -848,7 +889,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#意义："><span class="nav-number">1.</span> <span class="nav-text">意义：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更新："><span class="nav-number">2.</span> <span class="nav-text">更新：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模板工程所需文件"><span class="nav-number">2.</span> <span class="nav-text">模板工程所需文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模板工程文件的调整"><span class="nav-number">3.</span> <span class="nav-text">模板工程文件的调整</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MakeFile文件的修改"><span class="nav-number">4.</span> <span class="nav-text">MakeFile文件的修改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工程的编译"><span class="nav-number">5.</span> <span class="nav-text">工程的编译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后记"><span class="nav-number">6.</span> <span class="nav-text">后记</span></a></li></ol></div>
             
 
           </div>
@@ -867,7 +908,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018/04-24</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018/04-26</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

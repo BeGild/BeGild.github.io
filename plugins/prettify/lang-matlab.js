@@ -1,4 +1,4 @@
-<script src="\assets\js\APlayer.min.js"> </script>/*
+<script src="/assets/js/APlayer.min.js"> </script>/*
 
  Copyright (c) 2013 by Amro <amroamroamro@gmail.com>
 

@@ -165,11 +165,11 @@
 <meta name="keywords" content="串口(UART)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="STM32自定义串口printf">
-<meta property="og:url" content="http://begild.top/2018/03/01/STM32-UART-CustomPrintf/index.html">
+<meta property="og:url" content="http://begild.top/article/a854db16.html">
 <meta property="og:site_name" content="BeGild Working">
 <meta property="og:description" content="前言硬件的调试通常可分为两大类，一种是用调试器将芯片和电脑连接通过单步等方式逐步运行进行调试，另一种就是printf大法在程序运行过程中输出调试信息。第一种比较深入，可以了解每一个变量，栈堆，函数等等的变化是比较系统化的调试。但我通常都是用printf来调试的，因为快速简单属于非介入的方式，调试完毕直接注释掉相关部分就行了。 重定向 printf 函数对于STM32来说现在串口例程一般都配有一个p">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-02T03:31:07.877Z">
+<meta property="og:updated_time" content="2018-04-26T05:14:42.001Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="STM32自定义串口printf">
 <meta name="twitter:description" content="前言硬件的调试通常可分为两大类，一种是用调试器将芯片和电脑连接通过单步等方式逐步运行进行调试，另一种就是printf大法在程序运行过程中输出调试信息。第一种比较深入，可以了解每一个变量，栈堆，函数等等的变化是比较系统化的调试。但我通常都是用printf来调试的，因为快速简单属于非介入的方式，调试完毕直接注释掉相关部分就行了。 重定向 printf 函数对于STM32来说现在串口例程一般都配有一个p">
@@ -181,7 +181,7 @@
 
 
 
-  <link rel="canonical" href="http://begild.top/2018/03/01/STM32-UART-CustomPrintf/"/>
+  <link rel="canonical" href="http://begild.top/article/a854db16.html"/>
 
 
   <title>STM32自定义串口printf | BeGild Working</title>
@@ -417,7 +417,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://begild.top/2018/03/01/STM32-UART-CustomPrintf/">
+    <link itemprop="mainEntityOfPage" href="http://begild.top/article/a854db16.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="BeGild">
@@ -457,7 +457,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-03-02T11:31:07+08:00">2018-03-02</time>
+              <time title="更新于" itemprop="dateModified" datetime="2018-04-26T13:14:42+08:00">2018-04-26</time>
             
           </span>
 
@@ -488,8 +488,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/03/01/STM32-UART-CustomPrintf/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/03/01/STM32-UART-CustomPrintf/" itemprop="commentCount"></span>
+                <a href="/article/a854db16.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/article/a854db16.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -522,7 +522,7 @@
       
 
       
-        <script src="\assets\js\APlayer.min.js"> </script><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>硬件的调试通常可分为两大类，一种是用调试器将芯片和电脑连接通过单步等方式逐步运行进行调试，另一种就是printf大法在程序运行过程中输出调试信息。第一种比较深入，可以了解每一个变量，栈堆，函数等等的变化是比较系统化的调试。但我通常都是用printf来调试的，因为快速简单属于非介入的方式，调试完毕直接注释掉相关部分就行了。</p>
+        <script src="/assets/js/APlayer.min.js"> </script><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>硬件的调试通常可分为两大类，一种是用调试器将芯片和电脑连接通过单步等方式逐步运行进行调试，另一种就是printf大法在程序运行过程中输出调试信息。第一种比较深入，可以了解每一个变量，栈堆，函数等等的变化是比较系统化的调试。但我通常都是用printf来调试的，因为快速简单属于非介入的方式，调试完毕直接注释掉相关部分就行了。</p>
 <h2 id="重定向-printf-函数"><a href="#重定向-printf-函数" class="headerlink" title="重定向 printf 函数"></a>重定向 printf 函数</h2><p>对于STM32来说现在串口例程一般都配有一个printf重定向到串口1的代码，直接可以使用printf很方便的输出信息到串口上。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//重定义fputc函数</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fputc</span><span class="params">(<span class="keyword">int</span> ch, FILE *f)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">while</span>((USART1-&gt;SR&amp;<span class="number">0X40</span>)==<span class="number">0</span>);<span class="comment">//循环发送,直到发送完毕</span></span><br><span class="line">    USART1-&gt;DR = (u8) ch;</span><br><span class="line">  <span class="keyword">return</span> ch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <a id="more"></a>
 <h2 id="自定义printf函数"><a href="#自定义printf函数" class="headerlink" title="自定义printf函数"></a>自定义printf函数</h2><p>但是我们如果使用多个串口或者说串口输出不一定总从串口1输出怎么办呢。这时候这样就没法实现，后来上网查一下我们可以自己实现printf这个函数。命名为uprintf，接收至少两个参数，第1个参数是串口号;第2个是格式化字符串;第3-n ‘ … ‘ 是参数匹配列表， 实现变长的参数列表接收。。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//用串口写一个printf函数</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">uprintf</span><span class="params">(USART_TypeDef *USARTx, <span class="keyword">const</span> <span class="keyword">char</span> *fmt, ...)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    va_list ap; <span class="comment">//typedef char *va_list; va_list是char型的指针</span></span><br><span class="line">    <span class="keyword">char</span> *s_string = <span class="built_in">malloc</span>(<span class="number">300</span>); <span class="comment">//申请缓冲区</span></span><br><span class="line">    va_start(ap, fmt); <span class="comment">//找第一个可变形参的地址，并把地址赋给ap</span></span><br><span class="line">    <span class="built_in">vsprintf</span>(s_string, fmt, ap); <span class="comment">//类似sprintf函数</span></span><br><span class="line">    USART_String(USARTx, s_string); <span class="comment">//发送和整个字符串</span></span><br><span class="line">    va_end(ap); <span class="comment">//结束</span></span><br><span class="line">    <span class="built_in">free</span>(s_string);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -594,7 +594,7 @@
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <li class="post-copyright-title">
-  <strong>本文标题：</strong><a href="/2018/03/01/STM32-UART-CustomPrintf/"> STM32自定义串口printf</a>
+  <strong>本文标题：</strong><a href="/article/a854db16.html"> STM32自定义串口printf</a>
   </li>
   <li class="post-copyright-author">
     <strong>本文作者：</strong>
@@ -604,13 +604,13 @@
   <strong>发布时间：2018年03月01日 - 20:03</strong>
   </li>
     <li class="post-copyright-updated">
-  <strong>最后更新：2018年03月02日 - 11:03</strong>
+  <strong>最后更新：2018年04月26日 - 13:04</strong>
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://begild.top/2018/03/01/STM32-UART-CustomPrintf/" title="STM32自定义串口printf ">http://begild.top/2018/03/01/STM32-UART-CustomPrintf/</a>
+    <a href="http://begild.top/article/a854db16.html" title="STM32自定义串口printf ">http://begild.top/article/a854db16.html</a>
   <span class="copy-path"  title="点击复制文章链接">
-	<i class="fa fa-clipboard" data-clipboard-text="http://begild.top/2018/03/01/STM32-UART-CustomPrintf/"  aria-label="复制成功！"></i>
+	<i class="fa fa-clipboard" data-clipboard-text="http://begild.top/article/a854db16.html"  aria-label="复制成功！"></i>
   </span>
 
  </li>
@@ -672,7 +672,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/01/STM32-UART-IDLE-IT-md/" rel="next" title="SMT32串口接收、空闲中断">
+              <a href="/article/977ab4d9.html" rel="next" title="SMT32串口接收、空闲中断">
                 <i class="fa fa-chevron-left"></i> SMT32串口接收、空闲中断
               </a>
             
@@ -682,7 +682,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/03/07/STM32-Flash-Write-Read/" rel="prev" title="STM32 Flash的读写">
+              <a href="/article/31184d7e.html" rel="prev" title="STM32 Flash的读写">
                 STM32 Flash的读写 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -890,7 +890,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018/04-24</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018/04-26</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
