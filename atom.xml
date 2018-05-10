@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://begild.top/"/>
-  <updated>2018-04-26T06:07:23.822Z</updated>
+  <updated>2018-05-10T13:52:45.102Z</updated>
   <id>http://begild.top/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>多系统GRUB引导丢失修复</title>
+    <link href="http://begild.top/article/6d520ba7.html"/>
+    <id>http://begild.top/article/6d520ba7.html</id>
+    <published>2018-05-10T04:27:11.000Z</published>
+    <updated>2018-05-10T13:52:45.102Z</updated>
+    
+    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h2 id="前言-垃圾话"><a href="#前言-垃圾话" class="headerlink" title="前言(垃圾话)"></a>前言(垃圾话)</h2><p>这段话忽略不影响教程。本文主要记录一下我粗心大意之下造成的大出血事件。前几天做了一个给电脑供电的移动电源(？？？)听起来很奇怪但是这个需求确实发生了。emmmm 可能是我和电源有着不可理解的对立关系(成功在实验室造成了两次电池事故😪)，因为要实际测试”充电宝”的续航和充电情况，所以我成功的献祭了我的电脑，我自认为已经检查了线路，接口，电压，保证电流不超过限额，但是我万万没有想到，极性搞错了。我TM🙃…把正负极搞反了接上去瞬间黑屏(完全不慌.jpg)，所幸的是只是烧了笔记本的电源管理芯片，没有伤及无辜。送去电脑店，没有这种芯片，上淘宝买芯片发顺丰修修修，一来一去就是3天，期间只能勉强靠树莓派过过日子。但是修好了之后出现了新的问题，开不了机进不去系统，然后经过3个多小时的搜查改，终于修好了，所以在这里记录一下。<a id="more"></a></p><h2 id="问题的具体描述"><a href="#问题的具体描述" class="headerlink" title="问题的具体描述"></a>问题的具体描述</h2><p>这个问题的表现就是，开机自检能通过，但是出现不了引导界面反而出现的是一个叫做 grub rescue的界面，我这里因为修的时候并没有拍照，所以只能用文字大概描述一下。</p><ul><li>开机之后通过自检，然后检测引导什么的，但是他提示 <code>erro:file&#39;/boot/grub/i386-pc/normal.mod&#39; not found</code> 这个错误。</li><li>接下来就是如下的一个命令行界面，<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grub rescue&gt;&gt;______________</span><br></pre></td></tr></table></figure></li></ul><h2 id="问题的原因"><a href="#问题的原因" class="headerlink" title="问题的原因"></a>问题的原因</h2><p>这个问题本质上就是找不到引导的文件，迷路了找不到任何导航的东西。但是有两种不同的情况(据我搜索的结果)。</p><ol><li>grub 文件还在系统里，但是引导至该文件的设置出错，也就是这个文件的路径不见了。</li><li>grub 的文件已经丢失了，也就是硬盘里不存在这个文件了。</li></ol><h2 id="验证是哪种情况"><a href="#验证是哪种情况" class="headerlink" title="验证是哪种情况"></a>验证是哪种情况</h2><p>下面几步即可完成。</p><ol><li><code>grub rescue&gt;&gt;</code> 输入 <code>ls</code> 。可以看到输出了很多 hd*，msdos* 之类的东西，hd* 就是第几块存储设备，msdos*也就是分区。 </li><li>通过  <code>ls (hd*,msdos*)/boot/grub</code> 可以查看是不是grub所在的分区以及文件是否存在。比如我查看 hd0，msdos5 那么命令就是 <code>ls (hd0,msdos5)/boot/grub</code>，这里我在网上看到有些直接输入<code>ls (hd0,msdos5)/grub</code> (grub摆放的位置不一样)。<ul><li>如果结果显示 <code>error:unknown filesystem</code> 代表并不是 grub 所在的分区。</li><li>如果结果里有<code>i386-pc</code> 文件夹，那么代表你的是第一种情况。</li><li>如果结果里没有错误提示但是也没有显示<code>i386-pc</code> 文件夹，那么你的情况就是第二种（我的恰好也就是第二种）。</li></ul></li></ol><h2 id="设置-grub-路径"><a href="#设置-grub-路径" class="headerlink" title="设置 grub 路径"></a>设置 grub 路径</h2><p>我不知道第二种情况需不需要这样设置，经过我的后来思考觉得应该不需要的，但是还是建议设置一下防止出问题。</p><ol><li>在<code>grub rescue&gt;&gt;</code> 输入 <code>set root=(hd*,msdos*)</code> 设置根目录。</li><li>在<code>grub rescue&gt;&gt;</code> 输入 <code>set prefix=(hd*,msdos*)/boot/grub</code> 设置 grub 目录。</li><li>通过在<code>grub rescue&gt;&gt;</code> 输入 <code>set</code>可以看到设置的结果。 </li></ol><h2 id="第一种情况解决办法"><a href="#第一种情况解决办法" class="headerlink" title="第一种情况解决办法"></a>第一种情况解决办法</h2><p>下面的步骤是网上搬过来的，因为我不是这个情况，原文见<a href="https://blog.csdn.net/peerless1994/article/details/52226169" target="_blank" rel="noopener">博客</a></p><ol><li>输入 <code>insmod normal</code> 回车</li><li>输入 <code>normal</code>回车 就能进入 grub 引导菜单界面。</li><li>如果你能选择 linux 并启动那么跳到第5步否则第4步。</li><li><p>在 grub 界面按下键盘 <code>C</code> 进入命令行模式输入如下命令。* 就是你刚找到的正确的引导分区的相关序号。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set root=(hd*,msdos*)</span><br><span class="line">Set prefix=(hd*,msdos*)</span><br></pre></td></tr></table></figure></li><li><p>启动 linux 在终端输入如下命令，(其实我更推荐使用 boot-repair 更傻瓜，更安全~ ~)。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo update-grub</span><br><span class="line">sudo grub-install /dev/sda (通过 ls /dev/sd* 查看磁盘情况)</span><br></pre></td></tr></table></figure></li></ol><h2 id="第二种情况解决办法"><a href="#第二种情况解决办法" class="headerlink" title="第二种情况解决办法"></a>第二种情况解决办法</h2><p>对于二种情况稍显复杂。需要通过一个 liveCD 来拯救。</p><ol><li>需要<br> 硬件：一个可以用的电脑、一个U盘(会格式化注意备份)；<br> 软件：一个 Ubuntu 系统镜像、UltraISO软碟通(亲测U深度一键装机没用)。 </li><li>打开软碟通菜单栏–&gt;文件–&gt;打开下载来的iso镜像。 </li><li>软碟通菜单栏–&gt;启动–&gt;写入硬盘镜像，在弹出的选项里选择U盘然后点击格式化，格式化完成之后点击写入。等待写入完成。 </li><li>插入U盘，进入你电脑的 bios ,我的是在按下电源键启动之后狂按 F2 这里你需要上网搜一下你电脑对应的按键是啥，进去时候找到 boot 设置将U盘列为第一启动项(这里因电脑而异希望你有点灵性)，这里不懂的话上网搜一下怎么开机进入U启动盘。 </li><li>顺利的话就进入了一个 linux 的安装界面。在右边的语言列表里滑到最下面选择中文。然后在右边的两个大图标选项里选择试用 Ubuntu ，这样就进入了一个看起来和正常安装没有区别的 Ubuntu 系统。 </li><li><p><code>Ctrl+alt+T</code> 呼出终端，输入以下命令安装 boot-repair 并启动。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:yannubuntu/boot-repair //添加 boot-repair 软件源</span><br><span class="line">sudo apt-get update  //更新软件列表 </span><br><span class="line">sudo apt-get install -y boot-repair  //安装 boot-repair</span><br><span class="line">boot-repair //启动 boot-repair</span><br></pre></td></tr></table></figure></li><li><p>按照提示傻瓜式的操作即可完成修复，耐心等待。</p><ul><li>在过程中如果提示某个硬盘是否是可拆卸的选择否，如果是移动硬盘就选择是。</li><li>修复完成会问你是否选择生成报告，点击是，生成报告然后给你一个网址，复制网址到浏览器即可访问结果，可以看到你的分区和引导以及引导的系统。</li></ul></li><li>关闭计算机，拔掉U盘，重启计算机即可进入引导~ ~。windows 和 linux 都可以进入了，美滋滋。</li><li>启动 windows 可能会提示是否要跳过系统检查，这个很快的，也就20几秒就好了。</li></ol><h2 id="后话"><a href="#后话" class="headerlink" title="后话"></a>后话</h2><ol><li>我这里出现一个情况，我原本的默认引导是用那种黑白屏的引导，然后如果点击 Ubuntu 会跳转到 grub 引导但是经过这个操作之后，grub变成了默认的引导点击windows之后会跳到黑白屏的引导。<br>解决办法：下载EasyBCD编辑引导菜单删除 Ubuntu 的引导选项就OK了，就默认使用 grub 引导(之前就想这么搞来着误打误撞美滋滋)。</li><li>grub默认的不是windows启动，通过该<a href="https://jingyan.baidu.com/article/f71d60379e16021ab641d1ab.html" target="_blank" rel="noopener">教程</a> 即可调整默认的启动系统，如果链接失效搜索一下 grub 调整启动顺序~ ~。</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言-垃圾话&quot;&gt;&lt;a href=&quot;#前言-垃圾话&quot; class=&quot;headerlink&quot; title=&quot;前言(垃圾话)&quot;&gt;&lt;/a&gt;前言(垃圾话)&lt;/h2&gt;&lt;p&gt;这段话忽略不影响教程。本文主要记录一下我粗心大意之下造成的大出血事件。前几天做了一个给电脑供电的移动电源(？？？)听起来很奇怪但是这个需求确实发生了。emmmm 可能是我和电源有着不可理解的对立关系(成功在实验室造成了两次电池事故😪)，因为要实际测试”充电宝”的续航和充电情况，所以我成功的献祭了我的电脑，我自认为已经检查了线路，接口，电压，保证电流不超过限额，但是我万万没有想到，极性搞错了。我TM🙃…把正负极搞反了接上去瞬间黑屏(完全不慌.jpg)，所幸的是只是烧了笔记本的电源管理芯片，没有伤及无辜。送去电脑店，没有这种芯片，上淘宝买芯片发顺丰修修修，一来一去就是3天，期间只能勉强靠树莓派过过日子。但是修好了之后出现了新的问题，开不了机进不去系统，然后经过3个多小时的搜查改，终于修好了，所以在这里记录一下。
+    
+    </summary>
+    
+      <category term="Tools" scheme="http://begild.top/categories/Tools/"/>
+    
+    
+      <category term="grub" scheme="http://begild.top/tags/grub/"/>
+    
+  </entry>
   
   <entry>
     <title>科学上Google</title>

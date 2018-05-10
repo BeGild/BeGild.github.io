@@ -158,25 +158,21 @@
 
 
   
-  <meta name="keywords" content="Linux子系统图形界面," />
+  <meta name="keywords" content="grub," />
 
 
-<meta name="description" content="搞完Windows下Linux下子系统的启用，可以用命令行进行使用但是却是一个完全没有界面的系统。这样怎么能拼过虚拟机呢对吧。所以：图形界面启动！。">
-<meta name="keywords" content="Linux子系统图形界面">
+<meta name="description" content="前言(垃圾话)这段话忽略不影响教程。本文主要记录一下我粗心大意之下造成的大出血事件。前几天做了一个给电脑供电的移动电源(？？？)听起来很奇怪但是这个需求确实发生了。emmmm 可能是我和电源有着不可理解的对立关系(成功在实验室造成了两次电池事故😪)，因为要实际测试”充电宝”的续航和充电情况，所以我成功的献祭了我的电脑，我自认为已经检查了线路，接口，电压，保证电流不超过限额，但是我万万没有想到，极">
+<meta name="keywords" content="grub">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux子系统图形界面">
-<meta property="og:url" content="http://begild.top/article/858a9730.html">
+<meta property="og:title" content="多系统GRUB引导丢失修复">
+<meta property="og:url" content="http://begild.top/article/6d520ba7.html">
 <meta property="og:site_name" content="BeGild Working">
-<meta property="og:description" content="搞完Windows下Linux下子系统的启用，可以用命令行进行使用但是却是一个完全没有界面的系统。这样怎么能拼过虚拟机呢对吧。所以：图形界面启动！。">
+<meta property="og:description" content="前言(垃圾话)这段话忽略不影响教程。本文主要记录一下我粗心大意之下造成的大出血事件。前几天做了一个给电脑供电的移动电源(？？？)听起来很奇怪但是这个需求确实发生了。emmmm 可能是我和电源有着不可理解的对立关系(成功在实验室造成了两次电池事故😪)，因为要实际测试”充电宝”的续航和充电情况，所以我成功的献祭了我的电脑，我自认为已经检查了线路，接口，电压，保证电流不超过限额，但是我万万没有想到，极">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://p55um7yiy.bkt.clouddn.com/XLunch%E5%90%AF%E5%8A%A8%E8%AE%BE%E7%BD%AE.png">
-<meta property="og:image" content="http://p55um7yiy.bkt.clouddn.com/ccsm%E8%AE%BE%E7%BD%AE.png">
-<meta property="og:image" content="http://p55um7yiy.bkt.clouddn.com/Ubuntu%E6%A1%8C%E9%9D%A2.png">
-<meta property="og:updated_time" content="2018-04-26T05:14:42.004Z">
+<meta property="og:updated_time" content="2018-05-10T13:52:45.102Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux子系统图形界面">
-<meta name="twitter:description" content="搞完Windows下Linux下子系统的启用，可以用命令行进行使用但是却是一个完全没有界面的系统。这样怎么能拼过虚拟机呢对吧。所以：图形界面启动！。">
-<meta name="twitter:image" content="http://p55um7yiy.bkt.clouddn.com/XLunch%E5%90%AF%E5%8A%A8%E8%AE%BE%E7%BD%AE.png">
+<meta name="twitter:title" content="多系统GRUB引导丢失修复">
+<meta name="twitter:description" content="前言(垃圾话)这段话忽略不影响教程。本文主要记录一下我粗心大意之下造成的大出血事件。前几天做了一个给电脑供电的移动电源(？？？)听起来很奇怪但是这个需求确实发生了。emmmm 可能是我和电源有着不可理解的对立关系(成功在实验室造成了两次电池事故😪)，因为要实际测试”充电宝”的续航和充电情况，所以我成功的献祭了我的电脑，我自认为已经检查了线路，接口，电压，保证电流不超过限额，但是我万万没有想到，极">
 
 
 
@@ -185,10 +181,10 @@
 
 
 
-  <link rel="canonical" href="http://begild.top/article/858a9730.html"/>
+  <link rel="canonical" href="http://begild.top/article/6d520ba7.html"/>
 
 
-  <title>Linux子系统图形界面 | BeGild Working</title>
+  <title>多系统GRUB引导丢失修复 | BeGild Working</title>
   
 
 
@@ -421,7 +417,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://begild.top/article/858a9730.html">
+    <link itemprop="mainEntityOfPage" href="http://begild.top/article/6d520ba7.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="BeGild">
@@ -438,7 +434,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">Linux子系统图形界面</h2>
+          <h2 class="post-title" itemprop="name headline">多系统GRUB引导丢失修复</h2>
         
 
         <div class="post-meta">
@@ -461,7 +457,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-04-26T13:14:42+08:00">2018-04-26</time>
+              <time title="更新于" itemprop="dateModified" datetime="2018-05-10T21:52:45+08:00">2018-05-10</time>
             
           </span>
 
@@ -477,7 +473,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a></span>
 
                 
                 
@@ -492,8 +488,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/article/858a9730.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/article/858a9730.html" itemprop="commentCount"></span>
+                <a href="/article/6d520ba7.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/article/6d520ba7.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -526,37 +522,68 @@
       
 
       
-        <script src="/assets/js/APlayer.min.js"> </script><p>搞完Windows下Linux下子系统的启用，可以用命令行进行使用但是却是一个完全没有界面的系统。这样怎么能拼过虚拟机呢对吧。所以：图形界面启动！。<a id="more"></a></p>
-<h2 id="Windows-X-Server"><a href="#Windows-X-Server" class="headerlink" title="Windows X Server"></a>Windows X Server</h2><ol>
-<li>下载 VcXsrv <a href="https://sourceforge.net/projects/vcxsrv/files/latest/download" target="_blank" rel="noopener">https://sourceforge.net/projects/vcxsrv/files/latest/download</a> 用迅雷下会快一些👀。</li>
-<li>运行下载下来的 VcXsrv 安装程序，安装位置自己选，开心就好。</li>
-<li>安装完成之后会有两个软件启动方式，选择用 XLaunch 启动，在启动界面选择 One large windows 方式，显示器编号：0，接下来一路 Next 到完成结束。然后会出现一个黑黑的界面。<br><img src="http://p55um7yiy.bkt.clouddn.com/XLunch%E5%90%AF%E5%8A%A8%E8%AE%BE%E7%BD%AE.png" alt="XLunch启动设置"></li>
-</ol>
-<h2 id="Ubuntu的桌面软件安装"><a href="#Ubuntu的桌面软件安装" class="headerlink" title="Ubuntu的桌面软件安装"></a>Ubuntu的桌面软件安装</h2><ol>
-<li>安装 Ubuntu 桌面软件，unity，compiz配置软件,下载的软件很大。大概需要2.5个G的空间，耐心等待(我大概用了15分钟左右才装好)。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install ubuntu-desktop unity compizconfig-settings-manager</span><br></pre></td></tr></table></figure>
+        <script src="/assets/js/APlayer.min.js"> </script><h2 id="前言-垃圾话"><a href="#前言-垃圾话" class="headerlink" title="前言(垃圾话)"></a>前言(垃圾话)</h2><p>这段话忽略不影响教程。本文主要记录一下我粗心大意之下造成的大出血事件。前几天做了一个给电脑供电的移动电源(？？？)听起来很奇怪但是这个需求确实发生了。emmmm 可能是我和电源有着不可理解的对立关系(成功在实验室造成了两次电池事故😪)，因为要实际测试”充电宝”的续航和充电情况，所以我成功的献祭了我的电脑，我自认为已经检查了线路，接口，电压，保证电流不超过限额，但是我万万没有想到，极性搞错了。我TM🙃…把正负极搞反了接上去瞬间黑屏(完全不慌.jpg)，所幸的是只是烧了笔记本的电源管理芯片，没有伤及无辜。送去电脑店，没有这种芯片，上淘宝买芯片发顺丰修修修，一来一去就是3天，期间只能勉强靠树莓派过过日子。但是修好了之后出现了新的问题，开不了机进不去系统，然后经过3个多小时的搜查改，终于修好了，所以在这里记录一下。<a id="more"></a></p>
+<h2 id="问题的具体描述"><a href="#问题的具体描述" class="headerlink" title="问题的具体描述"></a>问题的具体描述</h2><p>这个问题的表现就是，开机自检能通过，但是出现不了引导界面反而出现的是一个叫做 grub rescue的界面，我这里因为修的时候并没有拍照，所以只能用文字大概描述一下。</p>
+<ul>
+<li>开机之后通过自检，然后检测引导什么的，但是他提示 <code>erro:file&#39;/boot/grub/i386-pc/normal.mod&#39; not found</code> 这个错误。</li>
+<li>接下来就是如下的一个命令行界面，<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grub rescue&gt;&gt;______________</span><br></pre></td></tr></table></figure>
 </li>
-</ol>
-<h2 id="Ubuntu的桌面的配置"><a href="#Ubuntu的桌面的配置" class="headerlink" title="Ubuntu的桌面的配置"></a>Ubuntu的桌面的配置</h2><ol>
-<li><p>设置显示器 ;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export  DISPLAY=localhost:0</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>设置桌面参数,勾选了Ubuntu Unity Plugin 和 Window Management 下的 Place Window选项，其他的根据自己需要修改。设置完毕之后关闭即可;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ccsm</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p><img src="http://p55um7yiy.bkt.clouddn.com/ccsm%E8%AE%BE%E7%BD%AE.png" alt="ccsm设置"></p>
+</ul>
+<h2 id="问题的原因"><a href="#问题的原因" class="headerlink" title="问题的原因"></a>问题的原因</h2><p>这个问题本质上就是找不到引导的文件，迷路了找不到任何导航的东西。但是有两种不同的情况(据我搜索的结果)。</p>
 <ol>
-<li><p>展示桌面，运行下面指令。就可以在上面说的黑黑的界面上绘出桌面了。看起来是不是毫无违和感23333。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">compiz</span><br></pre></td></tr></table></figure>
-<p><img src="http://p55um7yiy.bkt.clouddn.com/Ubuntu%E6%A1%8C%E9%9D%A2.png" alt="Ubuntu桌面"></p>
-</li>
-<li>做一个脚本便于设置和启动桌面。新建一个脚本放在根目录 <code>cd / &amp;&amp; sudo vi vcxsrv.sh</code> 将下面的代码粘贴到 vcxsrv.sh 里，再赋予执行权限 <code>chmod +x vcxsrv.sh</code> 。每次先用控制台进入 bash 运行脚本就OK了。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#! /bin/sh</span><br><span class="line">export  DISPLAY=localhost:0 #设置显示屏</span><br><span class="line">compiz</span><br></pre></td></tr></table></figure>
+<li>grub 文件还在系统里，但是引导至该文件的设置出错，也就是这个文件的路径不见了。</li>
+<li>grub 的文件已经丢失了，也就是硬盘里不存在这个文件了。</li>
+</ol>
+<h2 id="验证是哪种情况"><a href="#验证是哪种情况" class="headerlink" title="验证是哪种情况"></a>验证是哪种情况</h2><p>下面几步即可完成。</p>
+<ol>
+<li><code>grub rescue&gt;&gt;</code> 输入 <code>ls</code> 。可以看到输出了很多 hd*，msdos* 之类的东西，hd* 就是第几块存储设备，msdos*也就是分区。 </li>
+<li>通过  <code>ls (hd*,msdos*)/boot/grub</code> 可以查看是不是grub所在的分区以及文件是否存在。比如我查看 hd0，msdos5 那么命令就是 <code>ls (hd0,msdos5)/boot/grub</code>，这里我在网上看到有些直接输入<code>ls (hd0,msdos5)/grub</code> (grub摆放的位置不一样)。<ul>
+<li>如果结果显示 <code>error:unknown filesystem</code> 代表并不是 grub 所在的分区。</li>
+<li>如果结果里有<code>i386-pc</code> 文件夹，那么代表你的是第一种情况。</li>
+<li>如果结果里没有错误提示但是也没有显示<code>i386-pc</code> 文件夹，那么你的情况就是第二种（我的恰好也就是第二种）。</li>
+</ul>
 </li>
 </ol>
-<h2 id="内存占用"><a href="#内存占用" class="headerlink" title="内存占用"></a>内存占用</h2><p>经过实测,8G内存，即使开启图形界面之后内存占用提升仅仅接近500M(31%–&gt;37%)，对比虚拟机(起码分配2G内存)少的就不止一点半点了好吧。确实是指的鼓捣的东西。</p>
-<h2 id="已知的一些问题"><a href="#已知的一些问题" class="headerlink" title="已知的一些问题"></a>已知的一些问题</h2><ol>
-<li>键盘的上下左右键值会被识别为数字8246，并且很鬼畜的识别为长按🤕，猜测原因：系统默认不开启数字键盘,导致识别错误但是识别为长按是什么鬼嘛。这一点很蛋疼。</li>
-<li>刚启动桌面，桌面鼠标不可见或者会变成 × 号，解决办法：打开一个应用程序(非终端)后正常。</li>
+<h2 id="设置-grub-路径"><a href="#设置-grub-路径" class="headerlink" title="设置 grub 路径"></a>设置 grub 路径</h2><p>我不知道第二种情况需不需要这样设置，经过我的后来思考觉得应该不需要的，但是还是建议设置一下防止出问题。</p>
+<ol>
+<li>在<code>grub rescue&gt;&gt;</code> 输入 <code>set root=(hd*,msdos*)</code> 设置根目录。</li>
+<li>在<code>grub rescue&gt;&gt;</code> 输入 <code>set prefix=(hd*,msdos*)/boot/grub</code> 设置 grub 目录。</li>
+<li>通过在<code>grub rescue&gt;&gt;</code> 输入 <code>set</code>可以看到设置的结果。 </li>
+</ol>
+<h2 id="第一种情况解决办法"><a href="#第一种情况解决办法" class="headerlink" title="第一种情况解决办法"></a>第一种情况解决办法</h2><p>下面的步骤是网上搬过来的，因为我不是这个情况，原文见<a href="https://blog.csdn.net/peerless1994/article/details/52226169" target="_blank" rel="noopener">博客</a></p>
+<ol>
+<li>输入 <code>insmod normal</code> 回车</li>
+<li>输入 <code>normal</code>回车 就能进入 grub 引导菜单界面。</li>
+<li>如果你能选择 linux 并启动那么跳到第5步否则第4步。</li>
+<li><p>在 grub 界面按下键盘 <code>C</code> 进入命令行模式输入如下命令。* 就是你刚找到的正确的引导分区的相关序号。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set root=(hd*,msdos*)</span><br><span class="line">Set prefix=(hd*,msdos*)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动 linux 在终端输入如下命令，(其实我更推荐使用 boot-repair 更傻瓜，更安全~ ~)。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo update-grub</span><br><span class="line">sudo grub-install /dev/sda (通过 ls /dev/sd* 查看磁盘情况)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="第二种情况解决办法"><a href="#第二种情况解决办法" class="headerlink" title="第二种情况解决办法"></a>第二种情况解决办法</h2><p>对于二种情况稍显复杂。需要通过一个 liveCD 来拯救。</p>
+<ol>
+<li>需要<br> 硬件：一个可以用的电脑、一个U盘(会格式化注意备份)；<br> 软件：一个 Ubuntu 系统镜像、UltraISO软碟通(亲测U深度一键装机没用)。 </li>
+<li>打开软碟通菜单栏–&gt;文件–&gt;打开下载来的iso镜像。 </li>
+<li>软碟通菜单栏–&gt;启动–&gt;写入硬盘镜像，在弹出的选项里选择U盘然后点击格式化，格式化完成之后点击写入。等待写入完成。 </li>
+<li>插入U盘，进入你电脑的 bios ,我的是在按下电源键启动之后狂按 F2 这里你需要上网搜一下你电脑对应的按键是啥，进去时候找到 boot 设置将U盘列为第一启动项(这里因电脑而异希望你有点灵性)，这里不懂的话上网搜一下怎么开机进入U启动盘。 </li>
+<li>顺利的话就进入了一个 linux 的安装界面。在右边的语言列表里滑到最下面选择中文。然后在右边的两个大图标选项里选择试用 Ubuntu ，这样就进入了一个看起来和正常安装没有区别的 Ubuntu 系统。 </li>
+<li><p><code>Ctrl+alt+T</code> 呼出终端，输入以下命令安装 boot-repair 并启动。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:yannubuntu/boot-repair //添加 boot-repair 软件源</span><br><span class="line">sudo apt-get update  //更新软件列表 </span><br><span class="line">sudo apt-get install -y boot-repair  //安装 boot-repair</span><br><span class="line">boot-repair //启动 boot-repair</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>按照提示傻瓜式的操作即可完成修复，耐心等待。</p>
+<ul>
+<li>在过程中如果提示某个硬盘是否是可拆卸的选择否，如果是移动硬盘就选择是。</li>
+<li>修复完成会问你是否选择生成报告，点击是，生成报告然后给你一个网址，复制网址到浏览器即可访问结果，可以看到你的分区和引导以及引导的系统。</li>
+</ul>
+</li>
+<li>关闭计算机，拔掉U盘，重启计算机即可进入引导~ ~。windows 和 linux 都可以进入了，美滋滋。</li>
+<li>启动 windows 可能会提示是否要跳过系统检查，这个很快的，也就20几秒就好了。</li>
+</ol>
+<h2 id="后话"><a href="#后话" class="headerlink" title="后话"></a>后话</h2><ol>
+<li>我这里出现一个情况，我原本的默认引导是用那种黑白屏的引导，然后如果点击 Ubuntu 会跳转到 grub 引导但是经过这个操作之后，grub变成了默认的引导点击windows之后会跳到黑白屏的引导。<br>解决办法：下载EasyBCD编辑引导菜单删除 Ubuntu 的引导选项就OK了，就默认使用 grub 引导(之前就想这么搞来着误打误撞美滋滋)。</li>
+<li>grub默认的不是windows启动，通过该<a href="https://jingyan.baidu.com/article/f71d60379e16021ab641d1ab.html" target="_blank" rel="noopener">教程</a> 即可调整默认的启动系统，如果链接失效搜索一下 grub 调整启动顺序~ ~。</li>
 </ol>
 
       
@@ -612,23 +639,23 @@
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <li class="post-copyright-title">
-  <strong>本文标题：</strong><a href="/article/858a9730.html"> Linux子系统图形界面</a>
+  <strong>本文标题：</strong><a href="/article/6d520ba7.html"> 多系统GRUB引导丢失修复</a>
   </li>
   <li class="post-copyright-author">
     <strong>本文作者：</strong>
 	<a href="/" title="访问 BeGild 的个人博客">BeGild</a>
   </li>
     <li class="post-copyright-date">
-  <strong>发布时间：2018年04月19日 - 20:04</strong>
+  <strong>发布时间：2018年05月10日 - 12:05</strong>
   </li>
     <li class="post-copyright-updated">
-  <strong>最后更新：2018年04月26日 - 13:04</strong>
+  <strong>最后更新：2018年05月10日 - 21:05</strong>
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://begild.top/article/858a9730.html" title="Linux子系统图形界面 ">http://begild.top/article/858a9730.html</a>
+    <a href="http://begild.top/article/6d520ba7.html" title="多系统GRUB引导丢失修复 ">http://begild.top/article/6d520ba7.html</a>
   <span class="copy-path"  title="点击复制文章链接">
-	<i class="fa fa-clipboard" data-clipboard-text="http://begild.top/article/858a9730.html"  aria-label="复制成功！"></i>
+	<i class="fa fa-clipboard" data-clipboard-text="http://begild.top/article/6d520ba7.html"  aria-label="复制成功！"></i>
   </span>
 
  </li>
@@ -658,7 +685,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Linux子系统图形界面/" <i class="fa fa-tint"></i>Linux子系统图形界面</a>
+            <a href="/tags/grub/" <i class="fa fa-tint"></i>grub</a>
           
         </div>
       
@@ -690,8 +717,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/article/ef68d1d8.html" rel="next" title="Cmder 更好的选择">
-                <i class="fa fa-chevron-left"></i> Cmder 更好的选择
+              <a href="/article/710edebb.html" rel="next" title="科学上Google">
+                <i class="fa fa-chevron-left"></i> 科学上Google
               </a>
             
           </div>
@@ -699,10 +726,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/article/710edebb.html" rel="prev" title="科学上Google">
-                科学上Google <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -889,7 +912,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Windows-X-Server"><span class="nav-number">1.</span> <span class="nav-text">Windows X Server</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ubuntu的桌面软件安装"><span class="nav-number">2.</span> <span class="nav-text">Ubuntu的桌面软件安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ubuntu的桌面的配置"><span class="nav-number">3.</span> <span class="nav-text">Ubuntu的桌面的配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内存占用"><span class="nav-number">4.</span> <span class="nav-text">内存占用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#已知的一些问题"><span class="nav-number">5.</span> <span class="nav-text">已知的一些问题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言-垃圾话"><span class="nav-number">1.</span> <span class="nav-text">前言(垃圾话)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题的具体描述"><span class="nav-number">2.</span> <span class="nav-text">问题的具体描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题的原因"><span class="nav-number">3.</span> <span class="nav-text">问题的原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#验证是哪种情况"><span class="nav-number">4.</span> <span class="nav-text">验证是哪种情况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置-grub-路径"><span class="nav-number">5.</span> <span class="nav-text">设置 grub 路径</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第一种情况解决办法"><span class="nav-number">6.</span> <span class="nav-text">第一种情况解决办法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二种情况解决办法"><span class="nav-number">7.</span> <span class="nav-text">第二种情况解决办法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后话"><span class="nav-number">8.</span> <span class="nav-text">后话</span></a></li></ol></div>
             
 
           </div>
