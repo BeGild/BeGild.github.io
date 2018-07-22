@@ -1,4 +1,4 @@
-<script src="/assets/js/APlayer.min.js"> </script>!function(){/*
+<script src="\assets\js\APlayer.min.js"> </script>!function(){/*
 
  Copyright (C) 2013 Google Inc.
 

@@ -3,6 +3,72 @@
 
 
     
+    
+  <url>
+    <loc>http://begild.top/article/cc12b1fd.html</loc>
+    <lastmod>2018-07-22T13:57:49.673Z</lastmod>
+    <data>
+        <display>
+        <title>一种分层、高扩展性通信协议的总结</title>
+        <pubTime>2018-07-22T01:59:34.000Z</pubTime>
+        
+        <tag>串口(UART)</tag>
+         
+        <tag>分层、高扩展通信协议</tag>
+         
+         
+           
+             
+              <breadCrumb title="通信协议" url="http://begild.top/categories/%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE/"/>
+          
+             
+              <breadCrumb title="STM32" url="http://begild.top/categories/%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE/STM32/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://begild.top/article/a854db16.html</loc>
+    <lastmod>2018-07-22T01:46:05.541Z</lastmod>
+    <data>
+        <display>
+        <title>STM32自定义串口printf</title>
+        <pubTime>2018-03-01T12:29:34.000Z</pubTime>
+        
+        <tag>串口(UART)</tag>
+         
+         
+           
+             
+              <breadCrumb title="STM32" url="http://begild.top/categories/STM32/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://begild.top/article/858a9730.html</loc>
+    <lastmod>2018-07-21T16:29:33.641Z</lastmod>
+    <data>
+        <display>
+        <title>Linux子系统图形界面</title>
+        <pubTime>2018-04-19T12:00:01.000Z</pubTime>
+        
+        <tag>Linux子系统图形界面</tag>
+         
+         
+           
+             
+              <breadCrumb title="linux" url="http://begild.top/categories/linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
   <url>
     <loc>http://begild.top/article/6d520ba7.html</loc>
     <lastmod>2018-05-10T13:52:45.102Z</lastmod>
@@ -22,7 +88,6 @@
     </data>
     </url>
 
-    
     
   <url>
     <loc>http://begild.top/article/710edebb.html</loc>
@@ -140,52 +205,12 @@
 
     
   <url>
-    <loc>http://begild.top/article/858a9730.html</loc>
-    <lastmod>2018-04-26T05:14:42.004Z</lastmod>
-    <data>
-        <display>
-        <title>Linux子系统图形界面</title>
-        <pubTime>2018-04-19T12:00:01.000Z</pubTime>
-        
-        <tag>Linux子系统图形界面</tag>
-         
-         
-           
-             
-              <breadCrumb title="linux" url="http://begild.top/categories/linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://begild.top/article/977ab4d9.html</loc>
     <lastmod>2018-04-26T05:14:42.002Z</lastmod>
     <data>
         <display>
         <title>SMT32串口接收、空闲中断</title>
         <pubTime>2018-03-01T07:20:12.000Z</pubTime>
-        
-        <tag>串口(UART)</tag>
-         
-         
-           
-             
-              <breadCrumb title="STM32" url="http://begild.top/categories/STM32/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://begild.top/article/a854db16.html</loc>
-    <lastmod>2018-04-26T05:14:42.001Z</lastmod>
-    <data>
-        <display>
-        <title>STM32自定义串口printf</title>
-        <pubTime>2018-03-01T12:29:34.000Z</pubTime>
         
         <tag>串口(UART)</tag>
          

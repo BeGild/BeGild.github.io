@@ -301,21 +301,21 @@
         
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
-            <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签<span class="badge">11</span>
+            <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签<span class="badge">12</span>
               </a>
         </li>
       
         
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
-            <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类<span class="badge">5</span>
+            <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类<span class="badge">7</span>
               </a>
         </li>
       
         
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
-            <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档(文章列表)<span class="badge">16</span>
+            <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档(文章列表)<span class="badge">17</span>
               </a>
         </li>
       
@@ -525,7 +525,7 @@
       
 
       
-        <script src="/assets/js/APlayer.min.js"> </script><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本篇文章主要讲一下，乐鑫官方给的ESP8266 Demo怎么裁剪成我们要的样子以及编译。</p>
+        <script src="\assets\js\APlayer.min.js"> </script><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本篇文章主要讲一下，乐鑫官方给的ESP8266 Demo怎么裁剪成我们要的样子以及编译。</p>
 <h2 id="模板工程所需文件"><a href="#模板工程所需文件" class="headerlink" title="模板工程所需文件"></a>模板工程所需文件</h2><p>由于官方给的工程是包含了全部的Demo和库所以我们直接使用是不能编译的。我们就从一个最基础的工程模板开始裁剪，因为其他的功能都可以通过工程模板添加库和代码来实现。首先亮一下官方原版的RTOS SDK的工程结构(下左图)。<br><a id="more"></a><br><img src="https://s1.ax1x.com/2018/01/23/pIQc7j.png" alt="1.png">  </p>
 <p>我们需要把这个工程做成一个最基本的模板那么就需要把里面冲突的和暂时不需的都给删除。如下图是需要裁剪的内容： 红色的是需要删除的。紫色的删了节省空间。<br><img src="https://s1.ax1x.com/2018/01/23/pI1hOU.png" alt="2.png"><br>所以我们把刚刚标记这些都全部删除(别忘了备份一个原版的以后用)之后，这样就会少了很多东西。<br>那现在可以编译了吗？打扰了，并不行。因为makefile这个神奇的东西存在，所以我们需要做一些调整和更改使得makefile能正确的识别、编译、链接整个工程。至于makefile是什么东西大家上网搜查看！这里就不展开讲了，因为就那个就可以做一个专题23333。<br>你暂时只需要知道编译整个工程需要它掌控整个工程的各个文件的信息和关系的，所以我们需要告诉它各个文件的信息和之间的关系，所幸的是官方给的makefile已经很通用了，我们稍微做改变就可以了(感谢ing…)</p>
 <h2 id="模板工程文件的调整"><a href="#模板工程文件的调整" class="headerlink" title="模板工程文件的调整"></a>模板工程文件的调整</h2><p>下面的操作就是属于比较灵性的，不要问我为什么因为我个人觉得这样比较好。先按照我的来，等你学会了就可以去装逼了。先约定”/“就是工程的根目录，用绝对路径目录有点长。  </p>
@@ -785,7 +785,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-count">17</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -796,7 +796,7 @@
                 
                 <div class="site-state-item site-state-categories">
                   <a href="/categories/index.html">
-                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-count">7</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -807,7 +807,7 @@
                 
                 <div class="site-state-item site-state-tags">
                   <a href="/tags/index.html">
-                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -829,7 +829,7 @@
 			<div class="widget-wrap">
 				<div id="myCanvasContainer" class="widget tagcloud">
 				<canvas width="250" height="250" id="resCanvas" style="width=100%">
-				<ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flash读写/">Flash读写</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux子系统图形界面/">Linux子系统图形界面</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Win10下linux子系统/">Win10下linux子系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmder/">cmder</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/grub/">grub</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux目录/">linux目录</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/串口-UART/">串口(UART)</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/大小端存储/">大小端存储</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/嵌套注释/">嵌套注释</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/科学上网/">科学上网</a><span class="tag-list-count">1</span></li></ul>
+				<ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flash读写/">Flash读写</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux子系统图形界面/">Linux子系统图形界面</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Win10下linux子系统/">Win10下linux子系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmder/">cmder</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/grub/">grub</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux目录/">linux目录</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/串口-UART/">串口(UART)</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/分层、高扩展通信协议/">分层、高扩展通信协议</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/大小端存储/">大小端存储</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/嵌套注释/">嵌套注释</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/科学上网/">科学上网</a><span class="tag-list-count">1</span></li></ul>
 				</canvas>
 				</div>
 			</div>
@@ -908,7 +908,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018/05-10</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018/07-22</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

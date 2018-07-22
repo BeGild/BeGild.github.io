@@ -1,0 +1,1626 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#444">
+
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-big-counter.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+  
+  
+  <link rel="stylesheet" media="all" href="/lib/Han/dist/han.min.css?v=3.3">
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="googlef63bfb9d1505388f" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Open Sans:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|Open Sans:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.0.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=6.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=6.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=6.0.1">
+
+
+  <link rel="mask-icon" href="/images/favicon.ico?v=6.0.1" color="#444">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.0.1',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":true,"transition":{"post_block":"slideUpIn","post_header":"perspectiveUpIn","post_body":"whirlIn","coll_header":"slideUpBigIn","sidebar":"shrinkIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"在文章中查找","hits_empty":"没有找到和 ${query} 相关的内容","hits_stats":"查找 ${hits} 耗时 ${time} ms"}
+    }
+  };
+</script>
+
+
+
+
+  
+  <meta name="keywords" content="串口(UART),分层、高扩展通信协议," />
+
+
+<meta name="description" content="渊源大概因为自己专业是通信工程，所以一直以来对通信都还是很有兴趣的，通信协议的作用就是让通信的双方明确知道通信实体的意义。通信协议的范畴太大了，从最底层的硬件之间接口的协议到最上层的应用层的协议无一不是为了传输数据所做的工作。">
+<meta name="keywords" content="串口(UART),分层、高扩展通信协议">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一种分层、高扩展性通信协议的总结">
+<meta property="og:url" content="http://begild.top/article/cc12b1fd.html">
+<meta property="og:site_name" content="BeGild Working">
+<meta property="og:description" content="渊源大概因为自己专业是通信工程，所以一直以来对通信都还是很有兴趣的，通信协议的作用就是让通信的双方明确知道通信实体的意义。通信协议的范畴太大了，从最底层的硬件之间接口的协议到最上层的应用层的协议无一不是为了传输数据所做的工作。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://p55um7yiy.bkt.clouddn.com/%E4%B8%80%E7%A7%8D%E5%88%86%E5%B1%82%E9%AB%98%E6%89%A9%E5%B1%95%E6%80%A7%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE%E7%9A%84%E6%80%BB%E7%BB%93/JSON%E5%8D%8F%E8%AE%AE%E5%AE%9E%E4%BE%8B.png">
+<meta property="og:updated_time" content="2018-07-22T13:57:49.673Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="一种分层、高扩展性通信协议的总结">
+<meta name="twitter:description" content="渊源大概因为自己专业是通信工程，所以一直以来对通信都还是很有兴趣的，通信协议的作用就是让通信的双方明确知道通信实体的意义。通信协议的范畴太大了，从最底层的硬件之间接口的协议到最上层的应用层的协议无一不是为了传输数据所做的工作。">
+<meta name="twitter:image" content="http://p55um7yiy.bkt.clouddn.com/%E4%B8%80%E7%A7%8D%E5%88%86%E5%B1%82%E9%AB%98%E6%89%A9%E5%B1%95%E6%80%A7%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE%E7%9A%84%E6%80%BB%E7%BB%93/JSON%E5%8D%8F%E8%AE%AE%E5%AE%9E%E4%BE%8B.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="BeGild Working" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="http://begild.top/article/cc12b1fd.html"/>
+
+
+  <title>一种分层、高扩展性通信协议的总结 | BeGild Working</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-112800409-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-112800409-1');
+</script>
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?24e721008c813f3524e2f1ca503a6184";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+  
+  
+    
+  
+    <script type="text/javascript" src="/js/src/select_all.js"></script>
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">BeGild Working</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">BeGild's Blog</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签<span class="badge">12</span>
+              </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类<span class="badge">7</span>
+              </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档(文章列表)<span class="badge">17</span>
+              </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/baidusitemap.xml" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />站点地图</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />公益404</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-collection">
+          <a href="/collection/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-birthday-cake"></i> <br />收藏</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-pictures">
+          <a href="/pictures/index.html" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-image"></i> <br />图册</a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜本站..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+
+</nav>
+
+
+
+ </div>
+    </header>
+
+    
+  
+  
+  
+    <a href="https://github.com/begild" class="github-corner" target="_blank" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#444; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+    <div class="reading-progress-bar"></div>
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://begild.top/article/cc12b1fd.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="BeGild">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://s1.ax1x.com/2017/09/28/lLSYt.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BeGild Working">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">一种分层、高扩展性通信协议的总结</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+
+            
+            
+              
+                
+              
+            
+
+            
+              
+
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-07-22T21:57:49+08:00">2018-07-22</time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/通信协议/" itemprop="url" rel="index"><span itemprop="name">通信协议</span></a></span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/通信协议/STM32/" itemprop="url" rel="index"><span itemprop="name">STM32</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/article/cc12b1fd.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/article/cc12b1fd.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa  fa-eye"></i>&#58;
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>人被震惊
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <script src="\assets\js\APlayer.min.js"> </script><h2 id="渊源"><a href="#渊源" class="headerlink" title="渊源"></a>渊源</h2><p>大概因为自己专业是通信工程，所以一直以来对通信都还是很有兴趣的，通信协议的作用就是让通信的双方明确知道通信实体的意义。通信协议的范畴太大了，从最底层的硬件之间接口的协议到最上层的应用层的协议无一不是为了传输数据所做的工作。<br><a id="more"></a></p>
+<h2 id="硬件的接口协议"><a href="#硬件的接口协议" class="headerlink" title="硬件的接口协议"></a>硬件的接口协议</h2><ul>
+<li>硬件的接口协议主要是为了正确的传输数据的逻辑0和1，在不同的物理实体接口中通过不同的电平标准，不同的时序，不同的物理线数来完成整个工作。平时接触到最多的IIC、SPI、UART、USB他们都有着自己一套物理层的通信接口不过线数和时序比较简单，除此之外，SATA接口，RJ45网口，HDMI接口等也有自己的一套物理层的接口协议他们的接口线数和时序通常都比较复杂。如果你不按照物理层的接口协议来传输数据那么对方连获取正确数据的能力都不具备。   </li>
+<li>当两种不同的接口间相互兼容时就需要转换器，这个转换器其实就是具备两种硬件接口协议的设备，将一种接口的数据正确接收回来转化为另外一种接口可以识别的物理电平数据然后通过时序和接口线发送出去。当然有些时候是需要进行取舍或填补的，像VGA和HDMI，他们都属于传输视频的接口，但是VGA并不具备传输音频的能力所以HDMI转VGA必然会丢失音频的数据，同时因为VGA传输的是模拟的数据当转为HDMI时必然会丢失细节数据。  </li>
+<li>硬件的接口协议类比于声带和耳朵，声带发声，耳朵收听声音。声音可通过空气传播，空气就是物理线，声带和耳朵就是一套收发的物理设备，他们之间的通信通过声带震动空气发射，耳朵通过耳膜接收震动进行获取。</li>
+</ul>
+<h2 id="上层的通信协议"><a href="#上层的通信协议" class="headerlink" title="上层的通信协议"></a>上层的通信协议</h2><ul>
+<li>完成了硬件的接口协议就能正确的传输你想要发送的数据了对方也能正确的接收到你的数据，相当于你拥有一个完好的耳朵，能接收到各种符合人耳能听到的声音了(超声波次声波听不到)。  </li>
+<li>此时你还是语言不通！因为在你眼里都是声音但是你无法知道对面所说的是什么意思，这时候你就需要一个学习的过程，学习对方的语言。这个语言其实就是规定了各种发音的组合构成的意义也就是”通信协议”,我们只有知道每个发音以及构成的意义才能正确了解对方所说的含义。</li>
+</ul>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>促使本文产生的源头就是入职这段时间里负责的一个测试工具的开发中所用到的通信协议，因为之前自己也做过一些通信协议不过感觉看了项目组里大佬给的这个协议以及思想感觉很受用，所以在这里记录一下。这里说的是以(串口)UART为通信硬件载体进行说明。</p>
+<h2 id="自己做过的一些协议"><a href="#自己做过的一些协议" class="headerlink" title="自己做过的一些协议"></a>自己做过的一些协议</h2><ul>
+<li>之前自己在本科期间做过的一些项目也需要根据传输的东西制定一些通信协议，不过都比较简单考虑的点也没有那么多，有基于16进制传输的也有基于字符串传输的。16进制传输的基本就是为了机器更好识别，解析效率也会高很多。字符串为载体的传输就是为了更好的观察，更加容易分析。16进制的传输比如SDH，网络音视频流等；字符串传输比如JSON，HTTP包。</li>
+<li>一个简单16进制传输的控制协议，由16进制传输，通过解析头尾提取出帧，但是没有差错校验。这可以当成一个数组然后分析每一部分就可以进行解析了，因为实现的功能比较简单所以也用不着很复杂。这种方式在不易调试但是数据量小并且解析较快。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">帧头</th>
+<th style="text-align:center">受控设备类型</th>
+<th style="text-align:center">受控设备编号</th>
+<th style="text-align:center">网关设备识别号</th>
+<th style="text-align:center">命令/数据</th>
+<th style="text-align:center">帧尾</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0XAA</td>
+<td style="text-align:center">设备属性</td>
+<td style="text-align:center">网关分配</td>
+<td style="text-align:center">网关</td>
+<td style="text-align:center">控制和交互</td>
+<td style="text-align:center">0X55</td>
+</tr>
+<tr>
+<td style="text-align:center">8bit</td>
+<td style="text-align:center">8bit</td>
+<td style="text-align:center">8bit</td>
+<td style="text-align:center">16bit</td>
+<td style="text-align:center">8bit</td>
+<td style="text-align:center">8bit</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>一个简单的字符串传输的控制协议示例,用于控制指示灯的状态，诸如充电，语音交互等模式。采用JSON为载体，方便调试和查看，但是解析效率较16进制传输低。<br><img src="http://p55um7yiy.bkt.clouddn.com/%E4%B8%80%E7%A7%8D%E5%88%86%E5%B1%82%E9%AB%98%E6%89%A9%E5%B1%95%E6%80%A7%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE%E7%9A%84%E6%80%BB%E7%BB%93/JSON%E5%8D%8F%E8%AE%AE%E5%AE%9E%E4%BE%8B.png" alt="JSON载体通信协议实例"><ul>
+<li>其实自己做的时候也有考虑过兼容和扩展的问题，不过其实都没有很好的解决办法，因为最好的就是变长的数据传输可以任意扩展数据的大小和数据形式，但是依然没有能解决后续扩展协议和前期协议之间的潜在冲突。但是接下来的这个协议组织方式很好的解决了这个麻烦。读完下面这个协议你就会觉得之前我做的，多捞哦。</li>
+</ul>
+</li>
+</ul>
+<h2 id="分层、高扩展协议"><a href="#分层、高扩展协议" class="headerlink" title="分层、高扩展协议"></a>分层、高扩展协议</h2><ul>
+<li><p><font color="#FF0FFF" size="4">分层</font>：分层的思想类比于计算机网络分层，不同的层次负责不同的功能。不过这里没有那么复杂只是思想上一致，那就是将以协议帧分为不同的层次，便于数据的控制和分析。所有的数据都按照1字节对齐。</p>
+<ol>
+<li><p>顶级：控制传输层，基本包括，帧识别头、帧校验(CRC)、命令码、操作码、数据段长度、数据段载体。根据需要可以增加目的地址，源地址，返回码，消息码等用作透传和反馈的字段。其展现结构示例为：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">  type Head;     <span class="comment">//帧识别头，用于标识帧的开始</span></span><br><span class="line">  type CRC;      <span class="comment">//CRC校验，用于验证帧的完整性</span></span><br><span class="line">  type Cmd;      <span class="comment">//命令码，用于标识帧的类型或者帧的作用</span></span><br><span class="line"><span class="comment">//  type MsgID;    //消息码，用于标识本通信协议帧的识别码。</span></span><br><span class="line">  type Operat;   <span class="comment">//操作码，用于标识帧的一些使用操作，比如是否是需要接收方进行响应。</span></span><br><span class="line"><span class="comment">//  type SrcAddr;  //源地址，用于存储发送方的识别号，因为可能存在多个设备进行数据交互。</span></span><br><span class="line"><span class="comment">//  type DstAddr;  //目的地址，用于存储接收方的识别号，因为可能需要中间设备进行透传。</span></span><br><span class="line"><span class="comment">//  type Ret;      //返回码，用于反馈接收方的处理结果是否成功或者错误码。</span></span><br><span class="line">  type Reserve;   <span class="comment">//预留</span></span><br><span class="line">  type Datalen;  <span class="comment">//数据段的长度，用于进行数据段的准确读取。</span></span><br><span class="line">  type Data[<span class="number">1</span>];  <span class="comment">//数据段的载体，这里只标识数据段的第一个字节使其内存连续，可连续读取数据。</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>二级：用于统计三级数据子包的个数，因为每个帧可能包含若干个数据包，所以需要一个统计本次数据包的总数，便于数据包的分包。这里是不需要增加数据长度字段的因为每个数据包的长度是不一定的，其展现结构示例为：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">  type CellCnt;  <span class="comment">//数据细胞单元数量，用于统计三级数据细胞单元的个数</span></span><br><span class="line">  type Data[<span class="number">1</span>];  <span class="comment">//数据段的载体，这里只标识数据段的第一个字节使其内存连续，可连续读取数据。</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>三级：在该层级用于存储每个数据细胞单元的实体，包括一个数据包意义字段，一个数据长度字段，一个数据载体字段构成。这里是必须要使用数据长度字段的，因为每个数据包的长度是不定长的但是在内存里是连续的，如果没有该字段将无法进行下一个数据包的准确读取。其展现结构示例为：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">  type CellCmd;  <span class="comment">//数据细胞单元的意义或命令，用于识别该数据包的具体意义，做相应具体的操作和处理。</span></span><br><span class="line">  type Datalen;  <span class="comment">//数据段的长度，用于进行数据段的准确读取。</span></span><br><span class="line">  type Data[<span class="number">1</span>];  <span class="comment">//数据段的载体，这里只标识数据段的第一个字节使其内存连续，可连续读取数据。</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p><font color="#FF0FFF" size="4">高扩展性</font>：因为分层之后每一个级别都有不同的作用，顶层和二层是不会变的,但是三层的数据结构是可以自由扩展并且不影响之前的已有的功能，可以根据需要增加四级五级等等，但是对于上层来说都是三级数据包都去按照 <code>CellCmd</code> 去识别是否是自己已有的，能处理的包，不能处理就丢弃，不会影响现有的功能。</p>
+</li>
+</ul>
+<h2 id="抛砖引玉"><a href="#抛砖引玉" class="headerlink" title="抛砖引玉"></a>抛砖引玉</h2><p>一开始读取这个协议的是否觉得晦涩难懂，明明就那么点功能还要大费周折，又是封装又是又是分层，解析的难度大大加大，直接用数组下标宏去解析不就OK了。<br>后来搞通了，不得不说真的太有用了，无论你是多复杂的数据结构，按照这个来组包兼容性极强，并且代码阅读更加清晰。其传输采用16进制传输，找到帧头，强制类型转化为结构体指针，然后一层一层的剖析下去，扩展的数据包解析，就依次按照剥洋葱的方式层层递减。<br>当然上面的这个只是一种思想，至于所有的数据的分层结构，体系都可以千变万化，比如二级的数据包个数就可以归在顶级里面从而取消二级结构。<br>感谢安维大佬以及盛培大哥的代码、文档。</p>
+
+      
+    </div>
+    
+    
+    
+  <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:18;">-------------------本文结束<i class="fa fa-angellist"></i>感谢您的阅读-------------------</div>
+    
+</div>
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>来一发</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="https://s1.ax1x.com/2018/01/20/p2UFQU.png" alt="BeGild 微信钱包"/>
+        <p>微信钱包</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="https://s1.ax1x.com/2018/01/20/p2UGeH.png" alt="BeGild 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <div class="post-copyright">
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <li class="post-copyright-title">
+  <strong>本文标题：</strong><a href="/article/cc12b1fd.html"> 一种分层、高扩展性通信协议的总结</a>
+  </li>
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+	<a href="/" title="访问 BeGild 的个人博客">BeGild</a>
+  </li>
+    <li class="post-copyright-date">
+  <strong>发布时间：2018年07月22日 - 09:07</strong>
+  </li>
+    <li class="post-copyright-updated">
+  <strong>最后更新：2018年07月22日 - 21:07</strong>
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://begild.top/article/cc12b1fd.html" title="一种分层、高扩展性通信协议的总结 ">http://begild.top/article/cc12b1fd.html</a>
+  <span class="copy-path"  title="点击复制文章链接">
+	<i class="fa fa-clipboard" data-clipboard-text="http://begild.top/article/cc12b1fd.html"  aria-label="复制成功！"></i>
+  </span>
+
+ </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</div>
+
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+	});
+    });  
+</script>
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/串口-UART/" <i class="fa fa-tint"></i>串口(UART)</a>
+          
+            <a href="/tags/分层、高扩展通信协议/" <i class="fa fa-tint"></i>分层、高扩展通信协议</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/article/6d520ba7.html" rel="next" title="多系统GRUB引导丢失修复">
+                <i class="fa fa-chevron-left"></i> 多系统GRUB引导丢失修复
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+
+  
+  
+  
+
+  </article>
+
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点导航
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://s1.ax1x.com/2017/09/28/lLSYt.jpg"
+                alt="BeGild" />
+            
+              <p class="site-author-name" itemprop="name">BeGild</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+		  
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+		  
+			<script type="text/javascript" charset="utf-8" src="/js/tagcloud.js"></script>
+			<script type="text/javascript" charset="utf-8" src="/js/tagcanvas.js"></script>
+			<div class="widget-wrap">
+				<div id="myCanvasContainer" class="widget tagcloud">
+				<canvas width="250" height="250" id="resCanvas" style="width=100%">
+				<ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flash读写/">Flash读写</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux子系统图形界面/">Linux子系统图形界面</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Win10下linux子系统/">Win10下linux子系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmder/">cmder</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/grub/">grub</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux目录/">linux目录</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/串口-UART/">串口(UART)</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/分层、高扩展通信协议/">分层、高扩展通信协议</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/大小端存储/">大小端存储</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/嵌套注释/">嵌套注释</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/科学上网/">科学上网</a><span class="tag-list-count">1</span></li></ul>
+				</canvas>
+				</div>
+			</div>
+		  
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/BeGild" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:yucang_bao@126.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://plus.google.com/106132322351609302263" target="_blank" title="Google+">
+                      
+                        <i class="fa fa-fw fa-google"></i>Google+</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="tencent://message/?uin=1028366823&Site=Senlon.Net&Menu=yes" target="_blank" title="QQ">
+                      
+                        <i class="fa fa-fw fa-qq"></i>QQ</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+            <div class="cc-license motion-element" itemprop="license">
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+                <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+              </a>
+            </div>
+          
+          
+          
+
+          
+
+        </div>
+      </section>
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#渊源"><span class="nav-number">1.</span> <span class="nav-text">渊源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#硬件的接口协议"><span class="nav-number">2.</span> <span class="nav-text">硬件的接口协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#上层的通信协议"><span class="nav-number">3.</span> <span class="nav-text">上层的通信协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">4.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自己做过的一些协议"><span class="nav-number">5.</span> <span class="nav-text">自己做过的一些协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分层、高扩展协议"><span class="nav-number">6.</span> <span class="nav-text">分层、高扩展协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#抛砖引玉"><span class="nav-number">7.</span> <span class="nav-text">抛砖引玉</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018/07-22</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">BeGild</span>
+ <!--运行时间-->
+  <span class="footer__copyright">
+<div><span id="span_dt_dt"> </span>
+<script language="javascript">
+function show_date_time(){
+	window.setTimeout("show_date_time()", 1000);
+	BirthDay=new Date("9/13/2017 19:35:00");//这个日期是可以修改的
+	today=new Date();
+	timeold=(today.getTime()-BirthDay.getTime());//其实仅仅改了这里
+	sectimeold=timeold/1000
+	secondsold=Math.floor(sectimeold);
+	msPerDay=24*60*60*1000
+	e_daysold=timeold/msPerDay
+	daysold=Math.floor(e_daysold);
+	e_hrsold=(e_daysold-daysold)*24;
+	hrsold=Math.floor(e_hrsold);
+	e_minsold=(e_hrsold-hrsold)*60;
+	minsold=Math.floor((e_hrsold-hrsold)*60);
+	seconds=Math.floor((e_minsold-minsold)*60);
+	span_dt_dt.innerHTML="🍪已经哈哈哈"+daysold+"天"+hrsold+"小时"+minsold+"分"+seconds+"秒 🍪 ";
+}
+show_date_time();
+</script></div>
+    </span>
+    <div class="y-goto-top">
+        <div class="y-arrow"></div>
+        <div class="y-stick"></div>
+    </div>
+</script>
+  
+
+  
+  <span>Hosted by <a href="https://pages.coding.me" target="_blank" rel="nofollow" style="font-weight: bold">Coding Pages</a>
+	<i class="fa fa-github-alt"></i>
+	<a href="https://github.com/" target="_blank" rel="nofollow" style="font-weight: bold">Github Pages</a>
+  </span>
+</div>
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" rel="nofollow" href="https://github.com/theme-next/hexo-theme-next">NexT.Gemini</a> v6.0.1
+|图床- <a href="https://imgchr.com/" target="_blank" rel="nofollow" >路过</a>
+</div>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user">给第</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      位大佬递茶
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye">小屋被</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次破门而入
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+     
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+  </div>
+	
+		<div class="bg_content">
+			<canvas id="canvas">Canvas is not supported in your browser</canvas>
+			<script type="text/javascript"  src="/js/src/mycanvas/canvas_rich.js"></script>
+		</div>
+	
+	
+	
+	<!-- 页面点击跳字 -->
+	<script type="text/javascript" src="/js/src/rich_strong.js"></script>
+	 
+	
+	<!-- 自动百度站长推送 --> 
+	<script type="text/javascript" src="/js/src/push_baoduzhanzhang.js"></script>
+	<!-- 代码请复制--->
+	<script type="text/javascript" src="/js/src/select_all.js"></script>
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/reading_progress/reading_progress.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.0.1"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: true,
+        appId: 'CQScdBjdUYDFdL6PlO09kxtO-gzGzoHsz',
+        appKey: 'qAlRMRbNClE6clIa5CyvHjRd',
+        placeholder: '来说点啥吧!',
+        avatar:'wavatar',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('-1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "box";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "topCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+  <script type="text/javascript">
+  wpac_init = window.wpac_init || [];
+  wpac_init.push({widget: 'Rating', id: 9114,
+    el: 'wpac-rating',
+    color: 'fc6423'
+  });
+  (function() {
+    if ('WIDGETPACK_LOADED' in window) return;
+    WIDGETPACK_LOADED = true;
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = '//embed.widgetpack.com/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+  })();
+  </script>
+
+
+  
+  
+
+
+  
+  
+  
+  <script src="/lib/pangu/dist/pangu.min.js?v=3.3"></script>
+  <script type="text/javascript">pangu.spacingPage();</script>
+
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=6.0.1"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=6.0.1"></script>
+
+
+  
+
+</body>
+</html>

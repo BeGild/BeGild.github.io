@@ -1,4 +1,4 @@
-<script src="/assets/js/APlayer.min.js"> </script>/*
+<script src="\assets\js\APlayer.min.js"> </script>/*
 
  Copyright (C) 2015 Chris Morgan
 

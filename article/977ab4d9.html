@@ -298,21 +298,21 @@
         
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
-            <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签<span class="badge">11</span>
+            <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签<span class="badge">12</span>
               </a>
         </li>
       
         
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
-            <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类<span class="badge">5</span>
+            <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类<span class="badge">7</span>
               </a>
         </li>
       
         
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
-            <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档(文章列表)<span class="badge">16</span>
+            <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档(文章列表)<span class="badge">17</span>
               </a>
         </li>
       
@@ -522,7 +522,7 @@
       
 
       
-        <script src="/assets/js/APlayer.min.js"> </script><h2 id="识别尾进行接收结束的验证"><a href="#识别尾进行接收结束的验证" class="headerlink" title="识别尾进行接收结束的验证"></a>识别尾进行接收结束的验证</h2><ol>
+        <script src="\assets\js\APlayer.min.js"> </script><h2 id="识别尾进行接收结束的验证"><a href="#识别尾进行接收结束的验证" class="headerlink" title="识别尾进行接收结束的验证"></a>识别尾进行接收结束的验证</h2><ol>
 <li>串口接收完毕标志可以利用识别特定字符(字符串)来检测，比如 “\r\n”、’*#’ 之类的。所以每次发数据都需要加上这些字符才能被识别为接收完毕，这样好处就是比较通用。无论是什么硬件平台都能用。代码也不复杂，在STM32平台上简单的例子如下代码段：当接收到 ‘*‘ 时候就会置位接收完成标志位，就可以进行处理了。<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXUSART1BUFSIZE 200</span></span><br><span class="line"><span class="keyword">uint8_t</span> Uart1_BUF[MAXUSART1BUFSIZE];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">USART1_IRQHandler</span><span class="params">(<span class="keyword">void</span>)</span> 	<span class="comment">//串口1中断服务程序               </span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">uint8_t</span> RecByte;</span><br><span class="line">  <span class="keyword">static</span>  <span class="keyword">uint32_t</span> pos = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">if</span>(USART_GetITStatus(USART1, USART_IT_RXNE) != RESET)  </span><br><span class="line">  &#123;</span><br><span class="line">    RecByte = USART1-&gt;DR;<span class="comment">//读取接收到的数据</span></span><br><span class="line">    <span class="keyword">if</span>(pos &lt; MAXUSART1BUFSIZE)<span class="comment">//防止内存溢出</span></span><br><span class="line">      Uart1_BUF[pos++] = RecByte;</span><br><span class="line">    <span class="keyword">if</span>(RecByte == <span class="string">'*'</span>)</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="comment">//<span class="doctag">TODO:</span> 接收完毕相关处理</span></span><br><span class="line">      pos = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
@@ -781,7 +781,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-count">17</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -792,7 +792,7 @@
                 
                 <div class="site-state-item site-state-categories">
                   <a href="/categories/index.html">
-                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-count">7</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -803,7 +803,7 @@
                 
                 <div class="site-state-item site-state-tags">
                   <a href="/tags/index.html">
-                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -825,7 +825,7 @@
 			<div class="widget-wrap">
 				<div id="myCanvasContainer" class="widget tagcloud">
 				<canvas width="250" height="250" id="resCanvas" style="width=100%">
-				<ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flash读写/">Flash读写</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux子系统图形界面/">Linux子系统图形界面</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Win10下linux子系统/">Win10下linux子系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmder/">cmder</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/grub/">grub</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux目录/">linux目录</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/串口-UART/">串口(UART)</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/大小端存储/">大小端存储</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/嵌套注释/">嵌套注释</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/科学上网/">科学上网</a><span class="tag-list-count">1</span></li></ul>
+				<ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flash读写/">Flash读写</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux子系统图形界面/">Linux子系统图形界面</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Win10下linux子系统/">Win10下linux子系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmder/">cmder</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/grub/">grub</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux目录/">linux目录</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/串口-UART/">串口(UART)</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/分层、高扩展通信协议/">分层、高扩展通信协议</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/大小端存储/">大小端存储</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/嵌套注释/">嵌套注释</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/科学上网/">科学上网</a><span class="tag-list-count">1</span></li></ul>
 				</canvas>
 				</div>
 			</div>
@@ -904,7 +904,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018/05-10</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018/07-22</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
