@@ -1,4 +1,4 @@
-<script src="\assets\js\APlayer.min.js"> </script>/*
+<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>/*
  Copyright (C) 2011 Google Inc.
 
  Licensed under the Apache License, Version 2.0 (the "License");

@@ -522,7 +522,7 @@
       
 
       
-        <script src="\assets\js\APlayer.min.js"> </script><p>这里记一下STM32F4板子FLASH的读写操作以及需要注意的地方。</p>
+        <p>这里记一下STM32F4板子FLASH的读写操作以及需要注意的地方。</p>
 <h2 id="FLASH的写操作"><a href="#FLASH的写操作" class="headerlink" title="FLASH的写操作"></a>FLASH的写操作</h2><ol>
 <li>FLASH由 ‘1’ 变为 ‘0’ 不能由 ‘0’ 变为 ‘1’ ，所以在写入之间需要检测是否为 ‘1’  ,并且擦除flash只能按照一个扇区来删除，由上可知，我们写入之前必须确保我们需要写入的地址读回来的值是0XFF，如果不是0XFF就需要将整个扇区擦除(扇区变为全 ‘1’ )。</li>
 <li>写入操作(包括擦除)之前需要将FLASH解锁 <code>FLASH_Unlock()</code>，操作完成之后需要将FLASH上锁 <code>FLASH_Lock()</code> 。<a id="more"></a>
@@ -914,7 +914,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018/07-22</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018/07-26</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

@@ -522,7 +522,7 @@
       
 
       
-        <script src="\assets\js\APlayer.min.js"> </script><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>硬件的调试通常可分为两大类，一种是用调试器将芯片和电脑连接通过单步等方式逐步运行进行调试，另一种就是printf大法在程序运行过程中输出调试信息。第一种比较深入，可以了解每一个变量，栈堆，函数等等的变化是比较系统化的调试。但我通常都是用printf来调试的，因为快速简单属于非介入的方式，调试完毕直接注释掉相关部分就行了。</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>硬件的调试通常可分为两大类，一种是用调试器将芯片和电脑连接通过单步等方式逐步运行进行调试，另一种就是printf大法在程序运行过程中输出调试信息。第一种比较深入，可以了解每一个变量，栈堆，函数等等的变化是比较系统化的调试。但我通常都是用printf来调试的，因为快速简单属于非介入的方式，调试完毕直接注释掉相关部分就行了。</p>
 <hr>
 <h2 id="重定向-printf-函数"><a href="#重定向-printf-函数" class="headerlink" title="重定向 printf 函数"></a>重定向 printf 函数</h2><p>对于STM32来说现在串口例程一般都配有一个printf重定向到串口1的代码，直接可以使用printf很方便的输出信息到串口上。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//重定义fputc函数</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fputc</span><span class="params">(<span class="keyword">int</span> ch, FILE *f)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">while</span>((USART1-&gt;SR&amp;<span class="number">0X40</span>)==<span class="number">0</span>);<span class="comment">//循环发送,直到发送完毕</span></span><br><span class="line">    USART1-&gt;DR = (u8) ch;</span><br><span class="line">  <span class="keyword">return</span> ch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <a id="more"></a>
@@ -891,7 +891,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018/07-22</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018/07-26</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
