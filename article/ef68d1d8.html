@@ -173,7 +173,7 @@
 <meta property="og:image" content="http://p55um7yiy.bkt.clouddn.com/%E6%B7%BB%E5%8A%A0%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8Fcmder.png">
 <meta property="og:image" content="http://p55um7yiy.bkt.clouddn.com/cmder%20here%E8%AE%BE%E7%BD%AE.png">
 <meta property="og:image" content="http://p55um7yiy.bkt.clouddn.com/cmder%E8%AE%BE%E7%BD%AE%E8%83%8C%E6%99%AF.png">
-<meta property="og:updated_time" content="2018-04-26T05:14:41.990Z">
+<meta property="og:updated_time" content="2018-08-27T15:26:44.477Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Cmder 更好的选择">
 <meta name="twitter:description" content="就如同封面一样，Cmder 看着就令人赏心悦目。微软自带 CMD 就不谈了好吧，不过Windows本身就不是擅长用控制台和用户打交道的系统，所以这样也无可厚非吧。不过现在有了更好的选择：Cmder。">
@@ -303,7 +303,7 @@
         
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
-            <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签<span class="badge">13</span>
+            <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签<span class="badge">16</span>
               </a>
         </li>
       
@@ -317,7 +317,7 @@
         
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
-            <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档(文章列表)<span class="badge">18</span>
+            <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档(文章列表)<span class="badge">20</span>
               </a>
         </li>
       
@@ -462,7 +462,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-04-26T13:14:41+08:00">2018-04-26</time>
+              <time title="更新于" itemprop="dateModified" datetime="2018-08-27T23:26:44+08:00">2018-08-27</time>
             
           </span>
 
@@ -571,19 +571,19 @@
 <h2 id="解决中文乱码"><a href="#解决中文乱码" class="headerlink" title="解决中文乱码"></a>解决中文乱码</h2><p>使用默认的 cmder 中文会被识别为 <code>\数字</code> 的组合 根本没法看。</p>
 <ol>
 <li>任意 Cmder 窗口—&gt;标题栏—&gt;右键—&gt;Settings…—&gt;Environment ;</li>
-<li>在右侧编辑框里另起一行写入<code>set LC_ALL=zh_CN.UTF-8</code> </li>
+<li>在右侧编辑框里另起一行写入<code>set LC_ALL=zh_CN.UTF-8</code></li>
 <li>完成设置，重启 cmder 生效。、<br>远程ssh连接服务器中文依然会乱码…。</li>
 </ol>
 <h2 id="配色主题"><a href="#配色主题" class="headerlink" title="配色主题"></a>配色主题</h2><ol>
 <li>任意 Cmder 窗口—&gt;标题栏—&gt;右键—&gt;Settings…—&gt;Features—&gt;Colors ;</li>
 <li>上方 Schemes 列表里选择你喜欢的配色方案~。</li>
 </ol>
-<h2 id="alias功能"><a href="#alias功能" class="headerlink" title="alias功能"></a>alias功能</h2><p>Cmder提供的 alias 功能可以让我们用较为简短易记的单词指令替代很长的语法指令。在终端输入指令 <code>alias</code> 即可查看别名对应的真正语法指令，可以通过<code>软件根目录\config\user-aliases.cmd</code> 写人自己需要用到的却又难记的语法指令和别名的对应式子。<br>比如我想要去我bolg所在的目录。每次都 cd 慢慢过去很烦，我就可以用 <code>blog =cd /d &quot;E:\GitHome\blog&quot;</code> 添加到 user-aliases.cmd 文件里，之后再终端直接输入blog就切换到blog的目录里。<br>登录服务器可以用这个配合putty实现<code>Tencent=&quot;D:\Program Files\PuTTY\plink.exe&quot; 255.255.255.255 -l root -pw &quot;12346578&quot;</code>。 </p>
+<h2 id="alias功能"><a href="#alias功能" class="headerlink" title="alias功能"></a>alias功能</h2><p>Cmder提供的 alias 功能可以让我们用较为简短易记的单词指令替代很长的语法指令。在终端输入指令 <code>alias</code> 即可查看别名对应的真正语法指令，可以通过<code>软件根目录\config\user-aliases.cmd</code> 写人自己需要用到的却又难记的语法指令和别名的对应式子。<br>比如我想要去我bolg所在的目录。每次都 cd 慢慢过去很烦，我就可以用 <code>blog =cd /d &quot;E:\GitHome\blog&quot;</code> 添加到 user-aliases.cmd 文件里，之后再终端直接输入blog就切换到blog的目录里。<br>登录服务器可以用这个配合putty实现<code>Tencent=&quot;D:\Program Files\PuTTY\plink.exe&quot; 255.255.255.255 -l root -pw &quot;12346578&quot;</code>。</p>
 <h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><ol>
 <li>cmder直接支持 ctrl+c 和 ctrl+v，在终端里双击选中即已经复制不需要用ctrl+c。</li>
-<li>支持 vim 编辑器，同样的编辑方式和语法。 </li>
+<li>支持 vim 编辑器，同样的编辑方式和语法。</li>
 <li>其他的一些设置诸如文字大小，默认启动也可以自行了解一下。</li>
-<li>Cmder 核心就是基于 ConEmu 做的，不过外面加了大量的Linux下的工具命令。很多Linux的命令在上面都可以运行。 </li>
+<li>Cmder 核心就是基于 ConEmu 做的，不过外面加了大量的Linux下的工具命令。很多Linux的命令在上面都可以运行。</li>
 </ol>
 <p>cmder github地址: <a href="https://github.com/cmderdev/cmder" target="_blank" rel="noopener">https://github.com/cmderdev/cmder</a></p>
 
@@ -650,7 +650,7 @@
   <strong>发布时间：2018年04月19日 - 14:04</strong>
   </li>
     <li class="post-copyright-updated">
-  <strong>最后更新：2018年04月26日 - 13:04</strong>
+  <strong>最后更新：2018年08月27日 - 23:08</strong>
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
@@ -813,7 +813,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-count">20</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -835,7 +835,7 @@
                 
                 <div class="site-state-item site-state-tags">
                   <a href="/tags/index.html">
-                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-count">16</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -857,7 +857,7 @@
 			<div class="widget-wrap">
 				<div id="myCanvasContainer" class="widget tagcloud">
 				<canvas width="250" height="250" id="resCanvas" style="width=100%">
-				<ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flash读写/">Flash读写</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux子系统图形界面/">Linux子系统图形界面</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Win10下linux子系统/">Win10下linux子系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmder/">cmder</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/grub/">grub</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux目录/">linux目录</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/串口-UART/">串口(UART)</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/分层、高扩展通信协议/">分层、高扩展通信协议</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/大小端存储/">大小端存储</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/嵌套注释/">嵌套注释</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/树莓派安装系统/">树莓派安装系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/科学上网/">科学上网</a><span class="tag-list-count">1</span></li></ul>
+				<ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flash读写/">Flash读写</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux子系统图形界面/">Linux子系统图形界面</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MQTT/">MQTT</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Win10下linux子系统/">Win10下linux子系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmder/">cmder</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/grub/">grub</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux目录/">linux目录</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/串口-UART/">串口(UART)</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/内网穿透/">内网穿透</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/分层、高扩展通信协议/">分层、高扩展通信协议</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/大小端存储/">大小端存储</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/嵌套注释/">嵌套注释</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/树莓派安装系统/">树莓派安装系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/科学上网/">科学上网</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/花生壳/">花生壳</a><span class="tag-list-count">1</span></li></ul>
 				</canvas>
 				</div>
 			</div>
@@ -936,7 +936,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018/08-19</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018/09-02</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
