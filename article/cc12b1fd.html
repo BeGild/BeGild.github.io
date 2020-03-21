@@ -170,7 +170,7 @@
 <meta property="og:description" content="渊源大概因为自己专业是通信工程，所以一直以来对通信都还是很有兴趣的，通信协议的作用就是让通信的双方明确知道通信实体的意义。通信协议的范畴太大了，从最底层的硬件之间接口的协议到最上层的应用层的协议无一不是为了传输数据所做的工作">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://begild-one.top/%E4%B8%80%E7%A7%8D%E5%88%86%E5%B1%82%E9%AB%98%E6%89%A9%E5%B1%95%E6%80%A7%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE%E7%9A%84%E6%80%BB%E7%BB%93/JSON%E5%8D%8F%E8%AE%AE%E5%AE%9E%E4%BE%8B.png">
-<meta property="og:updated_time" content="2018-12-04T15:34:02.863Z">
+<meta property="og:updated_time" content="2018-12-04T15:38:16.898Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一种分层、高扩展性通信协议的总结">
 <meta name="twitter:description" content="渊源大概因为自己专业是通信工程，所以一直以来对通信都还是很有兴趣的，通信协议的作用就是让通信的双方明确知道通信实体的意义。通信协议的范畴太大了，从最底层的硬件之间接口的协议到最上层的应用层的协议无一不是为了传输数据所做的工作">
@@ -266,7 +266,7 @@
       </a>
     </div>
       
-        <h1 class="site-subtitle" itemprop="description">BeGild's Blog</h1>
+        <h1 class="site-subtitle" itemprop="description">我去的地方没有雪</h1>
       
   </div>
 
@@ -300,7 +300,7 @@
         
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
-            <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签<span class="badge">16</span>
+            <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签<span class="badge">15</span>
               </a>
         </li>
       
@@ -314,7 +314,7 @@
         
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
-            <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档(文章列表)<span class="badge">20</span>
+            <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档(文章列表)<span class="badge">19</span>
               </a>
         </li>
       
@@ -459,7 +459,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-12-04T23:34:02+08:00">2018-12-04</time>
+              <time title="更新于" itemprop="dateModified" datetime="2018-12-04T23:38:16+08:00">2018-12-04</time>
             
           </span>
 
@@ -528,15 +528,54 @@
 <h2 id="硬件的接口协议"><a href="#硬件的接口协议" class="headerlink" title="硬件的接口协议"></a>硬件的接口协议</h2><ul>
 <li>硬件的接口协议主要是为了正确的传输数据的逻辑0和1，在不同的物理实体接口中通过不同的电平标准，不同的时序，不同的物理线数来完成整个工作。平时接触到最多的IIC、SPI、UART、USB他们都有着自己一套物理层的通信接口不过线数和时序比较简单，除此之外，SATA接口，RJ45网口，HDMI接口等也有自己的一套物理层的接口协议他们的接口线数和时序通常都比较复杂。如果你不按照物理层的接口协议来传输数据那么对方连获取正确数据的能力都不具备。  </li>
 <li>当两种不同的接口间相互兼容时就需要转换器，这个转换器其实就是具备两种硬件接口协议的设备，将一种接口的数据正确接收回来转化为另外一种接口可以识别的物理电平数据然后通过时序和接口线发送出去。当然有些时候是需要进行取舍或填补的，像VGA和HDMI，他们都属于传输视频的接口，但是VGA并不具备传输音频的能力所以HDMI转VGA必然会丢失音频的数据，同时因为VGA传输的是模拟的数据当转为HDMI时必然会丢失细节数据。</li>
-<li>硬件的接口协议类比于声带和耳朵，声带发声，耳朵收听声音。声音可通过空气传播，空气就是物理线，声带和耳朵就是一套收发的物理设备，他们之间的通信通过声带震动空气发射，耳朵通过耳膜接收震动进行获取。<h2 id="上层的通信协议"><a href="#上层的通信协议" class="headerlink" title="上层的通信协议"></a>上层的通信协议</h2></li>
+<li>硬件的接口协议类比于声带和耳朵，声带发声，耳朵收听声音。声音可通过空气传播，空气就是物理线，声带和耳朵就是一套收发的物理设备，他们之间的通信通过声带震动空气发射，耳朵通过耳膜接收震动进行获取。</li>
+</ul>
+<h2 id="上层的通信协议"><a href="#上层的通信协议" class="headerlink" title="上层的通信协议"></a>上层的通信协议</h2><ul>
 <li>完成了硬件的接口协议就能正确的传输你想要发送的数据了对方也能正确的接收到你的数据，相当于你拥有一个完好的耳朵，能接收到各种符合人耳能听到的声音了(超声波次声波听不到).</li>
-<li>此时你还是语言不通！因为在你眼里都是声音但是你无法知道对面所说的是什么意思，这时候你就需要一个学习的过程，学习对方的语言。这个语言其实就是规定了各种发音的组合构成的意义也就是”通信协议”,我们只有知道每个发音以及构成的意义才能正确了解对方所说的含义.<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2>促使本文产生的源头就是入职这段时间里负责的一个测试工具的开发中所用到的通信协议，因为之前自己也做过一些通信协议不过感觉看了项目组里大佬给的这个协议以及思想感觉很受用，所以在这里记录一下。这里说的是(串口)UART为通信硬件载体进行说明.<h2 id="自己做过的一些协议"><a href="#自己做过的一些协议" class="headerlink" title="自己做过的一些协议"></a>自己做过的一些协议</h2></li>
+<li>此时你还是语言不通！因为在你眼里都是声音但是你无法知道对面所说的是什么意思，这时候你就需要一个学习的过程，学习对方的语言。这个语言其实就是规定了各种发音的组合构成的意义也就是”通信协议”,我们只有知道每个发音以及构成的意义才能正确了解对方所说的含义.</li>
+</ul>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>促使本文产生的源头就是入职这段时间里负责的一个测试工具的开发中所用到的通信协议，因为之前自己也做过一些通信协议不过感觉看了项目组里大佬给的这个协议以及思想感觉很受用，所以在这里记录一下。这里说的是(串口)UART为通信硬件载体进行说明.</p>
+<h2 id="自己做过的一些协议"><a href="#自己做过的一些协议" class="headerlink" title="自己做过的一些协议"></a>自己做过的一些协议</h2><ul>
 <li>之前自己在本科期间做过的一些项目也需要根据传输的东西制定一些通信协议，不过都比较简单考虑的点也没有那么多，有基于16进制传输的也有基于字符串传输的16进制传输的基本就是为了机器更好识别，解析效率也会高很多。字符串为载体的传输就是为了更好的观察，更加容易分析16进制的传输比如SDH，网络音视频流等；字符串传输比如JSON，HTTP包。</li>
-<li>一个简16进制传输的控制协议，16进制传输，通过解析头尾提取出帧，但是没有差错校验。这可以当成一个数组然后分析每一部分就可以进行解析了，因为实现的功能比较简单所以也用不着很复杂。这种方式在不易调试但是数据量小并且解析较快。<br>|帧头|受控设备类型|    受控设备编号|    网关设备识别号|    命令/数据|    帧尾 |<br>| :—: | :—: | :—: | :—: | :—: | :—: | :—: |<br>|0XAA    |设备属性|网关分配|    网关|    控制和交互|0X55|<br>|8bit    |8bit|    8bit|    16bit|    8bit|    8bit|<ul>
-<li>一个简单的字符串传输的控制协议示例,用于控制指示灯的状态，诸如充电，语音交互等模式。采用JSON为载体，方便调试和查看，但是解析效率较16进制传输低。<br><img src="http://begild-one.top/%E4%B8%80%E7%A7%8D%E5%88%86%E5%B1%82%E9%AB%98%E6%89%A9%E5%B1%95%E6%80%A7%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE%E7%9A%84%E6%80%BB%E7%BB%93/JSON%E5%8D%8F%E8%AE%AE%E5%AE%9E%E4%BE%8B.png" alt="JSON载体通信协议实例"></li>
+<li>一个简16进制传输的控制协议，16进制传输，通过解析头尾提取出帧，但是没有差错校验。这可以当成一个数组然后分析每一部分就可以进行解析了，因为实现的功能比较简单所以也用不着很复杂。这种方式在不易调试但是数据量小并且解析较快。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">帧头</th>
+<th style="text-align:center">受控设备类型</th>
+<th style="text-align:center">受控设备编号</th>
+<th style="text-align:center">网关设备识别号</th>
+<th style="text-align:center">命令/数据</th>
+<th style="text-align:center">帧尾</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0XAA</td>
+<td style="text-align:center">设备属性</td>
+<td style="text-align:center">网关分配</td>
+<td style="text-align:center">网关</td>
+<td style="text-align:center">控制和交互</td>
+<td style="text-align:center">0X55</td>
+</tr>
+<tr>
+<td style="text-align:center">8bit</td>
+<td style="text-align:center">8bit</td>
+<td style="text-align:center">8bit</td>
+<td style="text-align:center">16bit</td>
+<td style="text-align:center">8bit</td>
+<td style="text-align:center">8bit</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>一个简单的字符串传输的控制协议示例,用于控制指示灯的状态，诸如充电，语音交互等模式。采用JSON为载体，方便调试和查看，但是解析效率较16进制传输低。<br><img src="http://begild-one.top/%E4%B8%80%E7%A7%8D%E5%88%86%E5%B1%82%E9%AB%98%E6%89%A9%E5%B1%95%E6%80%A7%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE%E7%9A%84%E6%80%BB%E7%BB%93/JSON%E5%8D%8F%E8%AE%AE%E5%AE%9E%E4%BE%8B.png" alt="JSON载体通信协议实例"><ul>
+<li>其实自己做的时候也有考虑过兼容和扩展的问题，不过其实都没有很好的解决办法，因为最好的就是变长的数据传输可以任意扩展数据的大小和数据形式，但是依然没有能解决后续扩展协议和前期协议之间的潜在冲突。但是接下来的这个协议组织方式很好的解决了这个麻烦。读完下面这个协议你就会觉得之前我做的，多捞哦。</li>
 </ul>
 </li>
-<li>其实自己做的时候也有考虑过兼容和扩展的问题，不过其实都没有很好的解决办法，因为最好的就是变长的数据传输可以任意扩展数据的大小和数据形式，但是依然没有能解决后续扩展协议和前期协议之间的潜在冲突。但是接下来的这个协议组织方式很好的解决了这个麻烦。读完下面这个协议你就会觉得之前我做的，多捞哦。<h2 id="分层、高扩展协议"><a href="#分层、高扩展协议" class="headerlink" title="分层、高扩展协议"></a>分层、高扩展协议</h2></li>
+</ul>
+<h2 id="分层、高扩展协议"><a href="#分层、高扩展协议" class="headerlink" title="分层、高扩展协议"></a>分层、高扩展协议</h2><ul>
 <li><font color="#FF0FFF" size="4">分层</font>：分层的思想类比于计算机网络分层，不同的层次负责不同的功能。不过这里没有那么复杂只是思想上一致，那就是将以协议帧分为不同的层次，便于数据的控制和分析。所有的数据都按1字节对齐 。</li>
 </ul>
 <ol>
@@ -553,8 +592,9 @@
 </li>
 </ol>
 <ul>
-<li><font color="#FF0FFF" size="4"> 高扩展性 </font>：因为分层之后每一个级别都有不同的作用，顶层和二层是不会变的,但是三层的数据结构是可以自由扩展并且不影响之前的已有的功能，可以根据需要增加四级五级等等，但是对于上层来说都是三级数据包都去按照 <code>CellCmd</code> 去识别是否是自己已有的，能处理的包，不能处理就丢弃，不会影响现有的功能。<h2 id="抛砖引玉"><a href="#抛砖引玉" class="headerlink" title="抛砖引玉"></a>抛砖引玉</h2>一开始读取这个协议的是否觉得晦涩难懂，明明就那么点功能还要大费周折，又是封装又是又是分层，解析的难度大大加大，直接用数组下标宏去解析不就OK了。<br>后来搞通了，不得不说真的太有用了，无论你是多复杂的数据结构，按照这个来组包兼容性极强，并且代码阅读更加清晰。其传输采用16进制传输，找到帧头，强制类型转化为结构体指针，然后一层一层的剖析下去，扩展的数据包解析，就依次按照剥洋葱的方式层层递减。<br>当然上面的这个只是一种思想，至于所有的数据的分层结构，体系都可以千变万化，比如二级的数据包个数就可以归在顶级里面从而取消二级结构。<br>感谢安维大佬以及盛培大哥的代码、文档</li>
+<li><font color="#FF0FFF" size="4"> 高扩展性 </font>：因为分层之后每一个级别都有不同的作用，顶层和二层是不会变的,但是三层的数据结构是可以自由扩展并且不影响之前的已有的功能，可以根据需要增加四级五级等等，但是对于上层来说都是三级数据包都去按照 <code>CellCmd</code> 去识别是否是自己已有的，能处理的包，不能处理就丢弃，不会影响现有的功能。</li>
 </ul>
+<h2 id="抛砖引玉"><a href="#抛砖引玉" class="headerlink" title="抛砖引玉"></a>抛砖引玉</h2><p>一开始读取这个协议的是否觉得晦涩难懂，明明就那么点功能还要大费周折，又是封装又是又是分层，解析的难度大大加大，直接用数组下标宏去解析不就OK了。<br>后来搞通了，不得不说真的太有用了，无论你是多复杂的数据结构，按照这个来组包兼容性极强，并且代码阅读更加清晰。其传输采用16进制传输，找到帧头，强制类型转化为结构体指针，然后一层一层的剖析下去，扩展的数据包解析，就依次按照剥洋葱的方式层层递减。<br>当然上面的这个只是一种思想，至于所有的数据的分层结构，体系都可以千变万化，比如二级的数据包个数就可以归在顶级里面从而取消二级结构。<br>感谢安维大佬以及盛培大哥的代码、文档</p>
 
       
     </div>
@@ -784,7 +824,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-count">19</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -806,7 +846,7 @@
                 
                 <div class="site-state-item site-state-tags">
                   <a href="/tags/index.html">
-                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-count">15</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -828,7 +868,7 @@
 			<div class="widget-wrap">
 				<div id="myCanvasContainer" class="widget tagcloud">
 				<canvas width="250" height="250" id="resCanvas" style="width=100%">
-				<ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flash读写/">Flash读写</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux子系统图形界面/">Linux子系统图形界面</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MQTT/">MQTT</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Win10下linux子系统/">Win10下linux子系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmder/">cmder</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/grub/">grub</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux目录/">linux目录</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/串口-UART/">串口(UART)</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/内网穿透/">内网穿透</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/分层、高扩展通信协议/">分层、高扩展通信协议</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/大小端存储/">大小端存储</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/嵌套注释/">嵌套注释</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/树莓派安装系统/">树莓派安装系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/科学上网/">科学上网</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/花生壳/">花生壳</a><span class="tag-list-count">1</span></li></ul>
+				<ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flash读写/">Flash读写</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux子系统图形界面/">Linux子系统图形界面</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MQTT/">MQTT</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Win10下linux子系统/">Win10下linux子系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmder/">cmder</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/grub/">grub</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux目录/">linux目录</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/串口-UART/">串口(UART)</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/内网穿透/">内网穿透</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/分层、高扩展通信协议/">分层、高扩展通信协议</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/大小端存储/">大小端存储</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/嵌套注释/">嵌套注释</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/树莓派安装系统/">树莓派安装系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/花生壳/">花生壳</a><span class="tag-list-count">1</span></li></ul>
 				</canvas>
 				</div>
 			</div>
@@ -907,7 +947,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018/12-04</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020/03-22</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -963,10 +1003,10 @@ show_date_time();
 </div>
 
 <div class="beian-info">
-<a href="http://www.miitbeian.gov.cn" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
+<a href="http://beian.miit.gov.cn" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
 <p style="float:left;height:20px;margin: 0px 0px 0px 5px; color:#939393;">粤ICP备18119049号-1</p></a>   
 <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=42011102002767" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
-<img src="http://p55um7yiy.bkt.clouddn.com/%E5%A4%87%E6%A1%88%E5%9B%BE%E6%A0%87/%E7%B2%A4%E5%85%AC%E5%AE%89.png" style="float:left;"/>
+<img src="/img/beian/beian.png" style="float:left;"/>
 <p style="float:left;height:20px;margin: 0px 0px 0px 5px; color:#939393;">鄂公网安备 42011102002767号</p></a>
 </div>
 		 
